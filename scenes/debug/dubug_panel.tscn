@@ -1,0 +1,120 @@
+[gd_scene load_steps=2 format=3 uid="uid://iqv2n2dgma0y"]
+
+[ext_resource type="Script" path="res://scenes/debug/dubug_panel.gd" id="1_xnqeq"]
+
+[node name="DubugPanel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_xnqeq")
+
+[node name="Stats" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_direction = 2
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 131.0
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="FPS" type="HBoxContainer" parent="Stats"]
+layout_mode = 2
+
+[node name="FPSHeader" type="Label" parent="Stats/FPS"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.278431)
+text = "FPS:"
+
+[node name="FPSLabel" type="Label" parent="Stats/FPS"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.278431)
+text = "120"
+
+[node name="OS" type="HBoxContainer" parent="Stats"]
+layout_mode = 2
+
+[node name="OSHeader" type="Label" parent="Stats/OS"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.278431)
+text = "OS:"
+
+[node name="OSLabel" type="Label" parent="Stats/OS"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.278431)
+text = "Windows"
+
+[node name="DebugBuild" type="HBoxContainer" parent="Stats"]
+layout_mode = 2
+
+[node name="BuildHeader" type="Label" parent="Stats/DebugBuild"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.278431)
+text = "Debug Build:"
+
+[node name="BuildLabel" type="Label" parent="Stats/DebugBuild"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.278431)
+text = "false"
+
+[node name="Processer" type="HBoxContainer" parent="Stats"]
+layout_mode = 2
+
+[node name="ProcessorHeader" type="Label" parent="Stats/Processer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.278431)
+text = "Processor:"
+
+[node name="ProcessorLabel" type="Label" parent="Stats/Processer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.278431)
+text = "Intel"
+
+[node name="GPU" type="HBoxContainer" parent="Stats"]
+layout_mode = 2
+
+[node name="GPUDriverHeader" type="Label" parent="Stats/GPU"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.278431)
+text = "GPU:"
+
+[node name="GPUDriverLabel" type="Label" parent="Stats/GPU"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.278431)
+text = "AMD"
+
+[node name="ScreenCount" type="HBoxContainer" parent="Stats"]
+layout_mode = 2
+
+[node name="ScreenCountHeader" type="Label" parent="Stats/ScreenCount"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.278431)
+text = "Screens:"
+
+[node name="ScreenCountLabel" type="Label" parent="Stats/ScreenCount"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.278431)
+text = "1"
+
+[node name="ScreenSize" type="HBoxContainer" parent="Stats"]
+layout_mode = 2
+
+[node name="ScreenSizeHeader" type="Label" parent="Stats/ScreenSize"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.278431)
+text = "Resolution:"
+
+[node name="ScreenSizeLabel" type="Label" parent="Stats/ScreenSize"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.278431)
+text = "(1920 x 1080)"
