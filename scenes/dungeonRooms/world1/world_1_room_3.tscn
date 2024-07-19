@@ -187,7 +187,7 @@ texture = ExtResource("1_uwlvg")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_wlvnd")
 
-[node name="world1room2" type="Node2D"]
+[node name="world1room3" type="Node2D"]
 
 [node name="Floor" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_awsy3")
