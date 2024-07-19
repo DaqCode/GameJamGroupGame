@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bstu6tldib34d"
-path="res://.godot/imported/blackcyan.png-294a36cb706aab292090407e8d9022d5.ctex"
+path="res://.godot/imported/blackcyan.png-c1e0ece7dadc908dce99a4308acba6c2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/blackcyan.png"
-dest_files=["res://.godot/imported/blackcyan.png-294a36cb706aab292090407e8d9022d5.ctex"]
+source_file="res://assets/background/blackcyan.png"
+dest_files=["res://.godot/imported/blackcyan.png-c1e0ece7dadc908dce99a4308acba6c2.ctex"]
 
 [params]
 
