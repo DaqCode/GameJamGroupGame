@@ -90,15 +90,17 @@ script = ExtResource("1_d4dva")
 zoom = Vector2(4, 4)
 
 [node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
 texture = ExtResource("2_wixo0")
 hframes = 8
 vframes = 6
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 8)
+position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_l42xv")
 
 [node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(0, -4)
 scale = Vector2(0.5, 0.5)
 
 [node name="HitboxCollider" type="CollisionShape2D" parent="Hitbox"]
@@ -113,7 +115,6 @@ libraries = {
 autoplay = "idle"
 
 [node name="Book" type="Node2D" parent="."]
-position = Vector2(0, 4)
 scale = Vector2(0.65, 0.65)
 
 [node name="BookSprite" type="Sprite2D" parent="Book"]

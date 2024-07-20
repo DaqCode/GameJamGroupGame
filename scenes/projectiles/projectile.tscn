@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://uyxx714ko06m"]
+
+[ext_resource type="Texture2D" uid="uid://cctm82e60bgey" path="res://assets/projectiles/projectile.png" id="1_kowxk"]
+[ext_resource type="Script" path="res://scripts/projectiles/projectile.gd" id="1_vqobs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0k75p"]
+
+[node name="Projectile" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_vqobs")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kowxk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0k75p")
+
+[node name="Visible" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="Visible" to="." method="_on_visible_screen_exited"]
