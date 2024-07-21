@@ -2,13 +2,22 @@ extends CharacterBody2D
 
 class_name Player
 
-@export var speed: int = 50
+@export var speed: int = 75
+@export var dash_speed: int = 125
+@export var dash_time: float = 1.5
+@export var dash_cooldown: float = 1.5
+
+@export var current_speed: int
 
 @onready var anim_player: AnimationPlayer = $Anim
 @onready var player_sprite: Sprite2D = $Sprite
 @onready var book: Node2D = $Book
 @onready var book_sprite: Sprite2D = $Book/BookSprite
 @onready var projectile_spawn_point: Marker2D = $Book/ProjectileSpawnPoint
+@onready var dash_cooldown_bar: ProgressBar = $DashCooldownProgressBar
+@onready var dash_timer: Timer = $DashTimer
+@onready var dash_cooldown_timer: Timer = $DashCooldownTimer
+
 
 @onready var projectile: PackedScene = preload("res://scenes/projectiles/projectile.tscn")
 
@@ -16,21 +25,32 @@ class_name Player
 enum player_state {
 	idle,
 	moving,
-	dead
+	dead,
+	dashing
 }
 
 var input_movement := Vector2()
 var current_state := player_state.idle
 var is_dead := false
+var can_dash := true
 
 var pos: Vector2
 var rot: float
+
+
+func _ready() -> void:
+	current_speed = speed
+	dash_timer.timeout.connect(reset_dash)
+	
 
 
 func _process(delta: float) -> void:
 	aim_toward_mouse()
 	handle_input()
 	movement(delta)
+	
+	if not can_dash:
+		dash_cooldown_bar.value = dash_cooldown_timer.time_left
 
 
 func movement(delta: float) -> void:
@@ -41,8 +61,9 @@ func movement(delta: float) -> void:
 	input_movement = get_input_vector()
 	
 	if is_player_moving():
-		velocity = input_movement * speed
-		current_state = player_state.moving
+		velocity = input_movement * current_speed
+		if current_state != player_state.dashing:
+			current_state = player_state.moving
 	else:
 		velocity = Vector2.ZERO
 		current_state = player_state.idle
@@ -53,11 +74,39 @@ func movement(delta: float) -> void:
 func handle_input() -> void:
 	if Input.is_action_just_pressed("shoot"):
 		fire_projectile()
+	
+	if Input.is_action_just_pressed("dash"):
+		dash()
+
+
+func dash() -> void:
+	if not can_dash:
+		return
+		
+	current_speed = dash_speed
+	current_state = player_state.dashing
+	can_dash = false
+	
+	dash_timer.start(dash_time)
+		
 
 
 func is_player_moving() -> bool:
 	return input_movement != Vector2.ZERO
 
+
+func reset_dash() -> void:
+	print("Dash Reset")
+	dash_cooldown_bar.max_value = dash_cooldown
+	dash_cooldown_bar.value = dash_cooldown
+	current_state = player_state.moving
+	current_speed = speed
+	dash_cooldown_timer.stop()
+	dash_cooldown_timer.start(dash_cooldown)
+	dash_cooldown_timer.timeout.connect(
+		func():
+			can_dash = true
+	)
 
 func get_input_vector() -> Vector2:
 	return Input.get_vector("left", "right", "up", "down")
@@ -72,6 +121,8 @@ func play_animations() -> void:
 		player_state.dead:
 			anim_player.play("dead")
 			is_dead = true
+		player_state.dashing:
+			anim_player.play("shadow")
 
 
 func aim_toward_mouse() -> void:
