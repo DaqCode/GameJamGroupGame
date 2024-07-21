@@ -41,8 +41,6 @@ var rot: float
 func _ready() -> void:
 	current_speed = speed
 	dash_timer.timeout.connect(reset_dash)
-	
-
 
 func _process(delta: float) -> void:
 	aim_toward_mouse()
@@ -51,7 +49,6 @@ func _process(delta: float) -> void:
 	
 	if not can_dash:
 		dash_cooldown_bar.value = dash_cooldown_timer.time_left
-
 
 func movement(delta: float) -> void:
 	if is_dead:

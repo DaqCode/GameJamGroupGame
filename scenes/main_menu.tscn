@@ -1,5 +1,138 @@
-[gd_scene format=3 uid="uid://b8tml0bc1rt4p"]
+[gd_scene load_steps=6 format=3 uid="uid://b8tml0bc1rt4p"]
 
-[node name="MainMenu" type="Control"]
+[ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="1_pdvpq"]
+
+[sub_resource type="Theme" id="Theme_lhh1t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_704bk"]
+bg_color = Color(1, 0.976471, 1, 0.729412)
+border_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7y63"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+shadow_color = Color(1, 1, 1, 0.317647)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_id6wg"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="MainMenu" type="CanvasLayer"]
+
+[node name="MenuControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Menu1" type="ColorRect" parent="MenuControl"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0.0313726, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="MenuControl"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 32.0
+anchor_bottom = 18.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Title" type="VBoxContainer" parent="MenuControl/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="Title" type="Label" parent="MenuControl/MarginContainer/Title"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_pdvpq")
+theme_override_font_sizes/font_size = 30
+text = "Another Shadow (something): Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonBox" type="VBoxContainer" parent="MenuControl/MarginContainer/Title"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+
+[node name="Start" type="Button" parent="MenuControl/MarginContainer/Title/ButtonBox"]
+process_mode = 3
+texture_filter = 1
+layout_mode = 2
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath("../Settings")
+focus_next = NodePath("../Settings")
+focus_previous = NodePath("../Credits")
+theme = SubResource("Theme_lhh1t")
+theme_override_colors/font_color = Color(0, 0, 0.486275, 1)
+theme_override_colors/font_pressed_color = Color(0.822643, 0.822643, 0.822643, 1)
+theme_override_colors/font_hover_color = Color(0, 0.129412, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_pdvpq")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_704bk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i7y63")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_id6wg")
+text = "Start"
+
+[node name="Settings" type="Button" parent="MenuControl/MarginContainer/Title/ButtonBox"]
+process_mode = 3
+texture_filter = 1
+layout_mode = 2
+focus_neighbor_top = NodePath("../Start")
+focus_neighbor_bottom = NodePath("../Credits")
+focus_next = NodePath("../Credits")
+focus_previous = NodePath("../Start")
+theme_override_colors/font_color = Color(0.627451, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.822643, 0.822643, 0.822643, 1)
+theme_override_colors/font_hover_color = Color(0.313726, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_pdvpq")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_704bk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i7y63")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_id6wg")
+text = "Settings"
+
+[node name="Credits" type="Button" parent="MenuControl/MarginContainer/Title/ButtonBox"]
+process_mode = 3
+texture_filter = 1
+layout_mode = 2
+focus_neighbor_top = NodePath("../Settings")
+focus_neighbor_bottom = NodePath("../Start")
+focus_next = NodePath("../Start")
+focus_previous = NodePath("../Settings")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.822643, 0.822643, 0.822643, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_pdvpq")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_704bk")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i7y63")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_id6wg")
+text = "Credits"
+
+[node name="Menu2" type="ColorRect" parent="."]
+offset_top = 720.0
+offset_right = 1280.0
+offset_bottom = 1440.0
+color = Color(0.0712314, 0.0712314, 0.0712314, 1)
+
+[node name="Menu3" type="ColorRect" parent="."]
+offset_left = 1280.0
+offset_right = 2560.0
+offset_bottom = 720.0
+color = Color(0.0712314, 0.0712314, 0.0712314, 1)
