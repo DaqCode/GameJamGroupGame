@@ -2,7 +2,7 @@ extends Control
 
 func _on_start_pressed()-> void:
 	print("Scene changes towards scene")
-	get_tree().change_scene_to_file("res://scenes/main_scene.tscn")
+	get_tree().change_scene_to_file("res://scenes/dungeonRooms/world1/world_1_room_1.tscn")
 
 
 func _on_credits_pressed()-> void:

@@ -17,8 +17,6 @@ class_name Player
 @onready var dash_cooldown_bar: ProgressBar = $DashCooldownProgressBar
 @onready var dash_timer: Timer = $DashTimer
 @onready var dash_cooldown_timer: Timer = $DashCooldownTimer
-@onready var projectile_cooldown: Timer = $ProjectileCooldown
-@onready var destroy_bullet: Timer = $DestroyBullet
 
 
 @onready var projectile: PackedScene = preload("res://scenes/projectiles/projectile.tscn")
@@ -76,7 +74,6 @@ func handle_input() -> void:
 	if Input.is_action_just_pressed("shoot"):
 		if can_shoot:
 			fire_projectile()
-			shoot_cooldown()
 	
 	if Input.is_action_just_pressed("dash"):
 		dash()
@@ -155,23 +152,4 @@ func fire_projectile() -> void:
 	proj.direction = projectile_spawn_point.global_position - global_position
 	proj.global_position = projectile_spawn_point.global_position
 	get_tree().root.add_child(proj)
-	#Thought this would lowkey work.
-	#projectile_destroyer()
 
-func shoot_cooldown() -> void:
-	can_shoot = false
-	projectile_cooldown.start()
-	projectile_cooldown.timeout.connect(
-		func():
-			can_shoot = true
-	)
-
-#Apparently putting queue_free destroys everything, including the player. Will come back to this later.
-
-#func projectile_destroyer() -> void:
-	#destroy_bullet.start()
-	#destroy_bullet.timeout.connect(
-		#func():
-			#queue_free()
-			#print("bullet despawn")
-	#)

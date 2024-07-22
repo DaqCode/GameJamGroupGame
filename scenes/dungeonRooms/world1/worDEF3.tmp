@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bj7enwks0tahd"]
+[gd_scene load_steps=5 format=3 uid="uid://bj7enwks0tahd"]
 
 [ext_resource type="Texture2D" uid="uid://wt6d883grhd6" path="res://assets/tilemap/full tilemap.png" id="1_up36x"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_og8pa"]
-[ext_resource type="PackedScene" uid="uid://c6uukpubhq4k2" path="res://candleTest.tscn" id="3_3t0rg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wlvnd"]
 texture = ExtResource("1_up36x")
@@ -203,29 +202,10 @@ layer_0/tile_data = PackedInt32Array(65547, 524288, 5, 196620, 65536, 7, 196621,
 
 [node name="Player" parent="." instance=ExtResource("2_og8pa")]
 position = Vector2(152, 168)
+speed = null
+current_speed = null
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-position = Vector2(216, 72)
-color = Color(0.196078, 0.196078, 0.196078, 1)
-energy = 3.5
+color = Color(0, 0, 0, 1)
+energy = 4.45
 blend_mode = 1
-
-[node name="Candle" parent="." instance=ExtResource("3_3t0rg")]
-position = Vector2(208, 112)
-scale = Vector2(0.01, 0.01)
-
-[node name="Candle2" parent="." instance=ExtResource("3_3t0rg")]
-position = Vector2(112, 64)
-scale = Vector2(0.01, 0.01)
-
-[node name="Candle3" parent="." instance=ExtResource("3_3t0rg")]
-position = Vector2(304, 80)
-scale = Vector2(0.01, 0.01)
-
-[node name="Candle4" parent="." instance=ExtResource("3_3t0rg")]
-position = Vector2(280, 144)
-scale = Vector2(0.01, 0.01)
-
-[node name="Candle5" parent="." instance=ExtResource("3_3t0rg")]
-position = Vector2(168, 160)
-scale = Vector2(0.01, 0.01)
