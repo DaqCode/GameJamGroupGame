@@ -1,5 +1,6 @@
-[gd_scene load_steps=19 format=3 uid="uid://c6uukpubhq4k2"]
+[gd_scene load_steps=21 format=3 uid="uid://c6uukpubhq4k2"]
 
+[ext_resource type="Script" path="res://candleTest.gd" id="1_bb4dr"]
 [ext_resource type="Texture2D" uid="uid://c56x08ny15n0n" path="res://assets/tilemap/2108.w032.n003.53B.p1.53.jpg" id="1_v2p2a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1vqm2"]
@@ -120,16 +121,32 @@ fill = 1
 fill_from = Vector2(0.542683, 0.554878)
 fill_to = Vector2(0.853659, 0.213415)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdtki"]
+size = Vector2(606.5, 918.5)
+
 [node name="Candle" type="StaticBody2D"]
+script = ExtResource("1_bb4dr")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_o530s")
 autoplay = "default"
-frame_progress = 0.824984
+frame_progress = 0.312009
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(4.76837e-07, 3.8147e-06)
+position = Vector2(-8, -192)
 scale = Vector2(36.125, 33.5625)
 color = Color(1, 0.870588, 0.145098, 1)
 energy = 3.05
 texture = SubResource("GradientTexture2D_esxru")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-48, 56)
+shape = SubResource("RectangleShape2D_hdtki")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-48, 56)
+shape = SubResource("RectangleShape2D_hdtki")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

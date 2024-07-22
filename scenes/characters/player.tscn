@@ -124,9 +124,9 @@ dash_time = 0.25
 dash_cooldown = 0.5
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 z_index = -100
 color = Color(0.607843, 0.607843, 0.607843, 1)
-energy = 1.5
 blend_mode = 1
 texture = SubResource("GradientTexture2D_pvtqo")
 
