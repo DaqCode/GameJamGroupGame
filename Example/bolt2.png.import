@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c56x08ny15n0n"
-path="res://.godot/imported/2108.w032.n003.53B.p1.53.jpg-3bc01b4e3d09da38944af1579b84567a.ctex"
+uid="uid://bsqibqspfsbj0"
+path="res://.godot/imported/bolt2.png-dda04243b21d52eda69c84e0929411e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tilemap/2108.w032.n003.53B.p1.53.jpg"
-dest_files=["res://.godot/imported/2108.w032.n003.53B.p1.53.jpg-3bc01b4e3d09da38944af1579b84567a.ctex"]
+source_file="res://Example/bolt2.png"
+dest_files=["res://.godot/imported/bolt2.png-dda04243b21d52eda69c84e0929411e4.ctex"]
 
 [params]
 
