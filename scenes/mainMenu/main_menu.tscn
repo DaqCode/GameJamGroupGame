@@ -1,0 +1,99 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8tml0bc1rt4p"]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_4gppi"]
+[ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="2_u84j6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tr3qs"]
+
+[sub_resource type="Theme" id="Theme_2w3hx"]
+default_font = ExtResource("2_u84j6")
+default_font_size = 40
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.658338, 0.658341, 0.658341, 1)
+Button/colors/font_hover_pressed_color = Color(0.311357, 0.311357, 0.311357, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(0.117109, 0.117109, 0.117109, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/styles/disabled = SubResource("StyleBoxEmpty_tr3qs")
+Button/styles/focus = SubResource("StyleBoxEmpty_tr3qs")
+Button/styles/hover = SubResource("StyleBoxEmpty_tr3qs")
+Button/styles/normal = SubResource("StyleBoxEmpty_tr3qs")
+Button/styles/pressed = SubResource("StyleBoxEmpty_tr3qs")
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4gppi")
+metadata/_edit_use_anchors_ = true
+
+[node name="Menu1" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+color = Color(0, 0, 0.0313726, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Title" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/Title"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_u84j6")
+theme_override_font_sizes/font_size = 30
+text = "Another Shadow (something): Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonBox" type="VBoxContainer" parent="MarginContainer/Title"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+
+[node name="Start" type="Button" parent="MarginContainer/Title/ButtonBox"]
+process_mode = 1
+layout_mode = 2
+theme = SubResource("Theme_2w3hx")
+text = "Start"
+
+[node name="Credits" type="Button" parent="MarginContainer/Title/ButtonBox"]
+process_mode = 1
+layout_mode = 2
+theme = SubResource("Theme_2w3hx")
+text = "Credits"
+
+[node name="Settings" type="Button" parent="MarginContainer/Title/ButtonBox"]
+process_mode = 1
+layout_mode = 2
+theme = SubResource("Theme_2w3hx")
+text = "Settings"
+
+[connection signal="pressed" from="MarginContainer/Title/ButtonBox/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/Title/ButtonBox/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MarginContainer/Title/ButtonBox/Settings" to="." method="_on_settings_pressed"]

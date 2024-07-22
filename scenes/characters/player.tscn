@@ -108,6 +108,9 @@ bg_color = Color(0.576471, 0.164706, 0.623529, 1)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_d4dva")
+dash_speed = 200
+dash_time = 0.25
+dash_cooldown = 0.5
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
@@ -161,3 +164,10 @@ one_shot = true
 
 [node name="DashCooldownTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="ProjectileCooldown" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="DestroyBullet" type="Timer" parent="."]
+wait_time = 0.75
