@@ -6,8 +6,8 @@ class_name Player
 @export var dash_speed: int = 125
 @export var dash_time: float = 1.5
 @export var dash_cooldown: float = 1.5
-
 @export var current_speed: int
+@export var health: int = 5
 
 @onready var anim_player: AnimationPlayer = $Anim
 @onready var player_sprite: Sprite2D = $Sprite
@@ -17,6 +17,7 @@ class_name Player
 @onready var dash_cooldown_bar: ProgressBar = $DashCooldownProgressBar
 @onready var dash_timer: Timer = $DashTimer
 @onready var dash_cooldown_timer: Timer = $DashCooldownTimer
+@onready var death_time: Timer = $DeathTimer
 
 
 @onready var projectile: PackedScene = preload("res://scenes/projectiles/projectile.tscn")
@@ -35,10 +36,8 @@ var is_dead := false
 var can_dash := true
 var can_shoot := true
 
-
 var pos: Vector2
 var rot: float
-
 
 func _ready() -> void:
 	current_speed = speed
@@ -54,6 +53,7 @@ func _process(delta: float) -> void:
 
 func movement(_delta: float) -> void:
 	if is_dead:
+		play_animations()
 		return
 		
 	play_animations()
@@ -142,3 +142,17 @@ func fire_projectile() -> void:
 	proj.direction = projectile_spawn_point.global_position - global_position
 	proj.global_position = projectile_spawn_point.global_position
 	get_tree().root.add_child(proj)
+
+func _on_hitbox_area_entered(area):
+	if health != 0:
+		if area.name == "EnemyBullets":
+			health -= 1
+			print ("Player Health %s" % health)
+	else:
+		is_dead = true
+		get_tree().paused = true
+		print ("Player is dead")
+		death_time.start()
+
+
+	

@@ -35,6 +35,8 @@ size = Vector2(24, 20)
 
 [node name="EnemyBullets" type="Area2D"]
 scale = Vector2(0.324316, -0.292231)
+collision_layer = 8
+collision_mask = 19
 script = ExtResource("1_jjfpu")
 speed = 150.0
 
@@ -51,4 +53,5 @@ scale = Vector2(1.45, 1)
 position = Vector2(-12, 0)
 shape = SubResource("RectangleShape2D_q12xq")
 
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_screen_exited"]
