@@ -18,10 +18,10 @@ shape = SubResource("CircleShape2D_0k75p")
 
 [node name="Visible" type="VisibleOnScreenNotifier2D" parent="."]
 
-[node name="BulletArea" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_0k75p")
 
 [connection signal="screen_exited" from="Visible" to="." method="_on_visible_screen_exited"]
-[connection signal="area_entered" from="BulletArea" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

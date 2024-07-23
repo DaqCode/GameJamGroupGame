@@ -1,7 +1,5 @@
 extends Node2D
 
-class_name Enemy
-
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var timer: Timer = $Timer
 @export var ammo: PackedScene
@@ -11,7 +9,7 @@ var Player
 func _ready()-> void:
 	Player = get_parent().find_child("Player")
 
-func _physics_process(delta)-> void:
+func _physics_process(_delta)-> void:
 	_aim()
 	_check_player_collision()
 	
@@ -33,10 +31,10 @@ func _shoot() -> void:
 	bullet.direction = (ray_cast_2d.target_position).normalized()
 	get_tree().current_scene.add_child(bullet)
 
-func take_damage():
-	if health == 0:
-		print ("enemy died")
-		queue_free()
-	else:
+func _on_enemy_area_area_entered(area) -> void:
+	if area.name == "BulletArea":
+		if health == 1:
+			queue_free()
 		health -= 1
-		print("Enemy Health %d" % health)
+		print("Health: %s" % health)
+		

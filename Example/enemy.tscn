@@ -1,14 +1,56 @@
 [gd_scene load_steps=5 format=3 uid="uid://do4aiaa7vcb7n"]
 
-[ext_resource type="Script" path="res://Example/Enemy.gd" id="1_ecl7d"]
 [ext_resource type="PackedScene" uid="uid://bv6fm20s17iss" path="res://Example/enemy_bullets.tscn" id="2_8fg4o"]
 [ext_resource type="Texture2D" uid="uid://ctomrh3byrew1" path="res://icon.svg" id="2_t77rc"]
+
+[sub_resource type="GDScript" id="GDScript_rmsgg"]
+script/source = "extends Node2D
+
+@onready var ray_cast_2d: RayCast2D = $RayCast2D
+@onready var timer: Timer = $Timer
+@export var ammo: PackedScene
+@export var health: float = 5
+var Player
+
+func _ready()-> void:
+	Player = get_parent().find_child(\"Player\")
+
+func _physics_process(_delta)-> void:
+	_aim()
+	_check_player_collision()
+	
+func _aim() -> void:
+	ray_cast_2d.target_position = to_local(Player.global_position)
+
+func _check_player_collision()-> void:
+	if ray_cast_2d.get_collider() == Player and timer.is_stopped():
+		timer.start()
+	elif ray_cast_2d.get_collider() != Player and not timer.is_stopped():
+		timer.stop()
+
+func _on_timer_timeout()-> void:
+	_shoot()
+	
+func _shoot() -> void:
+	var bullet = ammo.instantiate()
+	bullet.position = position
+	bullet.direction = (ray_cast_2d.target_position).normalized()
+	get_tree().current_scene.add_child(bullet)
+
+func _on_enemy_area_area_entered(area) -> void:
+	if area.name == \"BulletArea\":
+		if health == 1:
+			queue_free()
+		health -= 1
+		print(\"Health: %s\" % health)
+		
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34es0"]
 size = Vector2(64, 48)
 
-[node name="Enemy" type="Node2D"]
-script = ExtResource("1_ecl7d")
+[node name="Enemy" type="CharacterBody2D"]
+script = SubResource("GDScript_rmsgg")
 ammo = ExtResource("2_8fg4o")
 
 [node name="Icon" type="Sprite2D" parent="."]
@@ -17,18 +59,19 @@ scale = Vector2(0.5, 0.4375)
 texture = ExtResource("2_t77rc")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(-16, 72)
+target_position = Vector2(0, 64)
 collision_mask = 3
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_34es0")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="EnemyArea" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyArea"]
 shape = SubResource("RectangleShape2D_34es0")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="EnemyArea" to="." method="_on_enemy_area_area_entered"]

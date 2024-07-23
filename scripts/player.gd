@@ -52,10 +52,10 @@ func _process(delta: float) -> void:
 	if not can_dash:
 		dash_cooldown_bar.value = dash_cooldown_timer.time_left
 
-func movement(delta: float) -> void:
+func movement(_delta: float) -> void:
 	if is_dead:
 		return
-
+		
 	play_animations()
 	input_movement = get_input_vector()
 	
@@ -69,7 +69,6 @@ func movement(delta: float) -> void:
 
 	move_and_slide()
 
-
 func handle_input() -> void:
 	if Input.is_action_just_pressed("shoot"):
 		if can_shoot:
@@ -79,7 +78,6 @@ func handle_input() -> void:
 		dash()
 		can_shoot = false
 
-
 func dash() -> void:
 	if not can_dash:
 		return
@@ -88,12 +86,9 @@ func dash() -> void:
 	can_dash = false
 	
 	dash_timer.start(dash_time)
-		
-
 
 func is_player_moving() -> bool:
 	return input_movement != Vector2.ZERO
-
 
 func reset_dash() -> void:
 	#print("Dash Reset")
@@ -112,7 +107,6 @@ func reset_dash() -> void:
 func get_input_vector() -> Vector2:
 	return Input.get_vector("left", "right", "up", "down")
 
-
 func play_animations() -> void:
 	match current_state:
 		player_state.idle:
@@ -125,7 +119,6 @@ func play_animations() -> void:
 		player_state.dashing:
 			anim_player.play("shadow")
 
-
 func aim_toward_mouse() -> void:
 	var mouse := get_global_mouse_position()
 	pos = global_position
@@ -137,19 +130,15 @@ func aim_toward_mouse() -> void:
 	else:
 		flip_player_and_book(true)
 
-
 func is_aiming_right(new_rot: float) -> bool:
 	return new_rot >= -90 and new_rot <= 90
-
 
 func flip_player_and_book(flip: bool) -> void:
 	book_sprite.flip_v = flip
 	player_sprite.flip_h = flip
-
 
 func fire_projectile() -> void:
 	var proj = projectile.instantiate() as Projectile
 	proj.direction = projectile_spawn_point.global_position - global_position
 	proj.global_position = projectile_spawn_point.global_position
 	get_tree().root.add_child(proj)
-
