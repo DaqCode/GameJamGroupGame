@@ -106,7 +106,7 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8a648"]
 bg_color = Color(0.576471, 0.164706, 0.623529, 1)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 3
 script = ExtResource("1_d4dva")
 dash_speed = 200
@@ -122,7 +122,11 @@ texture = ExtResource("2_wixo0")
 hframes = 8
 vframes = 6
 
-[node name="PlayerCollision" type="CollisionShape2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
+collision_layer = 34
+collision_mask = 34
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(0, 4)
 shape = SubResource("CircleShape2D_l42xv")
 

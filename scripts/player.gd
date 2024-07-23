@@ -156,3 +156,12 @@ func _on_hitbox_area_entered(area):
 
 func _on_death_timer_timeout():
 	get_tree().change_scene_to_file("res://scenes/dungeonRooms/entry_scene.tscn")
+
+
+func picked_up(type: Droppable.droppable_type) -> void:
+	print("Test")
+	match(type):
+		Droppable.droppable_type.gold:
+			print("Picked up gold...")
+		Droppable.droppable_type.health:
+			print("Picked up health...")
