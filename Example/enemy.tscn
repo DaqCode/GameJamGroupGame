@@ -1,56 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://do4aiaa7vcb7n"]
 
+[ext_resource type="Script" path="res://Example/Enemy.gd" id="1_g6jys"]
 [ext_resource type="PackedScene" uid="uid://bv6fm20s17iss" path="res://Example/enemy_bullets.tscn" id="2_8fg4o"]
 [ext_resource type="Texture2D" uid="uid://ctomrh3byrew1" path="res://icon.svg" id="2_t77rc"]
-
-[sub_resource type="GDScript" id="GDScript_rmsgg"]
-script/source = "extends Node2D
-
-@onready var ray_cast_2d: RayCast2D = $RayCast2D
-@onready var timer: Timer = $Timer
-
-@export var ammo: PackedScene
-@export var health: int = 5
-@export var enemySpeed : int
-
-var player_position
-var target_position
-var velocity: Vector2 = Vector2()
-
-var Player
-
-func _ready()-> void:
-	Player = get_parent().find_child(\"Player\")
-
-func _physics_process(delta)-> void:
-	position += (Player.position - position)/enemySpeed
-	_aim()
-	_check_player_collision()
-	
-func _aim() -> void:
-	ray_cast_2d.target_position = to_local(Player.global_position)
-
-func _check_player_collision()-> void:
-	if ray_cast_2d.get_collider() == Player and timer.is_stopped():
-		timer.start()
-	elif ray_cast_2d.get_collider() != Player and not timer.is_stopped():
-		timer.stop()
-
-func _on_timer_timeout()-> void:
-	_shoot()
-	
-func _shoot() -> void:
-	var bullet = ammo.instantiate()
-	bullet.position = position
-	bullet.direction = (ray_cast_2d.target_position).normalized()
-	get_tree().current_scene.add_child(bullet)
-
-func _on_enemy_area_area_entered(area) -> void:
-	if area.name == \"BulletArea\":
-		if health == 1:
-			queue_free()
-		health -= 1
-"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34es0"]
 size = Vector2(64, 48)
@@ -58,9 +10,8 @@ size = Vector2(64, 48)
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 31
-script = SubResource("GDScript_rmsgg")
+script = ExtResource("1_g6jys")
 ammo = ExtResource("2_8fg4o")
-enemySpeed = 25
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, -3.8147e-06)

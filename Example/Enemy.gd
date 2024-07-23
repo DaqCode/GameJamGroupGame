@@ -1,17 +1,24 @@
-extends Node2D
+extends CharacterBody2D
 
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var timer: Timer = $Timer
 @export var ammo: PackedScene
 @export var health: float = 5
+@export var enemySpeed : int = 50
+
+@onready var item: PackedScene = preload("res://scenes/droppable/droppable.tscn")
+
 var Player
 
 func _ready()-> void:
 	Player = get_parent().find_child("Player")
 
 func _physics_process(_delta)-> void:
+	# position += (Player.position - position)/enemySpeed
+	velocity = Player.position - position
 	_aim()
 	_check_player_collision()
+	move_and_slide()
 	
 func _aim() -> void:
 	ray_cast_2d.target_position = to_local(Player.global_position)
@@ -34,7 +41,14 @@ func _shoot() -> void:
 func _on_enemy_area_area_entered(area) -> void:
 	if area.name == "BulletArea":
 		if health == 1:
-			queue_free()
+			drop_item()
+			
 		health -= 1
-		print("Health: %s" % health)
-		
+
+
+func drop_item() -> void:
+	var new_item = item.instantiate()
+	new_item.init_item(Droppable.droppable_type.health)
+	new_item.position = position
+	get_tree().current_scene.add_child(new_item)
+	call_deferred("queue_free")
