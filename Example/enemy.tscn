@@ -8,14 +8,22 @@ script/source = "extends Node2D
 
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var timer: Timer = $Timer
+
 @export var ammo: PackedScene
-@export var health: float = 5
+@export var health: int = 5
+@export var enemySpeed : int
+
+var player_position
+var target_position
+var velocity: Vector2 = Vector2()
+
 var Player
 
 func _ready()-> void:
 	Player = get_parent().find_child(\"Player\")
 
-func _physics_process(_delta)-> void:
+func _physics_process(delta)-> void:
+	position += (Player.position - position)/enemySpeed
 	_aim()
 	_check_player_collision()
 	
@@ -43,7 +51,8 @@ func _on_enemy_area_area_entered(area) -> void:
 			queue_free()
 		health -= 1
 		print(\"Health: %s\" % health)
-		
+
+	
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34es0"]
@@ -52,6 +61,7 @@ size = Vector2(64, 48)
 [node name="Enemy" type="CharacterBody2D"]
 script = SubResource("GDScript_rmsgg")
 ammo = ExtResource("2_8fg4o")
+enemySpeed = 100
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, -3.8147e-06)
@@ -63,7 +73,7 @@ target_position = Vector2(0, 64)
 collision_mask = 3
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 2.0
+wait_time = 1.5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_34es0")
