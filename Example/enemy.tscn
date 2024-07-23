@@ -71,7 +71,7 @@ texture = ExtResource("2_t77rc")
 target_position = Vector2(0, 64)
 collision_mask = 3
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Timer" type="Timer" parent="." groups=["player"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_34es0")

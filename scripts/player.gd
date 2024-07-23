@@ -150,9 +150,9 @@ func _on_hitbox_area_entered(area):
 			print ("Player Health %s" % health)
 	else:
 		is_dead = true
-		get_tree().paused = true
 		print ("Player is dead")
 		death_time.start()
+		print("Timer started.")
 
-
-	
+func _on_death_timer_timeout():
+	get_tree().change_scene_to_file("res://scenes/dungeonRooms/entry_scene.tscn")
