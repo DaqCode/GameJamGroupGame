@@ -13,21 +13,23 @@ script = ExtResource("1_fumu2")
 
 [node name="ThrowingKnifesOne" type="Sprite2D" parent="."]
 position = Vector2(1.865, -2.98)
+rotation = 1.5708
 texture = ExtResource("1_lj4cn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.027, -3.461)
+position = Vector2(1.31086, -4.94751)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0dt2e")
 
 [node name="Visible" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0.499728, -3.25367)
-scale = Vector2(0.752491, 1.6)
+position = Vector2(1.34304, -5.03949)
+scale = Vector2(1.52139, 0.18126)
 
 [node name="throwingArea" type="Area2D" parent="."]
-scale = Vector2(0.25, 0.25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="throwingArea"]
-position = Vector2(-0.027, -3.461)
+position = Vector2(1.31086, -4.94751)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_0dt2e")
 
 [connection signal="screen_exited" from="Visible" to="." method="_on_visible_screen_exited"]

@@ -141,18 +141,49 @@ func flip_player_and_book(flip: bool) -> void:
 	player_sprite.flip_h = flip
 
 func fire_projectile() -> void:
-	#This is where the conditions start because of the projectile types we have.
-	#The only logical way to check this is for the game to detect which weapon is
-	#applied.
-	#var proj = obsidian_projectile.instantiate() as ObsidianProjectile     #(Obsidian dagger Acquired)
-	#var proj = poison_projectile.instantiate() as PoisonProjectile         #(Poison Dagger Acquired)
-	#var proj = diamond_projectile.instantiate() as DiamondProjectile       #(Diamond Projectile)
-	#var proj = throwing_projectile.instantiate() as ThrowingProjectile     #(Throwing Projectile)
-	var proj = projectile.instantiate() as Projectile                      #(Normal weapon)
-
-	proj.direction = projectile_spawn_point.global_position - global_position
-	proj.global_position = projectile_spawn_point.global_position
-	get_tree().root.add_child(proj)
+	if projectile:
+		var proj = projectile.instantiate() as Projectile
+		proj.direction = projectile_spawn_point.global_position - global_position
+		proj.global_position = projectile_spawn_point.global_position
+		proj.look_at(get_global_mouse_position())
+		get_tree().root.add_child(proj)
+		
+	elif poison_projectile:
+		var proj = poison_projectile.instantiate() as PoisonProjectile
+		proj.direction = projectile_spawn_point.global_position - global_position
+		proj.global_position = projectile_spawn_point.global_position
+		proj.look_at(get_global_mouse_position())
+		get_tree().root.add_child(proj)
+		
+	elif diamond_projectile:
+		var proj = diamond_projectile.instantiate() as DiamondProjectile   
+		proj.direction = projectile_spawn_point.global_position - global_position
+		proj.global_position = projectile_spawn_point.global_position
+		proj.look_at(get_global_mouse_position())
+		get_tree().root.add_child(proj)
+	
+	elif obsidian_projectile:
+		var proj = obsidian_projectile.instantiate() as ObsidianProjectile
+		proj.direction = projectile_spawn_point.global_position - global_position
+		proj.global_position = projectile_spawn_point.global_position
+		proj.look_at(get_global_mouse_position())
+		get_tree().root.add_child(proj)
+	
+	elif throwing_projectile:
+		for i in 3:
+			var proj = throwing_projectile.instantiate() as ThrowingProjectile
+			proj.direction = projectile_spawn_point.global_position - global_position
+			proj.global_position = projectile_spawn_point.global_position
+			proj.direction.y = proj.direction.y + cos(0.0001) * i
+			proj.look_at(get_global_mouse_position())
+			get_tree().root.add_child(proj)
+	
+	else:
+		var proj = projectile.instantiate() as Projectile
+		proj.direction = projectile_spawn_point.global_position - global_position
+		proj.global_position = projectile_spawn_point.global_position
+		proj.look_at(get_global_mouse_position())
+		get_tree().root.add_child(proj)
 
 func _on_hitbox_area_entered(area):
 	if health != 0:

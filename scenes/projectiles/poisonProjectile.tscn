@@ -4,28 +4,31 @@
 [ext_resource type="Texture2D" uid="uid://beildnf4q4ksi" path="res://assets/projectiles/poisonDagger.png" id="2_ym1el"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gpjyv"]
-radius = 7.29178
-height = 22.8126
+radius = 5.23555
+height = 25.325
 
 [node name="PoisonProjectile" type="Area2D"]
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_ukyjy")
 
 [node name="PoisonDagger" type="Sprite2D" parent="."]
+rotation = 1.5708
 texture = ExtResource("2_ym1el")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8.33698)
+position = Vector2(3.8007, 0)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_gpjyv")
 
 [node name="Visible" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(0.499728, -3.25367)
-scale = Vector2(0.752491, 1.6)
+position = Vector2(-0.207376, 0.45864)
+scale = Vector2(1.55685, 0.775658)
 
 [node name="PoisonArea" type="Area2D" parent="."]
-scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PoisonArea"]
-position = Vector2(0, -8.33698)
+position = Vector2(3.8007, 0)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_gpjyv")
 
 [connection signal="screen_exited" from="Visible" to="." method="_on_visible_screen_exited"]
