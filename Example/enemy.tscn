@@ -12,6 +12,7 @@ collision_layer = 4
 collision_mask = 31
 script = ExtResource("1_g6jys")
 ammo = ExtResource("2_8fg4o")
+enemySpeed = 100
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(0, -3.8147e-06)
@@ -31,6 +32,8 @@ shape = SubResource("RectangleShape2D_34es0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyArea"]
 shape = SubResource("RectangleShape2D_34es0")
+
+[node name="PoisonTimer" type="Timer" parent="."]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="area_entered" from="EnemyArea" to="." method="_on_enemy_area_area_entered"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwoa7u5jddiu4"]
+
+[ext_resource type="Script" path="res://scripts/projectiles/poison_dagger.gd" id="1_ukyjy"]
+[ext_resource type="Texture2D" uid="uid://beildnf4q4ksi" path="res://assets/projectiles/poisonDagger.png" id="2_ym1el"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gpjyv"]
+radius = 7.29178
+height = 22.8126
+
+[node name="PoisonProjectile" type="Area2D"]
+script = ExtResource("1_ukyjy")
+
+[node name="PoisonDagger" type="Sprite2D" parent="."]
+texture = ExtResource("2_ym1el")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8.33698)
+shape = SubResource("CapsuleShape2D_gpjyv")
+
+[node name="Visible" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.499728, -3.25367)
+scale = Vector2(0.752491, 1.6)
+
+[node name="PoisonArea" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PoisonArea"]
+position = Vector2(0, -8.33698)
+shape = SubResource("CapsuleShape2D_gpjyv")
+
+[connection signal="screen_exited" from="Visible" to="." method="_on_visible_screen_exited"]
+[connection signal="area_entered" from="PoisonArea" to="." method="_on_poison_area_area_entered"]

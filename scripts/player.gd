@@ -21,7 +21,9 @@ class_name Player
 
 
 @onready var projectile: PackedScene = preload("res://scenes/projectiles/projectile.tscn")
-@onready var OBSIDIAN_PROJECTILE: PackedScene = preload("res://scenes/projectiles/obsidianProjectile.tscn")
+@onready var obsidian_projectile: PackedScene = preload("res://scenes/projectiles/obsidianProjectile.tscn")
+@onready var poison_projectile: PackedScene = preload("res://scenes/projectiles/poisonProjectile.tscn")
+@onready var diamond_projectile: PackedScene = preload("res://scenes/projectiles/diamond_projectiles.tscn")
 
 enum player_state {
 	idle,
@@ -141,7 +143,10 @@ func fire_projectile() -> void:
 	#This is where the conditions start because of the projectile types we have.
 	#The only logical way to check this is for the game to detect which weapon is
 	#applied.
-	var proj = OBSIDIAN_PROJECTILE.instantiate() as ObsidianProjectile
+	#var proj = obsidian_projectile.instantiate() as ObsidianProjectile     #(Obsidian dagger Acquired)
+	var proj = poison_projectile.instantiate() as PoisonProjectile         #(Poison Dagger Acquired)
+	#var proj = projectile.instantiate() as Projectile                      #(Normal weapon)
+	#var proj = diamond_projectile.instantiate() as DiamondProjectile       #(Diamond Projectile)
 	proj.direction = projectile_spawn_point.global_position - global_position
 	proj.global_position = projectile_spawn_point.global_position
 	get_tree().root.add_child(proj)

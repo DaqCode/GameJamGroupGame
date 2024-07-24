@@ -5,8 +5,10 @@ extends CharacterBody2D
 @export var ammo: PackedScene
 @export var health: float = 5
 @export var enemySpeed : int = 50
+@onready var poison_timer: Timer = $PoisonTimer
 
 @onready var item: PackedScene = preload("res://scenes/droppable/droppable.tscn")
+
 
 var Player
 
@@ -14,7 +16,6 @@ func _ready()-> void:
 	Player = get_parent().find_child("Player")
 
 func _physics_process(_delta)-> void:
-	# position += (Player.position - position)/enemySpeed
 	velocity = Player.position - position
 	_aim()
 	_check_player_collision()
@@ -48,8 +49,22 @@ func _on_enemy_area_area_entered(area) -> void:
 		if health <=0:
 			drop_item()
 		health -= 2
-
-
+		
+	elif area.name == "DiamondArea":
+		if health <=0:
+			drop_item()
+		health -= 4
+	
+	elif area.name == "PoisonArea":
+		poison_timer.start()
+		poison_timer.timeout.connect(
+			func():
+				if health <= 1:
+					health -= 3
+				else:
+					drop_item()
+		)
+		
 func drop_item() -> void:
 	var new_item = item.instantiate()
 	new_item.init_item(Droppable.droppable_type.health)

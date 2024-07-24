@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwqd6hcg6v8fv"]
+
+[ext_resource type="Script" path="res://scripts/projectiles/diamondProjectiles.gd" id="1_knybo"]
+[ext_resource type="Texture2D" uid="uid://dahqtimyr6fwx" path="res://assets/projectiles/DiamondDagger.png" id="2_g103l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w66vb"]
+radius = 6.9155
+height = 18.5567
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_14u5w"]
+radius = 2.45323
+height = 21.9589
+
+[node name="diamondProjectiles" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_knybo")
+
+[node name="DiamondDagger" type="Sprite2D" parent="."]
+position = Vector2(0.800167, -3.54322)
+texture = ExtResource("2_g103l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.817585, -9.35056)
+shape = SubResource("CapsuleShape2D_w66vb")
+
+[node name="Visible" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.499728, -3.25367)
+scale = Vector2(0.752491, 1.6)
+
+[node name="DiamondArea" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DiamondArea"]
+position = Vector2(0, -9.648)
+shape = SubResource("CapsuleShape2D_14u5w")
+
+[connection signal="screen_exited" from="Visible" to="." method="_on_visible_screen_exited"]
+[connection signal="area_entered" from="DiamondArea" to="." method="_on_diamond_area_area_entered"]
