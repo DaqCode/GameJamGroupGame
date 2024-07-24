@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bo7uiitrfc843"
-path="res://.godot/imported/bolt3.png-ffea3b7d086c0090d5e71529f75271a5.ctex"
+path="res://.godot/imported/bolt3.png-84d9f2d53529a99843a214232c6d60f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Example/bolt3.png"
-dest_files=["res://.godot/imported/bolt3.png-ffea3b7d086c0090d5e71529f75271a5.ctex"]
+source_file="res://Enemy/bolt3.png"
+dest_files=["res://.godot/imported/bolt3.png-84d9f2d53529a99843a214232c6d60f9.ctex"]
 
 [params]
 

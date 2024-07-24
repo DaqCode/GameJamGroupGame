@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b8tml0bc1rt4p"]
 
-[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_4gppi"]
+[ext_resource type="Script" path="res://scripts/mainMenu/main_menu.gd" id="1_4gppi"]
 [ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="2_u84j6"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tr3qs"]

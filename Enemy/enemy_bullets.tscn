@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://bv6fm20s17iss"]
 
-[ext_resource type="Script" path="res://Example/EnemyBullets.gd" id="1_jjfpu"]
-[ext_resource type="Texture2D" uid="uid://cdlq2ba81c2ku" path="res://Example/bolt1.png" id="2_tubvg"]
-[ext_resource type="Texture2D" uid="uid://bsqibqspfsbj0" path="res://Example/bolt2.png" id="3_a4ecs"]
-[ext_resource type="Texture2D" uid="uid://bo7uiitrfc843" path="res://Example/bolt3.png" id="4_jvmao"]
-[ext_resource type="Texture2D" uid="uid://b4itbwxgdxnct" path="res://Example/bolt4.png" id="5_8pfr8"]
+[ext_resource type="Script" path="res://Enemy/EnemyBullets.gd" id="1_sl2qx"]
+[ext_resource type="Texture2D" uid="uid://cdlq2ba81c2ku" path="res://Enemy/bolt1.png" id="2_mg522"]
+[ext_resource type="Texture2D" uid="uid://bsqibqspfsbj0" path="res://Enemy/bolt2.png" id="3_yorbc"]
+[ext_resource type="Texture2D" uid="uid://bo7uiitrfc843" path="res://Enemy/bolt3.png" id="4_tkyk2"]
+[ext_resource type="Texture2D" uid="uid://b4itbwxgdxnct" path="res://Enemy/bolt4.png" id="5_hwpv5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3qyp"]
-atlas = ExtResource("2_tubvg")
+atlas = ExtResource("2_mg522")
 region = Rect2(0, 0, 48, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gp2ae"]
@@ -17,13 +17,13 @@ animations = [{
 "texture": SubResource("AtlasTexture_m3qyp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_a4ecs")
+"texture": ExtResource("3_yorbc")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_jvmao")
+"texture": ExtResource("4_tkyk2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_8pfr8")
+"texture": ExtResource("5_hwpv5")
 }],
 "loop": true,
 "name": &"default",
@@ -37,21 +37,23 @@ size = Vector2(24, 20)
 scale = Vector2(0.324316, -0.292231)
 collision_layer = 8
 collision_mask = 19
-script = ExtResource("1_jjfpu")
+script = ExtResource("1_sl2qx")
 speed = 150.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_gp2ae")
 autoplay = "default"
 frame_progress = 0.593078
 
-[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
-position = Vector2(-9.5, 0)
-scale = Vector2(1.45, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-12, 0)
+position = Vector2(9.96, 0)
+rotation = 3.14159
 shape = SubResource("RectangleShape2D_q12xq")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(9.96, 0)
+scale = Vector2(1.45, 1)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_screen_exited"]

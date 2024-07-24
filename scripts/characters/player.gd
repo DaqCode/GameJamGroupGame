@@ -177,7 +177,7 @@ func fire_projectile() -> void:
 			proj.direction.y = proj.direction.y + cos(0.0001) * i
 			proj.look_at(get_global_mouse_position())
 			get_tree().root.add_child(proj)
-	
+			
 	else:
 		var proj = projectile.instantiate() as Projectile
 		proj.direction = projectile_spawn_point.global_position - global_position
@@ -192,9 +192,7 @@ func _on_hitbox_area_entered(area):
 			print ("Player Health %s" % health)
 	else:
 		is_dead = true
-		print ("Player is dead")
 		death_time.start()
-		print("Timer started.")
 
 func _on_death_timer_timeout():
 	get_tree().change_scene_to_file("res://scenes/dungeonRooms/entry_scene.tscn")
