@@ -1,9 +1,9 @@
 extends Area2D
 
-class_name Projectile
+class_name ObsidianProjectile
 
 @export var speed := 20
-@export var damage := 1
+@export var damage := 2
 
 var direction := Vector2.RIGHT
 
@@ -16,6 +16,6 @@ func _on_visible_screen_exited() -> void:
 func _kill_bullet() -> void:
 	call_deferred("free")
 
-func _on_area_2d_area_entered(area):
+func _on_obsidian_area_area_entered(area):
 	if area.name == "EnemyArea":
 		_kill_bullet()	

@@ -40,10 +40,14 @@ func _shoot() -> void:
 
 func _on_enemy_area_area_entered(area) -> void:
 	if area.name == "BulletArea":
-		if health == 1:
+		if health <= 0:
 			drop_item()
 			
 		health -= 1
+	elif area.name == "ObsidianArea":
+		if health <=0:
+			drop_item()
+		health -= 2
 
 
 func drop_item() -> void:

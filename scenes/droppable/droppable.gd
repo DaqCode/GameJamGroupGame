@@ -9,7 +9,6 @@ enum droppable_type {
 
 var type: droppable_type
 
-
 func init_item(type: droppable_type) -> void:
 	self.type = type
 

@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0kmifi1tvo04"]
+
+[ext_resource type="Script" path="res://scripts/projectiles/obsidianProjectile.gd" id="1_8w1wi"]
+[ext_resource type="Texture2D" uid="uid://cxij7cnv2y41h" path="res://assets/projectiles/ObsidianDagger.png" id="2_270u4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m8tyq"]
+radius = 8.0
+height = 103.226
+
+[node name="ObsidianProjectile" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_8w1wi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_270u4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.39, 0)
+scale = Vector2(0.31, 0.31)
+shape = SubResource("CapsuleShape2D_m8tyq")
+
+[node name="Visible" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(4.17233e-07, 2.38419e-07)
+scale = Vector2(0.8, 1.6)
+
+[node name="ObsidianArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ObsidianArea"]
+position = Vector2(0.39, 0)
+scale = Vector2(0.31, 0.31)
+shape = SubResource("CapsuleShape2D_m8tyq")
+
+[connection signal="screen_exited" from="Visible" to="." method="_on_visible_screen_exited"]
+[connection signal="area_entered" from="ObsidianArea" to="." method="_on_obsidian_area_area_entered"]

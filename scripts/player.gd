@@ -21,7 +21,7 @@ class_name Player
 
 
 @onready var projectile: PackedScene = preload("res://scenes/projectiles/projectile.tscn")
-
+@onready var OBSIDIAN_PROJECTILE: PackedScene = preload("res://scenes/projectiles/obsidianProjectile.tscn")
 
 enum player_state {
 	idle,
@@ -138,7 +138,10 @@ func flip_player_and_book(flip: bool) -> void:
 	player_sprite.flip_h = flip
 
 func fire_projectile() -> void:
-	var proj = projectile.instantiate() as Projectile
+	#This is where the conditions start because of the projectile types we have.
+	#The only logical way to check this is for the game to detect which weapon is
+	#applied.
+	var proj = OBSIDIAN_PROJECTILE.instantiate() as ObsidianProjectile
 	proj.direction = projectile_spawn_point.global_position - global_position
 	proj.global_position = projectile_spawn_point.global_position
 	get_tree().root.add_child(proj)
@@ -156,7 +159,6 @@ func _on_hitbox_area_entered(area):
 
 func _on_death_timer_timeout():
 	get_tree().change_scene_to_file("res://scenes/dungeonRooms/entry_scene.tscn")
-
 
 func picked_up(type: Droppable.droppable_type) -> void:
 	print("Test")

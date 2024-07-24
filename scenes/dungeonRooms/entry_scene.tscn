@@ -960,8 +960,6 @@ layer_0/tile_data = PackedInt32Array(-1441775, 65536, 4, -1441779, 65536, 4, -14
 position = Vector2(322, 618)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-visible = false
 position = Vector2(322, 0)
-color = Color(0.333333, 0.333333, 0.333333, 1)
-energy = 2.18
+color = Color(0.631373, 0.631373, 0.631373, 1)
 blend_mode = 1
