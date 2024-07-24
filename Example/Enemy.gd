@@ -64,6 +64,10 @@ func _on_enemy_area_area_entered(area) -> void:
 				else:
 					drop_item()
 		)
+	elif area.name == "throwingArea":
+		if health <=0:
+			drop_item()
+		health -= 1
 		
 func drop_item() -> void:
 	var new_item = item.instantiate()

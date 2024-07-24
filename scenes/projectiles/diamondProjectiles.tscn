@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://cwqd6hcg6v8fv"]
 
-[ext_resource type="Script" path="res://scripts/projectiles/diamondProjectiles.gd" id="1_knybo"]
-[ext_resource type="Texture2D" uid="uid://dahqtimyr6fwx" path="res://assets/projectiles/DiamondDagger.png" id="2_g103l"]
+[ext_resource type="Script" path="res://scripts/projectiles/diamondProjectiles.gd" id="1_hebsg"]
+[ext_resource type="Texture2D" uid="uid://dahqtimyr6fwx" path="res://assets/projectiles/DiamondDagger.png" id="2_s4ag3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_w66vb"]
 radius = 6.9155
@@ -13,11 +13,11 @@ height = 21.9589
 
 [node name="diamondProjectiles" type="Area2D"]
 scale = Vector2(0.5, 0.5)
-script = ExtResource("1_knybo")
+script = ExtResource("1_hebsg")
 
 [node name="DiamondDagger" type="Sprite2D" parent="."]
 position = Vector2(0.800167, -3.54322)
-texture = ExtResource("2_g103l")
+texture = ExtResource("2_s4ag3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.817585, -9.35056)

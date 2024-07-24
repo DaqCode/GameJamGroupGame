@@ -19,11 +19,11 @@ class_name Player
 @onready var dash_cooldown_timer: Timer = $DashCooldownTimer
 @onready var death_time: Timer = $DeathTimer
 
-
+@onready var diamond_projectile: PackedScene = preload("res://scenes/projectiles/diamondProjectiles.tscn")
 @onready var projectile: PackedScene = preload("res://scenes/projectiles/projectile.tscn")
 @onready var obsidian_projectile: PackedScene = preload("res://scenes/projectiles/obsidianProjectile.tscn")
 @onready var poison_projectile: PackedScene = preload("res://scenes/projectiles/poisonProjectile.tscn")
-@onready var diamond_projectile: PackedScene = preload("res://scenes/projectiles/diamond_projectiles.tscn")
+@onready var throwing_projectile = preload("res://scenes/projectiles/throwingProjectiles.tscn")
 
 enum player_state {
 	idle,
@@ -77,8 +77,9 @@ func handle_input() -> void:
 			fire_projectile()
 	
 	if Input.is_action_just_pressed("dash"):
-		dash()
-		can_shoot = false
+		if is_player_moving():
+			dash()
+			can_shoot = false
 
 func dash() -> void:
 	if not can_dash:
@@ -144,9 +145,11 @@ func fire_projectile() -> void:
 	#The only logical way to check this is for the game to detect which weapon is
 	#applied.
 	#var proj = obsidian_projectile.instantiate() as ObsidianProjectile     #(Obsidian dagger Acquired)
-	var proj = poison_projectile.instantiate() as PoisonProjectile         #(Poison Dagger Acquired)
-	#var proj = projectile.instantiate() as Projectile                      #(Normal weapon)
+	#var proj = poison_projectile.instantiate() as PoisonProjectile         #(Poison Dagger Acquired)
 	#var proj = diamond_projectile.instantiate() as DiamondProjectile       #(Diamond Projectile)
+	#var proj = throwing_projectile.instantiate() as ThrowingProjectile     #(Throwing Projectile)
+	var proj = projectile.instantiate() as Projectile                      #(Normal weapon)
+
 	proj.direction = projectile_spawn_point.global_position - global_position
 	proj.global_position = projectile_spawn_point.global_position
 	get_tree().root.add_child(proj)

@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://drrfp8cwe8b28"]
+
+[ext_resource type="Script" path="res://scripts/projectiles/throwingProjectiles.gd" id="1_fumu2"]
+[ext_resource type="Texture2D" uid="uid://b0vrmr2j072db" path="res://assets/projectiles/throwingKnifes_ONE.png" id="1_lj4cn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0dt2e"]
+radius = 1.79179
+height = 31.1762
+
+[node name="throwingProjectile" type="Area2D"]
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_fumu2")
+
+[node name="ThrowingKnifesOne" type="Sprite2D" parent="."]
+position = Vector2(1.865, -2.98)
+texture = ExtResource("1_lj4cn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.027, -3.461)
+shape = SubResource("CapsuleShape2D_0dt2e")
+
+[node name="Visible" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(0.499728, -3.25367)
+scale = Vector2(0.752491, 1.6)
+
+[node name="throwingArea" type="Area2D" parent="."]
+scale = Vector2(0.25, 0.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throwingArea"]
+position = Vector2(-0.027, -3.461)
+shape = SubResource("CapsuleShape2D_0dt2e")
+
+[connection signal="screen_exited" from="Visible" to="." method="_on_visible_screen_exited"]
+[connection signal="area_entered" from="throwingArea" to="." method="_on_throwing_area_area_entered"]
