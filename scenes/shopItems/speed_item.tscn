@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://dnu04mmbb5on1"]
+
+[ext_resource type="Script" path="res://scripts/shopItems/speed_item.gd" id="1_874bb"]
+[ext_resource type="Texture2D" uid="uid://c8g11a7nbwi3s" path="res://assets/shopItems/SpeedPotion.png" id="1_sr74r"]
+[ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="2_v7wt5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4t3wg"]
+size = Vector2(46, 40.25)
+
+[node name="speedItem" type="CharacterBody2D"]
+script = ExtResource("1_874bb")
+
+[node name="InfoStats" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -122.0
+offset_top = -48.0
+offset_right = 70.0
+offset_bottom = 104.0
+scale = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="ColorRect" parent="InfoStats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -8.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129412, 0.129412, 0.129412, 1)
+
+[node name="TextureRect" type="TextureRect" parent="InfoStats/ColorRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 34.0
+offset_right = 120.0
+offset_bottom = 90.0
+texture = ExtResource("1_sr74r")
+
+[node name="Title" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.0
+offset_top = 8.0
+offset_right = 87.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_v7wt5")
+theme_override_font_sizes/font_size = 32
+text = "Speed Potion"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = 18.0
+offset_right = 68.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_v7wt5")
+theme_override_font_sizes/font_size = 16
+text = "When drank: Speed buff "
+horizontal_alignment = 1
+
+[node name="Flavor" type="Label" parent="InfoStats/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -35.0
+offset_right = 163.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_v7wt5")
+theme_override_font_sizes/font_size = 16
+text = "The bottle feels extremely cold, but you 
+can hear the carbonation inside the bottle."
+
+[node name="Cost" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -104.0
+offset_right = 95.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_v7wt5")
+theme_override_font_sizes/font_size = 16
+text = "Cost: 7 Gold"
+
+[node name="SpeedPotion" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_sr74r")
+
+[node name="speedArea" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="speedArea"]
+shape = SubResource("RectangleShape2D_4t3wg")
+
+[connection signal="body_entered" from="speedArea" to="." method="_on_speed_area_body_entered"]
+[connection signal="body_exited" from="speedArea" to="." method="_on_speed_area_body_exited"]

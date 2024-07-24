@@ -1,8 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4j8ny45nbrli"]
+[gd_scene load_steps=14 format=3 uid="uid://c4j8ny45nbrli"]
 
 [ext_resource type="Texture2D" uid="uid://wt6d883grhd6" path="res://assets/tilemap/full tilemap.png" id="1_xbeds"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_oboi1"]
+[ext_resource type="PackedScene" uid="uid://doecdotna08mw" path="res://scenes/shopItems/obsidian_shop.tscn" id="4_22oq0"]
 [ext_resource type="PackedScene" uid="uid://dyiey33mghc56" path="res://scenes/characters/shopkeeper.tscn" id="4_nvhdk"]
+[ext_resource type="PackedScene" uid="uid://bpy3vlj7qo2dq" path="res://scenes/shopItems/poison_shop.tscn" id="5_lj1d0"]
+[ext_resource type="PackedScene" uid="uid://dxckt26gm6fst" path="res://scenes/shopItems/throwing_shop.tscn" id="6_4th2g"]
+[ext_resource type="PackedScene" uid="uid://y1nkr68pnems" path="res://scenes/shopItems/diamond_shop.tscn" id="7_8v8hf"]
+[ext_resource type="PackedScene" uid="uid://dnu04mmbb5on1" path="res://scenes/shopItems/speed_item.tscn" id="8_1tlky"]
+[ext_resource type="PackedScene" uid="uid://d2omfe8r1fgs4" path="res://scenes/shopItems/health_shop.tscn" id="9_7n55a"]
+[ext_resource type="PackedScene" uid="uid://s1f64dpe0g64" path="res://scenes/shopItems/dark_shop.tscn" id="10_4nxyw"]
+[ext_resource type="PackedScene" uid="uid://brxmd31ryn5os" path="res://scenes/shopItems/invincibility_shop.tscn" id="11_6yf2u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wlvnd"]
 texture = ExtResource("1_xbeds")
@@ -190,10 +198,8 @@ texture = ExtResource("1_xbeds")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_wlvnd")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hgbxi"]
-size = Vector2(162, 66)
-
 [node name="world1room7" type="Node2D"]
+position = Vector2(16, -80)
 
 [node name="Tilemap" type="Node2D" parent="."]
 
@@ -212,23 +218,34 @@ tile_set = SubResource("TileSet_awsy3")
 format = 2
 layer_0/tile_data = PackedInt32Array(262170, 131072, 6, 262171, 131072, 6, 262172, 131072, 6, 262173, 131072, 6, 262174, 131072, 6, 262175, 131072, 6, 262176, 131072, 6, 262177, 131072, 6, 262178, 131072, 6, 262179, 131072, 6, 262180, 327680, 6, 458791, 196608, 4, 524327, 65536, 7, 589864, 65536, 7, 655401, 65536, 7, 720938, 65536, 7, 786475, 65536, 7, 327705, 196608, 5, 393240, 327680, 6, 852012, 196608, 5, 917548, 196608, 5, 983084, 196608, 5, 1048620, 196608, 5, 1310762, 327680, 7, 1310761, 131072, 7, 1310760, 131072, 7, 1310759, 131072, 7, 1310758, 131072, 7, 1310757, 131072, 7, 1310756, 131072, 7, 1310755, 131072, 7, 1310754, 131072, 7, 1310753, 131072, 7, 1310752, 131072, 7, 1310751, 131072, 7, 1310750, 131072, 7, 1310749, 131072, 7, 1310748, 131072, 7, 1310747, 131072, 7, 1310746, 131072, 7, 1310745, 131072, 7, 1310744, 131072, 7, 1310743, 131072, 7, 1310742, 131072, 7, 1310741, 131072, 7, 1310740, 131072, 7, 1310739, 65536, 7, 262169, 65536, 6, 393241, 196608, 6, 327716, 262144, 5, 393252, 262144, 6, 393253, 327680, 6, 458790, 65536, 7, 393254, 196608, 4, 393239, 262144, 4, 524328, 196608, 4, 589865, 196608, 4, 655402, 196608, 4, 720939, 196608, 4, 786476, 196608, 4, 458775, 327680, 7, 524310, 327680, 7, 589845, 327680, 7, 655380, 327680, 7, 720915, 327680, 7, 786450, 327680, 7, 458774, 262144, 4, 524309, 262144, 4, 589844, 262144, 4, 655379, 262144, 4, 720914, 262144, 4, 786449, 262144, 4, 851985, 262144, 5, 983057, 262144, 5, 1048593, 262144, 5, 917521, 262144, 5, 1114156, 262144, 805306372, 1114129, 196608, 805306372, 1114130, 131072, 805306374, 1114154, 196608, 805306374, 1179690, 262144, 5, 1245226, 262144, 5, 1114155, 327680, 805306374, 1114131, 196608, 536870918, 1179667, 196608, 5, 1245203, 196608, 5)
 
-[node name="WallDecoration" type="TileMap" parent="Tilemap"]
-tile_set = SubResource("TileSet_awsy3")
-format = 2
-layer_0/tile_data = PackedInt32Array(327707, 262144, 1, 327705, 262144, 1, 327706, 262144, 1, 524311, 262144, 1, 327713, 262144, 1, 327716, 262144, 1, 524326, 262144, 1, 327711, 262144, 1, 851992, 393216, 0, 851996, 458752, 0, 852001, 524288, 0, 852005, 327680, 0)
+[node name="ShopAssets" type="Node2D" parent="."]
+
+[node name="shopkeeper" parent="ShopAssets" instance=ExtResource("4_nvhdk")]
+position = Vector2(492, 272)
+
+[node name="obsidianShop" parent="ShopAssets" instance=ExtResource("4_22oq0")]
+position = Vector2(400, 208)
+
+[node name="poisonShop" parent="ShopAssets" instance=ExtResource("5_lj1d0")]
+position = Vector2(464, 208)
+
+[node name="throwingShop" parent="ShopAssets" instance=ExtResource("6_4th2g")]
+position = Vector2(544, 212)
+
+[node name="diamondShop" parent="ShopAssets" instance=ExtResource("7_8v8hf")]
+position = Vector2(600, 216)
+
+[node name="speedItem" parent="ShopAssets" instance=ExtResource("8_1tlky")]
+position = Vector2(416, 160)
+
+[node name="healthShop" parent="ShopAssets" instance=ExtResource("9_7n55a")]
+position = Vector2(456, 160)
+
+[node name="darkShop" parent="ShopAssets" instance=ExtResource("10_4nxyw")]
+position = Vector2(496, 160)
+
+[node name="invincibilityShop" parent="ShopAssets" instance=ExtResource("11_6yf2u")]
+position = Vector2(536, 160)
 
 [node name="Player" parent="." instance=ExtResource("2_oboi1")]
 position = Vector2(504, 320)
-
-[node name="Area2D" type="Area2D" parent="."]
-visible = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(495, 272)
-shape = SubResource("RectangleShape2D_hgbxi")
-
-[node name="shopkeeper" parent="." instance=ExtResource("4_nvhdk")]
-position = Vector2(492, 272)
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

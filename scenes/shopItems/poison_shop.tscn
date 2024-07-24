@@ -1,0 +1,145 @@
+[gd_scene load_steps=5 format=3 uid="uid://bpy3vlj7qo2dq"]
+
+[ext_resource type="Texture2D" uid="uid://beildnf4q4ksi" path="res://assets/projectiles/poisonDagger.png" id="1_2ec85"]
+[ext_resource type="Script" path="res://scripts/shopItems/poison_shop.gd" id="1_e584g"]
+[ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="2_d1gmu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0y5gs"]
+size = Vector2(44, 39)
+
+[node name="poisonShop" type="CharacterBody2D"]
+script = ExtResource("1_e584g")
+
+[node name="poisonBuy" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="poisonBuy"]
+shape = SubResource("RectangleShape2D_0y5gs")
+
+[node name="InfoStats" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -122.0
+offset_top = -48.0
+offset_right = 70.0
+offset_bottom = 104.0
+scale = Vector2(0.5, 0.5)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="InfoStats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -8.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129412, 0.129412, 0.129412, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="InfoStats/ColorRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 40.0
+offset_right = 120.0
+offset_bottom = 96.0
+texture = ExtResource("1_2ec85")
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.0
+offset_top = 8.0
+offset_right = 87.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_d1gmu")
+theme_override_font_sizes/font_size = 32
+text = "Poison Dagger"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -81.0
+offset_top = 27.7
+offset_right = 82.0
+offset_bottom = 43.7
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_d1gmu")
+theme_override_font_sizes/font_size = 16
+text = "-1 Attack, +3 Poison Damage"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Flavor" type="Label" parent="InfoStats/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -27.0
+offset_right = 262.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("2_d1gmu")
+theme_override_font_sizes/font_size = 16
+text = "The poison it leaves behind is so corrossive it'll
+melt your insides first, and then the bones."
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Cost" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = -80.0
+offset_right = 89.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_d1gmu")
+theme_override_font_sizes/font_size = 16
+text = "Cost: 20 Gold"
+metadata/_edit_use_anchors_ = true
+
+[node name="PoisonDagger" type="Sprite2D" parent="."]
+position = Vector2(-3, 1)
+rotation = 0.785398
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_2ec85")
+
+[node name="PoisonDagger2" type="Sprite2D" parent="."]
+position = Vector2(-10, -2)
+rotation = 0.261799
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_2ec85")
+
+[node name="PoisonDagger3" type="Sprite2D" parent="."]
+position = Vector2(1.19209e-07, 8)
+rotation = 1.309
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_2ec85")
+
+[connection signal="body_entered" from="poisonBuy" to="." method="_on_poison_buy_body_entered"]
+[connection signal="body_exited" from="poisonBuy" to="." method="_on_poison_buy_body_exited"]

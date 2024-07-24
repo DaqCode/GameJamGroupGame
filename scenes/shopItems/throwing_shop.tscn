@@ -1,0 +1,147 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxckt26gm6fst"]
+
+[ext_resource type="Script" path="res://scripts/shopItems/throwing_shop.gd" id="1_aw6hk"]
+[ext_resource type="Texture2D" uid="uid://8ay4xdei3jiq" path="res://assets/projectiles/throwingknifes.png" id="2_e58e3"]
+[ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="3_wv2ia"]
+[ext_resource type="Texture2D" uid="uid://b0vrmr2j072db" path="res://assets/projectiles/throwingKnifes_ONE.png" id="4_t5ds8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cankk"]
+size = Vector2(44, 40)
+
+[node name="throwingShop" type="CharacterBody2D"]
+script = ExtResource("1_aw6hk")
+
+[node name="InfoStats" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -122.0
+offset_top = -48.0
+offset_right = 70.0
+offset_bottom = 104.0
+scale = Vector2(0.5, 0.5)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="InfoStats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -8.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129412, 0.129412, 0.129412, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="InfoStats/ColorRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 40.0
+offset_right = 120.0
+offset_bottom = 96.0
+texture = ExtResource("2_e58e3")
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.0
+offset_top = 8.0
+offset_right = 87.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_wv2ia")
+theme_override_font_sizes/font_size = 32
+text = "Throwing Knifes"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Description" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = 24.0
+offset_right = 214.0
+offset_bottom = 40.0
+grow_vertical = 2
+scale = Vector2(0.805, 0.805)
+theme_override_fonts/font = ExtResource("3_wv2ia")
+theme_override_font_sizes/font_size = 16
+text = "+2 Projectiles, 25% Weapon speed"
+horizontal_alignment = 1
+
+[node name="Flavor" type="Label" parent="InfoStats/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -31.94
+offset_right = 262.0
+offset_bottom = 27.35
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("3_wv2ia")
+theme_override_font_sizes/font_size = 16
+text = "Through the darkest of nights and brightest of days,
+these knifes still find their target more silently 
+than ever.
+"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Cost" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.619565
+anchor_top = 0.888889
+anchor_right = 0.625
+anchor_bottom = 0.888889
+offset_left = 14.0
+offset_top = -80.0
+offset_right = 89.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.615, 0.615)
+theme_override_fonts/font = ExtResource("3_wv2ia")
+theme_override_font_sizes/font_size = 16
+text = "Cost: 24 Gold"
+metadata/_edit_use_anchors_ = true
+
+[node name="ThrowingKnifesOne" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+rotation = 0.785398
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_t5ds8")
+
+[node name="ThrowingKnifesOne2" type="Sprite2D" parent="."]
+position = Vector2(1, 2.38419e-07)
+rotation = 1.0472
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_t5ds8")
+
+[node name="ThrowingKnifesOne3" type="Sprite2D" parent="."]
+position = Vector2(-3, -5)
+rotation = 0.261799
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_t5ds8")
+
+[node name="throwingBuy" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="throwingBuy"]
+position = Vector2(0, -7)
+shape = SubResource("RectangleShape2D_cankk")
+
+[connection signal="body_entered" from="throwingBuy" to="." method="_on_throwing_buy_body_entered"]
+[connection signal="body_exited" from="throwingBuy" to="." method="_on_throwing_buy_body_exited"]

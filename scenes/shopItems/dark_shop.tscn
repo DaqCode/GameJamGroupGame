@@ -1,0 +1,123 @@
+[gd_scene load_steps=5 format=3 uid="uid://s1f64dpe0g64"]
+
+[ext_resource type="Texture2D" uid="uid://b4jyuqbcqtesl" path="res://assets/shopItems/DarkPotion.png" id="1_6hsxe"]
+[ext_resource type="Script" path="res://scripts/shopItems/dark_shop.gd" id="1_ryk7a"]
+[ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="2_eaq3l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlt8k"]
+
+[node name="darkShop" type="CharacterBody2D"]
+script = ExtResource("1_ryk7a")
+
+[node name="InfoStats" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -122.0
+offset_top = -48.0
+offset_right = 70.0
+offset_bottom = 104.0
+scale = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="ColorRect" parent="InfoStats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -8.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129412, 0.129412, 0.129412, 1)
+
+[node name="TextureRect" type="TextureRect" parent="InfoStats/ColorRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 34.0
+offset_right = 120.0
+offset_bottom = 90.0
+texture = ExtResource("1_6hsxe")
+
+[node name="Title" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.0
+offset_top = 8.0
+offset_right = 87.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_eaq3l")
+theme_override_font_sizes/font_size = 32
+text = "Darkness Potion"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = 18.0
+offset_right = 271.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.485, 0.485)
+theme_override_fonts/font = ExtResource("2_eaq3l")
+theme_override_font_sizes/font_size = 16
+text = "When drank: All enemies become disoriented for 3 seconds"
+horizontal_alignment = 1
+
+[node name="Flavor" type="Label" parent="InfoStats/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -35.0
+offset_right = 163.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_eaq3l")
+theme_override_font_sizes/font_size = 16
+text = "You can hear the cries and screams of 
+agony from the souls that gathered in here."
+
+[node name="Cost" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = -104.0
+offset_right = 95.0
+offset_bottom = -78.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_eaq3l")
+theme_override_font_sizes/font_size = 16
+text = "Cost: 3 Gold"
+
+[node name="DarkPotion" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_6hsxe")
+
+[node name="darkArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="darkArea"]
+shape = SubResource("RectangleShape2D_xlt8k")
+
+[connection signal="body_entered" from="darkArea" to="." method="_on_dark_area_body_entered"]
+[connection signal="body_exited" from="darkArea" to="." method="_on_dark_area_body_exited"]

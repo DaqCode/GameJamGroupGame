@@ -24,20 +24,23 @@ offset_bottom = 184.0
 texture = ExtResource("1_0dck5")
 
 [node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 16.0
+offset_top = 2.94
 offset_right = 80.0
-offset_bottom = 24.0
+offset_bottom = 26.94
+theme_override_fonts/normal_font = ExtResource("3_2l64i")
 text = "Name"
 
 [node name="Text" type="RichTextLabel" parent="NinePatchRect"]
 layout_mode = 0
 offset_left = 16.0
-offset_top = 24.0
+offset_top = 16.0
 offset_right = 304.0
-offset_bottom = 64.0
+offset_bottom = 66.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_2l64i")
-theme_override_font_sizes/normal_font_size = 13
+theme_override_font_sizes/normal_font_size = 16
 text = "Random text"
 tab_size = 3

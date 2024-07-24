@@ -1,0 +1,125 @@
+[gd_scene load_steps=5 format=3 uid="uid://brxmd31ryn5os"]
+
+[ext_resource type="Texture2D" uid="uid://q06ulxak74x8" path="res://assets/shopItems/InvincibilityPotion.png" id="1_inwdf"]
+[ext_resource type="Script" path="res://scripts/shopItems/invincibility_shop.gd" id="1_qnc4r"]
+[ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="2_40euf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ghfls"]
+
+[node name="invincibilityShop" type="CharacterBody2D"]
+script = ExtResource("1_qnc4r")
+
+[node name="InfoStats" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -122.0
+offset_top = -48.0
+offset_right = 70.0
+offset_bottom = 104.0
+scale = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="ColorRect" parent="InfoStats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -8.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129412, 0.129412, 0.129412, 1)
+
+[node name="TextureRect" type="TextureRect" parent="InfoStats/ColorRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 34.0
+offset_right = 120.0
+offset_bottom = 90.0
+texture = ExtResource("1_inwdf")
+
+[node name="Title" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.0
+offset_top = 8.0
+offset_right = 129.0
+offset_bottom = 40.0
+grow_horizontal = 2
+scale = Vector2(0.785, 0.785)
+theme_override_fonts/font = ExtResource("2_40euf")
+theme_override_font_sizes/font_size = 32
+text = "Invincibility Potion"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Description" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = 18.0
+offset_right = 182.0
+offset_bottom = 34.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.64, 0.64)
+theme_override_fonts/font = ExtResource("2_40euf")
+theme_override_font_sizes/font_size = 16
+text = "When drank: You take no damage for 5 seconds"
+
+[node name="Flavor" type="Label" parent="InfoStats/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -35.0
+offset_right = 163.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_40euf")
+theme_override_font_sizes/font_size = 16
+text = "The surge of justice you need to send to 
+your people. This is the justice they'll have."
+
+[node name="Cost" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 46.0
+offset_top = -104.0
+offset_right = 121.0
+offset_bottom = -69.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("2_40euf")
+theme_override_font_sizes/font_size = 16
+text = "Cost: 
+12 Gold"
+
+[node name="InvincibilityPotion" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_inwdf")
+
+[node name="InvincibilityArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvincibilityArea"]
+shape = SubResource("RectangleShape2D_ghfls")
+
+[connection signal="body_entered" from="InvincibilityArea" to="." method="_on_invincibility_area_body_entered"]
+[connection signal="body_exited" from="InvincibilityArea" to="." method="_on_invincibility_area_body_exited"]

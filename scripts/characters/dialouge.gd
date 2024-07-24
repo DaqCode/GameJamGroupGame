@@ -33,7 +33,7 @@ func _input(event):
 
 func next_script(): 
 	current_dialouge_id += 1
-	if current_dialouge_id >= len(dialouge) -1 :
+	if current_dialouge_id >= len(dialouge):
 		d_active = false
 		$NinePatchRect.visible = false
 		emit_signal("dialouge_finished")
