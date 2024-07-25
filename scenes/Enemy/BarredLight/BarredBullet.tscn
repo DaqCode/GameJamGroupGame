@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1xmsakwwmhb5"]
+
+[ext_resource type="Script" path="res://scenes/Enemy/BarredLight/BarredBullet.gd" id="1_dsxja"]
+[ext_resource type="Texture2D" uid="uid://dv6c6mydktufa" path="res://scenes/Enemy/BarredLight/flashlightbullet.png" id="1_nyu26"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7vmxx"]
+size = Vector2(9, 27)
+
+[node name="BarredProj" type="Area2D"]
+collision_layer = 8
+collision_mask = 19
+script = ExtResource("1_dsxja")
+speed = 250.0
+
+[node name="Flashlightbullet" type="Sprite2D" parent="."]
+position = Vector2(0, -3)
+rotation = 1.5708
+scale = Vector2(0.270386, 1)
+texture = ExtResource("1_nyu26")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -3.00001)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_7vmxx")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+position = Vector2(-4.76837e-07, -3)
+rotation = 1.5708
+scale = Vector2(1.55, 2.35)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

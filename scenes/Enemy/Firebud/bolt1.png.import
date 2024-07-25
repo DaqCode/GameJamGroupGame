@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cdlq2ba81c2ku"
-path="res://.godot/imported/bolt1.png-33b27bb600d974c3bf54bc76b2bd262e.ctex"
+path="res://.godot/imported/bolt1.png-29b643f6d01fbd749fb2edcbf0209b16.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Enemy/bolt1.png"
-dest_files=["res://.godot/imported/bolt1.png-33b27bb600d974c3bf54bc76b2bd262e.ctex"]
+source_file="res://scenes/Enemy/Firebud/bolt1.png"
+dest_files=["res://.godot/imported/bolt1.png-29b643f6d01fbd749fb2edcbf0209b16.ctex"]
 
 [params]
 

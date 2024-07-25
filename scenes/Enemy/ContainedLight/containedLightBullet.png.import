@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsqibqspfsbj0"
-path="res://.godot/imported/bolt2.png-fc5e9bcd2d27c6e746d7a1a1efb66a34.ctex"
+uid="uid://dcsscnta61kvt"
+path="res://.godot/imported/containedLightBullet.png-24e899625f05d99308be084c3ac2a680.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Enemy/bolt2.png"
-dest_files=["res://.godot/imported/bolt2.png-fc5e9bcd2d27c6e746d7a1a1efb66a34.ctex"]
+source_file="res://scenes/Enemy/ContainedLight/containedLightBullet.png"
+dest_files=["res://.godot/imported/containedLightBullet.png-24e899625f05d99308be084c3ac2a680.ctex"]
 
 [params]
 

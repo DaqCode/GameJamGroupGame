@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1chox65lnjug"]
+
+[ext_resource type="Script" path="res://scenes/Enemy/ContainedLight/enemiContainedLight.gd" id="1_3jiaf"]
+[ext_resource type="Texture2D" uid="uid://c13e2mijcpsru" path="res://assets/enemies/lantern-enemy.png" id="2_3nmno"]
+[ext_resource type="PackedScene" uid="uid://cxxaxhh8qstif" path="res://scenes/Enemy/ContainedLight/contained_proj.tscn" id="2_m5n4v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhdnr"]
+atlas = ExtResource("2_3nmno")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otgu5"]
+atlas = ExtResource("2_3nmno")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syqdp"]
+atlas = ExtResource("2_3nmno")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3nhh"]
+atlas = ExtResource("2_3nmno")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7k2vm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhdnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_otgu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syqdp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3nhh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8qp82"]
+size = Vector2(16, 16)
+
+[node name="ContainedLight" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 31
+script = ExtResource("1_3jiaf")
+ammo = ExtResource("2_m5n4v")
+enemySpeed = 25
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7k2vm")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8qp82")
+
+[node name="ContainedArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ContainedArea"]
+shape = SubResource("RectangleShape2D_8qp82")
+
+[node name="PoisonTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="ContainedArea" to="." method="_on_contained_area_area_entered"]

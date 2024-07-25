@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://bsvbovmxqqp4y"]
+
+[ext_resource type="Script" path="res://scenes/Enemy/LightningNightmares/lightning_nightmares.gd" id="1_tpxsi"]
+[ext_resource type="Texture2D" uid="uid://dhboda3p84hai" path="res://assets/enemies/glowingGhost.png" id="1_w2j8u"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_42vno"]
+atlas = ExtResource("1_w2j8u")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7aghk"]
+atlas = ExtResource("1_w2j8u")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywpqi"]
+atlas = ExtResource("1_w2j8u")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1552g"]
+atlas = ExtResource("1_w2j8u")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xqxdv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_42vno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7aghk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywpqi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1552g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hh3ub"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7y78k"]
+size = Vector2(26.6667, 26.6667)
+
+[node name="LightningNightmares" type="CharacterBody2D"]
+scale = Vector2(0.75, 0.75)
+collision_layer = 4
+collision_mask = 31
+script = ExtResource("1_tpxsi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xqxdv")
+autoplay = "default"
+frame_progress = 0.984747
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_hh3ub")
+
+[node name="LightningArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LightningArea"]
+position = Vector2(0, 1.33333)
+shape = SubResource("RectangleShape2D_7y78k")
+
+[node name="PoisonTimer" type="Timer" parent="."]
+
+[connection signal="area_entered" from="LightningArea" to="." method="_on_lightning_area_area_entered"]
+[connection signal="body_entered" from="LightningArea" to="." method="_on_lightning_area_body_entered"]

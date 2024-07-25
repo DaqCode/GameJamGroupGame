@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://bv6fm20s17iss"]
 
-[ext_resource type="Script" path="res://scenes/Enemy/EnemyBullets.gd" id="1_sl2qx"]
-[ext_resource type="Texture2D" uid="uid://cdlq2ba81c2ku" path="res://scenes/Enemy/bolt1.png" id="2_mg522"]
-[ext_resource type="Texture2D" uid="uid://bsqibqspfsbj0" path="res://scenes/Enemy/bolt2.png" id="3_yorbc"]
-[ext_resource type="Texture2D" uid="uid://bo7uiitrfc843" path="res://scenes/Enemy/bolt3.png" id="4_tkyk2"]
-[ext_resource type="Texture2D" uid="uid://b4itbwxgdxnct" path="res://scenes/Enemy/bolt4.png" id="5_hwpv5"]
+[ext_resource type="Script" path="res://scenes/Enemy/Firebud/EnemyBullets.gd" id="1_vnd8p"]
+[ext_resource type="Texture2D" uid="uid://cdlq2ba81c2ku" path="res://scenes/Enemy/Firebud/bolt1.png" id="2_myp3g"]
+[ext_resource type="Texture2D" uid="uid://bsqibqspfsbj0" path="res://scenes/Enemy/Firebud/bolt2.png" id="3_dvw6l"]
+[ext_resource type="Texture2D" uid="uid://bo7uiitrfc843" path="res://scenes/Enemy/Firebud/bolt3.png" id="4_52u5g"]
+[ext_resource type="Texture2D" uid="uid://b4itbwxgdxnct" path="res://scenes/Enemy/Firebud/bolt4.png" id="5_oihga"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3qyp"]
-atlas = ExtResource("2_mg522")
+atlas = ExtResource("2_myp3g")
 region = Rect2(0, 0, 48, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gp2ae"]
@@ -17,13 +17,13 @@ animations = [{
 "texture": SubResource("AtlasTexture_m3qyp")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_yorbc")
+"texture": ExtResource("3_dvw6l")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_tkyk2")
+"texture": ExtResource("4_52u5g")
 }, {
 "duration": 1.0,
-"texture": ExtResource("5_hwpv5")
+"texture": ExtResource("5_oihga")
 }],
 "loop": true,
 "name": &"default",
@@ -37,14 +37,14 @@ size = Vector2(24, 20)
 scale = Vector2(0.324316, -0.292231)
 collision_layer = 8
 collision_mask = 19
-script = ExtResource("1_sl2qx")
+script = ExtResource("1_vnd8p")
 speed = 150.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_gp2ae")
 autoplay = "default"
-frame_progress = 0.593078
+frame_progress = 0.745948
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(9.96, 0)

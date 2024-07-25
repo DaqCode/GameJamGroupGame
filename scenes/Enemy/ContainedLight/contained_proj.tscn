@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxxaxhh8qstif"]
+
+[ext_resource type="Script" path="res://scenes/Enemy/ContainedLight/contained_proj.gd" id="1_mybn7"]
+[ext_resource type="Texture2D" uid="uid://dcsscnta61kvt" path="res://scenes/Enemy/ContainedLight/containedLightBullet.png" id="1_ydb4t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jjj8s"]
+radius = 6.0
+
+[node name="ContainedProj" type="Area2D"]
+scale = Vector2(0.25, 0.25)
+collision_layer = 8
+collision_mask = 19
+script = ExtResource("1_mybn7")
+speed = 150.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ydb4t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jjj8s")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_screen_exited"]

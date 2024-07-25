@@ -1,0 +1,77 @@
+[gd_scene load_steps=10 format=3 uid="uid://do4aiaa7vcb7n"]
+
+[ext_resource type="Script" path="res://scenes/Enemy/Firebud/Enemy.gd" id="1_rjthn"]
+[ext_resource type="PackedScene" uid="uid://bv6fm20s17iss" path="res://scenes/Enemy/Firebud/enemy_bullets.tscn" id="2_ar1t2"]
+[ext_resource type="Texture2D" uid="uid://du6q5metubpm4" path="res://assets/enemies/fire-enemy.png" id="3_we1h5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ks8bf"]
+atlas = ExtResource("3_we1h5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_avspn"]
+atlas = ExtResource("3_we1h5")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24nvv"]
+atlas = ExtResource("3_we1h5")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i60fh"]
+atlas = ExtResource("3_we1h5")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2asob"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ks8bf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_avspn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24nvv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i60fh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_34es0"]
+size = Vector2(22, 24)
+
+[node name="Firebud" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 31
+script = ExtResource("1_rjthn")
+ammo = ExtResource("2_ar1t2")
+enemySpeed = 1
+
+[node name="Icon" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.499999, 0.25)
+scale = Vector2(1.4375, 1.46875)
+sprite_frames = SubResource("SpriteFrames_2asob")
+autoplay = "default"
+frame_progress = 0.402587
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 64)
+collision_mask = 3
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_34es0")
+
+[node name="EnemyArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyArea"]
+shape = SubResource("RectangleShape2D_34es0")
+
+[node name="PoisonTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="EnemyArea" to="." method="_on_enemy_area_area_entered"]

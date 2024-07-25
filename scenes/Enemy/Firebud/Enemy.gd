@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var timer: Timer = $Timer
 @export var ammo: PackedScene
 @export var health: float = 5
-@export var enemySpeed : int = 50
+@export var enemySpeed : int
 @onready var poison_timer: Timer = $PoisonTimer
 
 @onready var item: PackedScene = preload("res://scenes/droppable/droppable.tscn")
@@ -14,8 +14,8 @@ var Player
 func _ready()-> void:
 	Player = get_parent().find_child("Player")
 
-func _physics_process(delta: float)-> void:
-	velocity = ((Player.position - position) * enemySpeed).normalized()
+func _physics_process(_delta: float)-> void:
+	velocity = (Player.position - position).normalized() * enemySpeed
 	_aim()
 	_check_player_collision()
 	move_and_slide()

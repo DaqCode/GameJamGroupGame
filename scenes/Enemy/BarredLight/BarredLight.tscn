@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6210w462gpl3"]
+
+[ext_resource type="Script" path="res://scenes/Enemy/BarredLight/BarredLight.gd" id="1_40ook"]
+[ext_resource type="Texture2D" uid="uid://b3kiu1muk5byv" path="res://assets/enemies/flashlight.png" id="2_7pman"]
+[ext_resource type="PackedScene" uid="uid://d1xmsakwwmhb5" path="res://scenes/Enemy/BarredLight/BarredBullet.tscn" id="2_iuyhb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l20ns"]
+atlas = ExtResource("2_7pman")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5biw"]
+atlas = ExtResource("2_7pman")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms02h"]
+atlas = ExtResource("2_7pman")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8e0x"]
+atlas = ExtResource("2_7pman")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xpycg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l20ns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5biw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms02h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8e0x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xk688"]
+size = Vector2(14, 10)
+
+[node name="BarredLight" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 31
+script = ExtResource("1_40ook")
+ammo = ExtResource("2_iuyhb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xpycg")
+autoplay = "default"
+frame_progress = 0.301848
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_xk688")
+
+[node name="BarredArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BarredArea"]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_xk688")
+
+[node name="PoisonTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="area_entered" from="BarredArea" to="." method="_on_barred_area_area_entered"]

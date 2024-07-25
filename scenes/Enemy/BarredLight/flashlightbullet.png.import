@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo7uiitrfc843"
-path="res://.godot/imported/bolt3.png-a90317cb7fe7af27648d38c9e56741a3.ctex"
+uid="uid://dv6c6mydktufa"
+path="res://.godot/imported/flashlightbullet.png-8b9dd5cb7cb3cfb9a8f3c2fb02b0162c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Enemy/bolt3.png"
-dest_files=["res://.godot/imported/bolt3.png-a90317cb7fe7af27648d38c9e56741a3.ctex"]
+source_file="res://scenes/Enemy/BarredLight/flashlightbullet.png"
+dest_files=["res://.godot/imported/flashlightbullet.png-8b9dd5cb7cb3cfb9a8f3c2fb02b0162c.ctex"]
 
 [params]
 

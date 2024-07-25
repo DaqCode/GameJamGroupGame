@@ -193,6 +193,20 @@ func _on_hitbox_area_entered(area):
 		if area.name == "EnemyBullets":
 			health -= 1
 			print ("Player Health %s" % health)
+			print ("Damaged by fireball bullet")
+		if area.name == "LightningArea":
+			health -= 2
+			print ("Player Health %s" % health)
+			print ("Damaged by Lightning Nightmare")
+		if area.name == "BarredProj":
+			health -= 1
+			print ("Player Health %s" % health)
+			print ("Damaged by Barred Light")
+		if area.name == "ContainedProj":
+			health -= 1
+			print ("Player Health %s" % health)
+			print ("Damaged by Barred Light")
+		
 	else:
 		is_dead = true
 		death_time.start()
