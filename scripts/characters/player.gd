@@ -170,11 +170,18 @@ func fire_projectile() -> void:
 		get_tree().root.add_child(proj)
 	
 	elif throwing_projectile:
-		for i in 3:
+		var spread_angle = deg_to_rad(10)  # Spread angle in radians (adjust as needed)
+		var base_dir = (projectile_spawn_point.global_position - global_position).normalized()
+	
+		for i in range(3):
 			var proj = throwing_projectile.instantiate() as ThrowingProjectile
-			proj.direction = projectile_spawn_point.global_position - global_position
 			proj.global_position = projectile_spawn_point.global_position
-			proj.direction.y = proj.direction.y + cos(0.0001) * i
+			
+			# Calculate the spread direction
+			var angle_offset = spread_angle * (i - 1)  # -1 -> left, 0 -> center, 1 -> right
+			var spread_dir = base_dir.rotated(angle_offset)
+			
+			proj.direction = spread_dir
 			proj.look_at(get_global_mouse_position())
 			get_tree().root.add_child(proj)
 			
