@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c4j8ny45nbrli"]
+[gd_scene load_steps=19 format=3 uid="uid://c4j8ny45nbrli"]
 
 [ext_resource type="Texture2D" uid="uid://wt6d883grhd6" path="res://assets/tilemap/full tilemap.png" id="1_xbeds"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_oboi1"]
@@ -11,6 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://d2omfe8r1fgs4" path="res://scenes/shopItems/health_shop.tscn" id="9_7n55a"]
 [ext_resource type="PackedScene" uid="uid://s1f64dpe0g64" path="res://scenes/shopItems/dark_shop.tscn" id="10_4nxyw"]
 [ext_resource type="PackedScene" uid="uid://brxmd31ryn5os" path="res://scenes/shopItems/invincibility_shop.tscn" id="11_6yf2u"]
+[ext_resource type="PackedScene" uid="uid://c6lqqh58jrbfp" path="res://scenes/treasure/giant_gold_coin_treasure.tscn" id="12_qtelg"]
+[ext_resource type="PackedScene" uid="uid://bflc2j43803f8" path="res://scenes/treasure/iron_treasure.tscn" id="13_l84u0"]
+[ext_resource type="PackedScene" uid="uid://cs0tinhspw870" path="res://scenes/treasure/wooden_treasure.tscn" id="14_ks7v2"]
+[ext_resource type="PackedScene" uid="uid://bm1mg5act3o3h" path="res://scenes/treasure/rose_treasure.tscn" id="15_7wabp"]
+[ext_resource type="PackedScene" uid="uid://hdseyc5n8swf" path="res://scenes/treasure/wasp_treasure.tscn" id="15_snptm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wlvnd"]
 texture = ExtResource("1_xbeds")
@@ -246,6 +251,23 @@ position = Vector2(496, 160)
 
 [node name="invincibilityShop" parent="ShopAssets" instance=ExtResource("11_6yf2u")]
 position = Vector2(536, 160)
+
+[node name="Treasure Items" type="Node2D" parent="."]
+
+[node name="GiantGoldCoinTreasure" parent="Treasure Items" instance=ExtResource("12_qtelg")]
+position = Vector2(426, 126)
+
+[node name="ironTreasure" parent="Treasure Items" instance=ExtResource("13_l84u0")]
+position = Vector2(465, 125)
+
+[node name="woodenTreasure" parent="Treasure Items" instance=ExtResource("14_ks7v2")]
+position = Vector2(504, 128)
+
+[node name="roseTreasure" parent="Treasure Items" instance=ExtResource("15_7wabp")]
+position = Vector2(544, 128)
+
+[node name="waspTreasure" parent="Treasure Items" instance=ExtResource("15_snptm")]
+position = Vector2(584, 160)
 
 [node name="Player" parent="." instance=ExtResource("2_oboi1")]
 position = Vector2(504, 320)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo7uiitrfc843"
-path="res://.godot/imported/bolt3.png-84d9f2d53529a99843a214232c6d60f9.ctex"
+uid="uid://b4itbwxgdxnct"
+path="res://.godot/imported/bolt4.png-704f90af8f0278a271be590338c1d38f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemy/bolt3.png"
-dest_files=["res://.godot/imported/bolt3.png-84d9f2d53529a99843a214232c6d60f9.ctex"]
+source_file="res://scenes/Enemy/bolt4.png"
+dest_files=["res://.godot/imported/bolt4.png-704f90af8f0278a271be590338c1d38f.ctex"]
 
 [params]
 

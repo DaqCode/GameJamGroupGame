@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://bv6fm20s17iss"]
 
-[ext_resource type="Script" path="res://Enemy/EnemyBullets.gd" id="1_sl2qx"]
-[ext_resource type="Texture2D" uid="uid://cdlq2ba81c2ku" path="res://Enemy/bolt1.png" id="2_mg522"]
-[ext_resource type="Texture2D" uid="uid://bsqibqspfsbj0" path="res://Enemy/bolt2.png" id="3_yorbc"]
-[ext_resource type="Texture2D" uid="uid://bo7uiitrfc843" path="res://Enemy/bolt3.png" id="4_tkyk2"]
-[ext_resource type="Texture2D" uid="uid://b4itbwxgdxnct" path="res://Enemy/bolt4.png" id="5_hwpv5"]
+[ext_resource type="Script" path="res://scenes/Enemy/EnemyBullets.gd" id="1_sl2qx"]
+[ext_resource type="Texture2D" uid="uid://cdlq2ba81c2ku" path="res://scenes/Enemy/bolt1.png" id="2_mg522"]
+[ext_resource type="Texture2D" uid="uid://bsqibqspfsbj0" path="res://scenes/Enemy/bolt2.png" id="3_yorbc"]
+[ext_resource type="Texture2D" uid="uid://bo7uiitrfc843" path="res://scenes/Enemy/bolt3.png" id="4_tkyk2"]
+[ext_resource type="Texture2D" uid="uid://b4itbwxgdxnct" path="res://scenes/Enemy/bolt4.png" id="5_hwpv5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m3qyp"]
 atlas = ExtResource("2_mg522")

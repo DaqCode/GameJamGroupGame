@@ -1,0 +1,113 @@
+[gd_scene load_steps=5 format=3 uid="uid://bm1mg5act3o3h"]
+
+[ext_resource type="Script" path="res://scripts/treasure/rose_Treasure.gd" id="1_ppknq"]
+[ext_resource type="Texture2D" uid="uid://bqx0tddcx6rfy" path="res://assets/treasure/Red-Blue Rose.png" id="2_74un3"]
+[ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="3_wrq8b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wd102"]
+size = Vector2(50, 46.875)
+
+[node name="roseTreasure" type="CharacterBody2D"]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_ppknq")
+
+[node name="InfoStats" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -118.75
+offset_top = -40.0
+offset_right = 73.25
+offset_bottom = 112.0
+scale = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="ColorRect" parent="InfoStats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -8.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129412, 0.129412, 0.129412, 1)
+
+[node name="TextureRect" type="TextureRect" parent="InfoStats/ColorRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 34.0
+offset_right = 120.0
+offset_bottom = 90.0
+texture = ExtResource("2_74un3")
+
+[node name="Title" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.0
+offset_top = 8.0
+offset_right = 87.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_wrq8b")
+theme_override_font_sizes/font_size = 32
+text = "Red-Blue Rose"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = 18.5
+offset_right = 176.5
+offset_bottom = 53.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.625, 0.625)
+theme_override_fonts/font = ExtResource("3_wrq8b")
+theme_override_font_sizes/font_size = 16
+text = "1+ attack, 25% more speed"
+horizontal_alignment = 1
+
+[node name="Flavor" type="Label" parent="InfoStats/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.5
+offset_top = -43.5
+offset_right = 151.5
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("3_wrq8b")
+theme_override_font_sizes/font_size = 16
+text = "One side, you have malace.
+The other, benevolence.
+What do both of them give you then?"
+
+[node name="Red-blueRose" type="Sprite2D" parent="."]
+position = Vector2(3.75, -3.75)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_74un3")
+
+[node name="roseArea" type="Area2D" parent="."]
+scale = Vector2(0.75, 0.75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="roseArea"]
+position = Vector2(2.5, -5)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_wd102")
+
+[connection signal="body_entered" from="roseArea" to="." method="_on_rose_area_body_entered"]
+[connection signal="body_exited" from="roseArea" to="." method="_on_rose_area_body_exited"]

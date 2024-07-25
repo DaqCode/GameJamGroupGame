@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4itbwxgdxnct"
-path="res://.godot/imported/bolt4.png-2b75bf882f482b8ec3a6f175cb1a4a87.ctex"
+uid="uid://bqx0tddcx6rfy"
+path="res://.godot/imported/Red-Blue Rose.png-3e85e7c4f0cc4923a3e985fab1a61db5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Enemy/bolt4.png"
-dest_files=["res://.godot/imported/bolt4.png-2b75bf882f482b8ec3a6f175cb1a4a87.ctex"]
+source_file="res://assets/treasure/Red-Blue Rose.png"
+dest_files=["res://.godot/imported/Red-Blue Rose.png-3e85e7c4f0cc4923a3e985fab1a61db5.ctex"]
 
 [params]
 

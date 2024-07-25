@@ -1,0 +1,108 @@
+[gd_scene load_steps=5 format=3 uid="uid://c6lqqh58jrbfp"]
+
+[ext_resource type="Texture2D" uid="uid://cesgr8mnfe67t" path="res://assets/treasure/GiantGoldCoin.png" id="1_nhwmb"]
+[ext_resource type="Script" path="res://scripts/treasure/giant_gold_coin_treasure.gd" id="1_un1hj"]
+[ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="2_exry0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y13b1"]
+size = Vector2(57, 52)
+
+[node name="GiantGoldCoinTreasure" type="CharacterBody2D"]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_un1hj")
+
+[node name="InfoStats" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -128.0
+offset_top = -40.0
+offset_right = 64.0
+offset_bottom = 112.0
+scale = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="ColorRect" parent="InfoStats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -8.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129412, 0.129412, 0.129412, 1)
+
+[node name="TextureRect" type="TextureRect" parent="InfoStats/ColorRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 34.0
+offset_right = 120.0
+offset_bottom = 90.0
+texture = ExtResource("1_nhwmb")
+
+[node name="Title" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -87.0
+offset_top = 8.0
+offset_right = 87.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_exry0")
+theme_override_font_sizes/font_size = 32
+text = "Giant Gold Coin"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = 24.0
+offset_right = 44.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_exry0")
+theme_override_font_sizes/font_size = 16
+text = "You gain 20% more gold"
+horizontal_alignment = 1
+
+[node name="Flavor" type="Label" parent="InfoStats/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -86.0
+offset_top = -32.0
+offset_right = 163.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+theme_override_fonts/font = ExtResource("2_exry0")
+theme_override_font_sizes/font_size = 16
+text = "It looks down, but it has to do what it has 
+to do. Make itself useful."
+
+[node name="GiantGoldCoin" type="Sprite2D" parent="."]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_nhwmb")
+
+[node name="CoinArea" type="Area2D" parent="."]
+scale = Vector2(0.7, 0.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CoinArea"]
+shape = SubResource("RectangleShape2D_y13b1")
+
+[connection signal="body_entered" from="CoinArea" to="." method="_on_coin_area_body_entered"]
+[connection signal="body_exited" from="CoinArea" to="." method="_on_coin_area_body_exited"]

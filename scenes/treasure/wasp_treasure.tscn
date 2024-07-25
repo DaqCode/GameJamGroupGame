@@ -1,0 +1,110 @@
+[gd_scene load_steps=5 format=3 uid="uid://hdseyc5n8swf"]
+
+[ext_resource type="Script" path="res://scripts/treasure/wasp_treasure.gd" id="1_bul8a"]
+[ext_resource type="Texture2D" uid="uid://dd3rxmd3of14b" path="res://assets/treasure/CombustiveWaspNest.png" id="2_hjt07"]
+[ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="3_j731s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l6eyw"]
+size = Vector2(40, 40)
+
+[node name="waspTreasure" type="CharacterBody2D"]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("1_bul8a")
+
+[node name="InfoStats" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -118.75
+offset_top = -40.0
+offset_right = 73.25
+offset_bottom = 112.0
+scale = Vector2(0.5, 0.5)
+
+[node name="ColorRect" type="ColorRect" parent="InfoStats"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = -8.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.129412, 0.129412, 0.129412, 1)
+
+[node name="TextureRect" type="TextureRect" parent="InfoStats/ColorRect"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 21.15
+offset_right = 120.0
+offset_bottom = 77.15
+texture = ExtResource("2_hjt07")
+
+[node name="Title" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -82.5
+offset_top = 8.0
+offset_right = 169.5
+offset_bottom = 40.0
+grow_horizontal = 2
+scale = Vector2(0.635, 0.635)
+theme_override_fonts/font = ExtResource("3_j731s")
+theme_override_font_sizes/font_size = 32
+text = "Combustive Wasp Nest"
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="InfoStats/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.5
+offset_top = 2.245
+offset_right = 176.5
+offset_bottom = 37.245
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.625, 0.625)
+theme_override_fonts/font = ExtResource("3_j731s")
+theme_override_font_sizes/font_size = 16
+text = "Enemies will take damage if they hit you"
+horizontal_alignment = 1
+
+[node name="Flavor" type="Label" parent="InfoStats/ColorRect"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -82.5
+offset_top = -48.5
+offset_right = 146.5
+offset_bottom = 5.50003
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.875, 0.875)
+theme_override_fonts/font = ExtResource("3_j731s")
+theme_override_font_sizes/font_size = 16
+text = "A sting might not hurt from these 
+wasps, but a thousand more would.
+"
+
+[node name="CombustiveWaspNest" type="Sprite2D" parent="."]
+texture = ExtResource("2_hjt07")
+
+[node name="waspArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="waspArea"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_l6eyw")
+
+[connection signal="body_entered" from="waspArea" to="." method="_on_wasp_area_body_entered"]
+[connection signal="body_exited" from="waspArea" to="." method="_on_wasp_area_body_exited"]
