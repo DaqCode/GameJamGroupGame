@@ -70,7 +70,7 @@ grow_vertical = 2
 scale = Vector2(0.485, 0.485)
 theme_override_fonts/font = ExtResource("2_eaq3l")
 theme_override_font_sizes/font_size = 16
-text = "When drank: All enemies become disoriented for 3 seconds"
+text = "When entering a room, stun all enemies for 3 seconds"
 horizontal_alignment = 1
 
 [node name="Flavor" type="Label" parent="InfoStats/ColorRect"]

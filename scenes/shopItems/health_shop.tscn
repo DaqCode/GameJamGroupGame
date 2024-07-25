@@ -69,7 +69,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_j4voy")
 theme_override_font_sizes/font_size = 16
-text = "When drank: Heal 2 HP"
+text = "2+ Max HP"
 horizontal_alignment = 1
 
 [node name="Flavor" type="Label" parent="InfoStats/ColorRect"]

@@ -9,14 +9,13 @@ extends CharacterBody2D
 
 @onready var item: PackedScene = preload("res://scenes/droppable/droppable.tscn")
 
-
 var Player
 
 func _ready()-> void:
 	Player = get_parent().find_child("Player")
 
-func _physics_process(_delta)-> void:
-	velocity = Player.position - position
+func _physics_process(delta: float)-> void:
+	velocity = ((Player.position - position) * enemySpeed).normalized()
 	_aim()
 	_check_player_collision()
 	move_and_slide()
