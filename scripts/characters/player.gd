@@ -7,7 +7,6 @@ class_name Player
 @export var dash_time: float = 1.5
 @export var dash_cooldown: float = 1.5
 @export var current_speed: int
-@export var health: int = 5
 
 @onready var anim_player: AnimationPlayer = $Anim
 @onready var player_sprite: Sprite2D = $Sprite
@@ -59,7 +58,8 @@ func _process(delta: float) -> void:
 	if not can_dash:
 		dash_cooldown_bar.value = dash_cooldown_timer.time_left
 	$GoldCoins.text = "Coins: %s" % GameManager.coins
-
+	$EnemyCounter.text = "Enemy Counter: %s" % GameManager.enemy_count
+ 
 func movement(_delta: float) -> void:
 	if is_dead:
 		play_animations()
@@ -196,22 +196,22 @@ func fire_projectile() -> void:
 		get_tree().root.add_child(proj)
 
 func _on_hitbox_area_entered(area):
-	if health >= 0:
+	if GameManager.health >= 0:
 		if area.name == "EnemyBullets":
-			health -= 1
-			print ("Player Health %s" % health)
+			GameManager.health -= 1
+			print ("Player Health %s" % GameManager.health)
 			print ("Damaged by fireball bullet")
 		if area.name == "LightningArea":
-			health -= 2
-			print ("Player Health %s" % health)
+			GameManager.health -= 2
+			print ("Player Health %s" % GameManager.health)
 			print ("Damaged by Lightning Nightmare")
 		if area.name == "BarredProj":
-			health -= 1
-			print ("Player Health %s" % health)
+			GameManager.health -= 1
+			print ("Player Health %s" % GameManager.health)
 			print ("Damaged by Barred Light")
 		if area.name == "ContainedProj":
-			health -= 1
-			print ("Player Health %s" % health)
+			GameManager.health -= 1
+			print ("Player Health %s" % GameManager.health)
 			print ("Damaged by Contained Light")
 		
 	else:
@@ -228,3 +228,4 @@ func picked_up(type: Droppable.droppable_type) -> void:
 			$GoldCoins.text = "Coins: %s" % GameManager.coins
 		Droppable.droppable_type.health:
 			print("Picked up health...")
+

@@ -37,6 +37,8 @@ var boss_occurance = [ 8 ]
 var level_instance
 
 var coins: int = 0
+var health: int = 3
+var enemy_count: int = 0
 
 @onready var container = $Container
 

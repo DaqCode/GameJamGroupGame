@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://sgoeweaeigyj" path="res://assets/tilemap/tileMapSave/world_1_room_2.tres" id="1_sltow"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_oboi1"]
 [ext_resource type="PackedScene" uid="uid://doecdotna08mw" path="res://scenes/shopItems/obsidian_shop.tscn" id="4_22oq0"]
-[ext_resource type="PackedScene" uid="uid://dyiey33mghc56" path="res://scenes/characters/shopkeeper.tscn" id="4_nvhdk"]
+[ext_resource type="PackedScene" uid="uid://dyiey33mghc56" path="res://scenes/characters/shopkeeper/shopkeeper.tscn" id="4_nvhdk"]
 [ext_resource type="PackedScene" uid="uid://bpy3vlj7qo2dq" path="res://scenes/shopItems/poison_shop.tscn" id="5_lj1d0"]
 [ext_resource type="PackedScene" uid="uid://dxckt26gm6fst" path="res://scenes/shopItems/throwing_shop.tscn" id="6_4th2g"]
 [ext_resource type="PackedScene" uid="uid://y1nkr68pnems" path="res://scenes/shopItems/diamond_shop.tscn" id="7_8v8hf"]

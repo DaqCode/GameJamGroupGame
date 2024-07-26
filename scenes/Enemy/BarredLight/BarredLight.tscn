@@ -43,7 +43,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xk688"]
 size = Vector2(14, 10)
 
-[node name="BarredLight" type="CharacterBody2D"]
+[node name="BarredLight" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 4
 collision_mask = 31
 script = ExtResource("1_40ook")
