@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name FireBud
+
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var timer: Timer = $Timer
 @export var ammo: PackedScene
@@ -14,7 +16,7 @@ var Player
 func _ready()-> void:
 	Player = get_parent().find_child("Player")
 
-func _physics_process(_delta: float)-> void:
+func _process(_delta: float) -> void:
 	velocity = (Player.position - position).normalized() * enemySpeed
 	_aim()
 	_check_player_collision()

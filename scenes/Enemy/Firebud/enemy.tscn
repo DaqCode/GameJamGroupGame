@@ -48,7 +48,7 @@ collision_layer = 4
 collision_mask = 31
 script = ExtResource("1_rjthn")
 ammo = ExtResource("2_ar1t2")
-enemySpeed = 1
+enemySpeed = 35
 
 [node name="Icon" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.499999, 0.25)
