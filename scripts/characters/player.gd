@@ -25,6 +25,12 @@ class_name Player
 @onready var poison_projectile: PackedScene = preload("res://scenes/projectiles/poisonProjectile.tscn")
 @onready var throwing_projectile = preload("res://scenes/projectiles/throwingProjectiles.tscn")
 
+var has_projectile = false
+var has_obsidian_projectile = false
+var has_diamond_projectile = false
+var has_poison_projectile = false
+var has_throwing_projectile = true
+
 enum player_state {
 	idle,
 	moving,
@@ -52,6 +58,7 @@ func _process(delta: float) -> void:
 	
 	if not can_dash:
 		dash_cooldown_bar.value = dash_cooldown_timer.time_left
+	$GoldCoins.text = "Coins: %s" % GameManager.coins
 
 func movement(_delta: float) -> void:
 	if is_dead:
@@ -141,35 +148,35 @@ func flip_player_and_book(flip: bool) -> void:
 	player_sprite.flip_h = flip
 
 func fire_projectile() -> void:
-	if projectile:
+	if has_projectile:
 		var proj = projectile.instantiate() as Projectile
 		proj.direction = projectile_spawn_point.global_position - global_position
 		proj.global_position = projectile_spawn_point.global_position
 		proj.look_at(get_global_mouse_position())
 		get_tree().root.add_child(proj)
 		
-	elif poison_projectile:
+	elif has_poison_projectile:
 		var proj = poison_projectile.instantiate() as PoisonProjectile
 		proj.direction = projectile_spawn_point.global_position - global_position
 		proj.global_position = projectile_spawn_point.global_position
 		proj.look_at(get_global_mouse_position())
 		get_tree().root.add_child(proj)
 		
-	elif diamond_projectile:
+	elif has_diamond_projectile:
 		var proj = diamond_projectile.instantiate() as DiamondProjectile   
 		proj.direction = projectile_spawn_point.global_position - global_position
 		proj.global_position = projectile_spawn_point.global_position
 		proj.look_at(get_global_mouse_position())
 		get_tree().root.add_child(proj)
 	
-	elif obsidian_projectile:
+	elif has_obsidian_projectile:
 		var proj = obsidian_projectile.instantiate() as ObsidianProjectile
 		proj.direction = projectile_spawn_point.global_position - global_position
 		proj.global_position = projectile_spawn_point.global_position
 		proj.look_at(get_global_mouse_position())
 		get_tree().root.add_child(proj)
 	
-	elif throwing_projectile:
+	elif has_throwing_projectile:
 		var spread_angle = deg_to_rad(10)
 		var base_dir = (projectile_spawn_point.global_position - global_position).normalized()
 		for i in range(3):
@@ -189,7 +196,7 @@ func fire_projectile() -> void:
 		get_tree().root.add_child(proj)
 
 func _on_hitbox_area_entered(area):
-	if health != 0:
+	if health >= 0:
 		if area.name == "EnemyBullets":
 			health -= 1
 			print ("Player Health %s" % health)
@@ -212,12 +219,12 @@ func _on_hitbox_area_entered(area):
 		death_time.start()
 
 func _on_death_timer_timeout():
-	get_tree().change_scene_to_file("res://scenes/dungeonRooms/entry_scene.tscn")
+	get_tree().change_scene_to_file("res://scenes/dungeonRooms/entryScene/entry_scene.tscn")
 
 func picked_up(type: Droppable.droppable_type) -> void:
-	print("Test")
 	match(type):
 		Droppable.droppable_type.gold:
-			print("Picked up gold...")
+			GameManager.coins += randf_range(1,3)
+			$GoldCoins.text = "Coins: %s" % GameManager.coins
 		Droppable.droppable_type.health:
 			print("Picked up health...")

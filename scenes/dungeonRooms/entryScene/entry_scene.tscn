@@ -1,14 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctknicn8hhifr"]
+[gd_scene load_steps=6 format=3 uid="uid://ctknicn8hhifr"]
 
-[ext_resource type="Texture2D" uid="uid://du744t64w7p7v" path="res://assets/tilemap/topDown_baseTiles.png" id="1_6flou"]
-[ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_bkk6w"]
-[ext_resource type="PackedScene" uid="uid://bsvbovmxqqp4y" path="res://scenes/Enemy/LightningNightmares/lightning_nightmares.tscn" id="3_tp7x5"]
-[ext_resource type="PackedScene" uid="uid://c6210w462gpl3" path="res://scenes/Enemy/BarredLight/BarredLight.tscn" id="3_w41yt"]
-[ext_resource type="PackedScene" uid="uid://d1chox65lnjug" path="res://scenes/Enemy/ContainedLight/contained_light.tscn" id="4_dhnqh"]
-[ext_resource type="PackedScene" uid="uid://do4aiaa7vcb7n" path="res://scenes/Enemy/Firebud/enemy.tscn" id="4_vtg0i"]
+[ext_resource type="Script" path="res://scenes/dungeonRooms/entryScene/entry_scene.gd" id="1_3f8db"]
+[ext_resource type="Texture2D" uid="uid://du744t64w7p7v" path="res://assets/tilemap/topDown_baseTiles.png" id="2_mq4vw"]
+[ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="3_eken4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x0q80"]
-texture = ExtResource("1_6flou")
+texture = ExtResource("2_mq4vw")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -952,6 +949,7 @@ terrain_set_0/terrain_0/color = Color(0, 1, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_x0q80")
 
 [node name="entryScene" type="Node2D"]
+script = ExtResource("1_3f8db")
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -966,17 +964,5 @@ position = Vector2(322, 0)
 color = Color(0.631373, 0.631373, 0.631373, 1)
 blend_mode = 1
 
-[node name="BarredLight" parent="." instance=ExtResource("3_w41yt")]
-position = Vector2(344, 472)
-
-[node name="Player" parent="." instance=ExtResource("2_bkk6w")]
-position = Vector2(322, 618)
-
-[node name="ContainedLight" parent="." instance=ExtResource("4_dhnqh")]
-position = Vector2(288, 464)
-
-[node name="Firebud" parent="." instance=ExtResource("4_vtg0i")]
-position = Vector2(392, 464)
-
-[node name="LightningNightmares" parent="." instance=ExtResource("3_tp7x5")]
-position = Vector2(256, 456)
+[node name="Player" parent="." instance=ExtResource("3_eken4")]
+position = Vector2(320, 544)

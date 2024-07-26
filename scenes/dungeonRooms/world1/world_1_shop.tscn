@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bm1mg5act3o3h" path="res://scenes/treasure/rose_treasure.tscn" id="15_7wabp"]
 [ext_resource type="PackedScene" uid="uid://hdseyc5n8swf" path="res://scenes/treasure/wasp_treasure.tscn" id="15_snptm"]
 [ext_resource type="PackedScene" uid="uid://kt0edvqinbkd" path="res://scenes/goNextDoor/nextroom.tscn" id="17_cvhcr"]
-[ext_resource type="PackedScene" uid="uid://ctknicn8hhifr" path="res://scenes/dungeonRooms/entry_scene.tscn" id="18_hhoch"]
+[ext_resource type="PackedScene" uid="uid://ctknicn8hhifr" path="res://scenes/dungeonRooms/entryScene/entry_scene.tscn" id="18_hhoch"]
 [ext_resource type="PackedScene" uid="uid://m7hw3vjgxtsj" path="res://scenes/dungeonRooms/world1/world_1_boss.tscn" id="19_10o0u"]
 
 [node name="world1shop" type="Node2D"]

@@ -169,8 +169,22 @@ one_shot = true
 one_shot = true
 
 [node name="DeathTimer" type="Timer" parent="."]
-wait_time = 0.5
+wait_time = 0.1
 one_shot = true
+
+[node name="GoldCoins" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 120.0
+offset_top = 67.0
+offset_right = 160.0
+offset_bottom = 90.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "Coins: 0"
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

@@ -11,7 +11,6 @@ var entry_scene = "res://scenes/dungeonRooms/entry_scene.tscn"
 var dungeon_scenes = [
 	"res://scenes/dungeonRooms/world1/world_1_room_1.tscn",
 	"res://scenes/dungeonRooms/world1/world_1_room_2.tscn",
-	"res://scenes/dungeonRooms/world1/world_1_room_3.tscn",
 	"res://scenes/dungeonRooms/world1/world_1_room_4.tscn",
 	"res://scenes/dungeonRooms/world1/world_1_room_5.tscn",
 	"res://scenes/dungeonRooms/world1/world_1_room_6.tscn"
@@ -25,6 +24,10 @@ var boss_scenes = [
 	"res://scenes/dungeonRooms/world1/world_1_boss.tscn"
 ]
 
+var treasure_scenes =[
+	"res://scenes/dungeonRooms/world1/world_1_room_3.tscn"
+]
+
 var room_number = 0
 
 var shop_occurance = [ 3, 7 ]
@@ -32,6 +35,8 @@ var treasure_occurance = [ 5 ]
 var boss_occurance = [ 8 ]
 
 var level_instance
+
+var coins: int = 0
 
 @onready var container = $Container
 
@@ -96,6 +101,9 @@ func load_level() -> void:
 	elif boss_occurance.has(room_number):
 		print("Should be boss")
 		scene_to_load = boss_scenes[randi_range(0, boss_scenes.size() - 1 )]
+	elif treasure_occurance.has(room_number):
+		print("Should be Treasure")
+		scene_to_load = treasure_scenes[randi_range(0, treasure_scenes.size() - 1)]
 	else:
 		print("Should be normal")
 		scene_to_load = dungeon_scenes[randi_range(0, dungeon_scenes.size() - 1 )]

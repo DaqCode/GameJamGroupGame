@@ -4,7 +4,6 @@ class_name PoisonProjectile
 
 @export var speed := 20
 @export var damage := 0
-#How would I use this, NO CLUE
 @export var damage_over_time := 3
 
 var direction := Vector2.RIGHT

@@ -2,7 +2,7 @@ extends Area2D
 
 class_name ThrowingProjectile
 
-@export var speed := 30
+@export var speed: float
 @export var damage := 1
 
 var direction := Vector2.RIGHT

@@ -38,7 +38,7 @@ func _shoot() -> void:
 	var bullet = ammo.instantiate()
 	bullet.position = position
 	bullet.direction = (ray_cast_2d.target_position).normalized()
-	get_tree().current_scene.add_child(bullet)
+	get_parent().add_child(bullet)
 	bullet.look_at(Player.position)
 
 func _on_enemy_area_area_entered(area) -> void:
@@ -73,7 +73,7 @@ func _on_enemy_area_area_entered(area) -> void:
 		
 func drop_item() -> void:
 	var new_item = item.instantiate()
-	new_item.init_item(Droppable.droppable_type.health)
+	new_item.init_item(Droppable.droppable_type.gold)
 	new_item.position = position
 	get_tree().current_scene.call_deferred("add_child", new_item)
 	call_deferred("queue_free")

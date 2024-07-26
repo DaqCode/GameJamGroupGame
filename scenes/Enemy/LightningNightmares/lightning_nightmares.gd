@@ -18,7 +18,7 @@ func _physics_process(_delta: float)-> void:
 
 func drop_item() -> void:
 	var new_item = item.instantiate()
-	new_item.init_item(Droppable.droppable_type.health)
+	new_item.init_item(Droppable.droppable_type.gold)
 	new_item.position = position
 	get_tree().current_scene.call_deferred("add_child", new_item)
 	call_deferred("queue_free")

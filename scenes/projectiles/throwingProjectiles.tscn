@@ -8,28 +8,31 @@ radius = 1.79179
 height = 31.1762
 
 [node name="throwingProjectile" type="Area2D"]
-scale = Vector2(0.25, 0.25)
 script = ExtResource("1_fumu2")
+speed = 250.0
 
 [node name="ThrowingKnifesOne" type="Sprite2D" parent="."]
 position = Vector2(1.865, -2.98)
 rotation = 1.5708
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("1_lj4cn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.31086, -4.94751)
+position = Vector2(1.50928, -3.78176)
 rotation = 1.5708
+scale = Vector2(0.45, 0.45)
 shape = SubResource("CapsuleShape2D_0dt2e")
 
 [node name="Visible" type="VisibleOnScreenNotifier2D" parent="."]
-position = Vector2(1.34304, -5.03949)
-scale = Vector2(1.52139, 0.18126)
+position = Vector2(1.66548, -3.83654)
+scale = Vector2(0.675709, 0.0915946)
 
 [node name="throwingArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="throwingArea"]
-position = Vector2(1.31086, -4.94751)
+position = Vector2(1.50928, -3.78176)
 rotation = 1.5708
+scale = Vector2(0.45, 0.45)
 shape = SubResource("CapsuleShape2D_0dt2e")
 
 [connection signal="screen_exited" from="Visible" to="." method="_on_visible_screen_exited"]

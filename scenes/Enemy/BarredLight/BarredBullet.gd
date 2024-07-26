@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 func _on_screen_exited():
 	queue_free()
 
-func _on_area_entered(area):
+func _on_area_entered(area) -> void:
 	if area.name == "BarredArea":
 		pass
 	elif area.name == "Hitbox":
