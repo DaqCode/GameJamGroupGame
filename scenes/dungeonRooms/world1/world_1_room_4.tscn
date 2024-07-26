@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://8wvl1c1vf6t7"]
+[gd_scene load_steps=9 format=3 uid="uid://8wvl1c1vf6t7"]
 
 [ext_resource type="TileSet" uid="uid://sgoeweaeigyj" path="res://assets/tilemap/tileMapSave/world_1_room_2.tres" id="1_rphmx"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_ddth3"]
+[ext_resource type="PackedScene" uid="uid://d1chox65lnjug" path="res://scenes/Enemy/ContainedLight/contained_light.tscn" id="2_dg348"]
+[ext_resource type="PackedScene" uid="uid://c6210w462gpl3" path="res://scenes/Enemy/BarredLight/BarredLight.tscn" id="3_0ijtx"]
+[ext_resource type="PackedScene" uid="uid://do4aiaa7vcb7n" path="res://scenes/Enemy/Firebud/enemy.tscn" id="4_ddako"]
+[ext_resource type="PackedScene" uid="uid://bsvbovmxqqp4y" path="res://scenes/Enemy/LightningNightmares/lightning_nightmares.tscn" id="5_ajpep"]
+[ext_resource type="PackedScene" uid="uid://kt0edvqinbkd" path="res://scenes/goNextDoor/nextroom.tscn" id="7_fcsai"]
+[ext_resource type="PackedScene" uid="uid://dv1w27ei5evja" path="res://scenes/dungeonRooms/world1/world_1_room_5.tscn" id="8_4mb63"]
 
 [node name="world1room4" type="Node2D"]
 
@@ -18,7 +24,59 @@ layer_0/tile_data = PackedInt32Array(4, 262144, 3, 131078, 0, 2, 196615, 0, 2, 2
 [node name="Floor2" type="TileMap" parent="."]
 tile_set = ExtResource("1_rphmx")
 format = 2
-layer_0/tile_data = PackedInt32Array(1245204, 327680, 7, 1245205, 393216, 7, 1507356, 327680, 7, 1507357, 393216, 7, 1572881, 327680, 7, 1572882, 393216, 7, 1245194, 327680, 7, 1245195, 393216, 7, 851973, 327680, 7, 851974, 393216, 7, 262140, 327680, 7, 262141, 393216, 7, 196612, 327680, 7, 196613, 393216, 7, 131069, 327680, 6, 131070, 393216, 6, 65538, 327680, 6, 65539, 393216, 6, 851984, 393216, 4, 1048595, 393216, 4, 458762, 393216, 4, 327688, 393216, 5, 983058, 393216, 5, 1179675, 393216, 5, 1376294, 458752, 7, 1769517, 458752, 7, 2031667, 458752, 7, 1835049, 458752, 3, 1376282, 458752, 3, 917516, 458752, 3, 393221, 458752, 3, 458750, 458752, 3, 1179682, 327680, 6, 1179683, 393216, 6, 1179670, 327680, 6, 1179671, 393216, 6)
+layer_0/tile_data = PackedInt32Array(1572881, 327680, 7, 1572882, 393216, 7, 1245194, 327680, 7, 1245195, 393216, 7, 851973, 327680, 7, 851974, 393216, 7, 262140, 327680, 7, 262141, 393216, 7, 196612, 327680, 7, 196613, 393216, 7, 131069, 327680, 6, 131070, 393216, 6, 65538, 327680, 6, 65539, 393216, 6, 851984, 393216, 4, 1048595, 393216, 4, 458762, 393216, 4, 327688, 393216, 5, 983058, 393216, 5, 1179675, 393216, 5, 1376294, 458752, 7, 1769517, 458752, 7, 2031667, 458752, 7, 1835049, 458752, 3, 1376282, 458752, 3, 917516, 458752, 3, 393221, 458752, 3, 458750, 458752, 3, 1179682, 327680, 6, 1179683, 393216, 6, 1179670, 327680, 6, 1179671, 393216, 6)
+
+[node name="ContainedLight" parent="." instance=ExtResource("2_dg348")]
+position = Vector2(776, 528)
+
+[node name="ContainedLight2" parent="." instance=ExtResource("2_dg348")]
+position = Vector2(728, 480)
+
+[node name="ContainedLight3" parent="." instance=ExtResource("2_dg348")]
+position = Vector2(664, 432)
+
+[node name="ContainedLight4" parent="." instance=ExtResource("2_dg348")]
+position = Vector2(632, 376)
+
+[node name="BarredLight" parent="." instance=ExtResource("3_0ijtx")]
+position = Vector2(120, 184)
+
+[node name="BarredLight2" parent="." instance=ExtResource("3_0ijtx")]
+position = Vector2(232, 280)
+
+[node name="BarredLight3" parent="." instance=ExtResource("3_0ijtx")]
+position = Vector2(328, 368)
+
+[node name="BarredLight4" parent="." instance=ExtResource("3_0ijtx")]
+position = Vector2(176, 232)
+
+[node name="BarredLight5" parent="." instance=ExtResource("3_0ijtx")]
+position = Vector2(280, 336)
+
+[node name="Firebud" parent="." instance=ExtResource("4_ddako")]
+position = Vector2(376, 368)
+
+[node name="Firebud2" parent="." instance=ExtResource("4_ddako")]
+position = Vector2(440, 368)
+
+[node name="Firebud3" parent="." instance=ExtResource("4_ddako")]
+position = Vector2(488, 336)
+
+[node name="Firebud4" parent="." instance=ExtResource("4_ddako")]
+position = Vector2(568, 368)
+
+[node name="LightningNightmares" parent="." instance=ExtResource("5_ajpep")]
+position = Vector2(-16, 72)
+
+[node name="LightningNightmares2" parent="." instance=ExtResource("5_ajpep")]
+position = Vector2(40, 72)
+
+[node name="LightningNightmares3" parent="." instance=ExtResource("5_ajpep")]
+position = Vector2(40, 128)
 
 [node name="Player" parent="." instance=ExtResource("2_ddth3")]
 position = Vector2(832, 584)
+
+[node name="nextroom" parent="." instance=ExtResource("7_fcsai")]
+position = Vector2(8, 48)
+level = ExtResource("8_4mb63")

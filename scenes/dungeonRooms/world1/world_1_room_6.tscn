@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3lm10cjn5mf3"]
+[gd_scene load_steps=9 format=3 uid="uid://d3lm10cjn5mf3"]
 
 [ext_resource type="TileSet" uid="uid://sgoeweaeigyj" path="res://assets/tilemap/tileMapSave/world_1_room_2.tres" id="1_kjl5g"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_5jni1"]
+[ext_resource type="PackedScene" uid="uid://kt0edvqinbkd" path="res://scenes/goNextDoor/nextroom.tscn" id="3_qleuy"]
+[ext_resource type="PackedScene" uid="uid://c4j8ny45nbrli" path="res://scenes/dungeonRooms/world1/world_1_shop.tscn" id="4_38t45"]
+[ext_resource type="PackedScene" uid="uid://d1chox65lnjug" path="res://scenes/Enemy/ContainedLight/contained_light.tscn" id="5_s12wy"]
+[ext_resource type="PackedScene" uid="uid://bsvbovmxqqp4y" path="res://scenes/Enemy/LightningNightmares/lightning_nightmares.tscn" id="6_bvkv3"]
+[ext_resource type="PackedScene" uid="uid://do4aiaa7vcb7n" path="res://scenes/Enemy/Firebud/enemy.tscn" id="7_70tpo"]
+[ext_resource type="PackedScene" uid="uid://c6210w462gpl3" path="res://scenes/Enemy/BarredLight/BarredLight.tscn" id="8_l6cm5"]
 
 [node name="world1room6" type="Node2D"]
 
@@ -19,7 +25,74 @@ layer_0/tile_data = PackedInt32Array(65613, 65536, 2, 852040, 0, 1, 917576, 0, 1
 [node name="Deco" type="TileMap" parent="."]
 tile_set = ExtResource("1_kjl5g")
 format = 2
-layer_0/tile_data = PackedInt32Array(2883653, 589824, 0, 2949189, 589824, 1, 2883654, 655360, 0, 2949190, 655360, 1, 2883655, 720896, 0, 2949191, 720896, 1, 2228304, 589824, 0, 2293840, 589824, 1, 2228305, 655360, 0, 2293841, 655360, 1, 2228306, 720896, 0, 2293842, 720896, 1, 1572938, 589824, 0, 1638474, 589824, 1, 1572939, 655360, 0, 1638475, 655360, 1, 1572940, 720896, 0, 1638476, 720896, 1, 1179730, 589824, 0, 1245266, 589824, 1, 1179731, 655360, 0, 1245267, 655360, 1, 1179732, 720896, 0, 1245268, 720896, 1, 786507, 589824, 0, 852043, 589824, 1, 786508, 655360, 0, 852044, 655360, 1, 786509, 720896, 0, 852045, 720896, 1, 2949207, 589824, 0, 3014743, 589824, 1, 2949208, 655360, 0, 3014744, 655360, 1, 2949209, 720896, 0, 3014745, 720896, 1, 3539022, 589824, 0, 3604558, 589824, 1, 3539023, 655360, 0, 3604559, 655360, 1, 3539024, 720896, 0, 3604560, 720896, 1, 3801170, 589824, 0, 3866706, 589824, 1, 3801171, 655360, 0, 3866707, 655360, 1, 3801172, 720896, 0, 3866708, 720896, 1, 2621504, 393216, 4, 2621533, 393216, 4, 524362, 393216, 4, 262227, 393216, 4, -130993, 393216, 4, 524373, 393216, 5, 131149, 393216, 5, 2621509, 393216, 5, 2621538, 393216, 5, 2687041, 327680, 4, 2621536, 327680, 4, 655433, 327680, 4, -130992, 327680, 4, 3014726, 458752, 6, 2818118, 458752, 805306374, 2949210, 458752, 1610612742, 2949206, 458752, 6, 3014721, 327680, 268435462, 3014720, 393216, 268435462, 3080260, 327680, 1342177286, 3145796, 393216, 1342177286, 3997772, 327680, 1342177286, 4063308, 393216, 1342177286, 4063316, 327680, 805306374, 4063315, 393216, 805306374, 2687051, 327680, 7, 2687052, 393216, 7, 2687060, 327680, 7, 2687061, 393216, 7, 1769556, 327680, 7, 1769557, 393216, 7, 1179723, 327680, 7, 1179724, 393216, 7, 327760, 458752, 7, 2883650, 458752, 7, 3080272, 458752, 7, 2883681, 458752, 7, 1966155, 458752, 7, 2621506, 327680, 5, 2621535, 327680, 5, 2687065, 327680, 5, 2818122, 458752, 3, 2097237, 458752, 3, 2097227, 458752, 3, 1310804, 458752, 3, 786515, 458752, 3, 524368, 327680, 7, 524369, 393216, 7)
+layer_0/tile_data = PackedInt32Array(2883653, 589824, 0, 2949189, 589824, 1, 2883654, 655360, 0, 2949190, 655360, 1, 2883655, 720896, 0, 2949191, 720896, 1, 1572938, 589824, 0, 1638474, 589824, 1, 1572939, 655360, 0, 1638475, 655360, 1, 1572940, 720896, 0, 1638476, 720896, 1, 1179730, 589824, 0, 1245266, 589824, 1, 1179731, 655360, 0, 1245267, 655360, 1, 1179732, 720896, 0, 1245268, 720896, 1, 2949207, 589824, 0, 3014743, 589824, 1, 2949208, 655360, 0, 3014744, 655360, 1, 2949209, 720896, 0, 3014745, 720896, 1, 3539022, 589824, 0, 3604558, 589824, 1, 3539023, 655360, 0, 3604559, 655360, 1, 3539024, 720896, 0, 3604560, 720896, 1, 3801170, 589824, 0, 3866706, 589824, 1, 3801171, 655360, 0, 3866707, 655360, 1, 3801172, 720896, 0, 3866708, 720896, 1, 2621504, 393216, 4, 2621533, 393216, 4, 524362, 393216, 4, 262227, 393216, 4, -130993, 393216, 4, 524373, 393216, 5, 131149, 393216, 5, 2621509, 393216, 5, 2621538, 393216, 5, 2687041, 327680, 4, 2621536, 327680, 4, 655433, 327680, 4, -130992, 327680, 4, 3014726, 458752, 6, 2818118, 458752, 805306374, 2949210, 458752, 1610612742, 2949206, 458752, 6, 3014721, 327680, 268435462, 3014720, 393216, 268435462, 3080260, 327680, 1342177286, 3145796, 393216, 1342177286, 3997772, 327680, 1342177286, 4063308, 393216, 1342177286, 4063316, 327680, 805306374, 4063315, 393216, 805306374, 327760, 458752, 7, 2883650, 458752, 7, 3080272, 458752, 7, 2883681, 458752, 7, 1966155, 458752, 7, 2621506, 327680, 5, 2621535, 327680, 5, 2687065, 327680, 5, 2818122, 458752, 3, 2097237, 458752, 3, 2097227, 458752, 3, 1310804, 458752, 3, 786515, 458752, 3, 524368, 327680, 7, 524369, 393216, 7, 2490441, 393216, 1610612743, 2555977, 327680, 1610612743, 2490454, 393216, 1879048199, 2555990, 327680, 1879048199)
 
 [node name="Player" parent="." instance=ExtResource("2_5jni1")]
 position = Vector2(1280, 1000)
+
+[node name="nextroom" parent="." instance=ExtResource("3_qleuy")]
+position = Vector2(1280, -8)
+level = ExtResource("4_38t45")
+
+[node name="ContainedLight" parent="." instance=ExtResource("5_s12wy")]
+position = Vector2(1104.16, 761.938)
+
+[node name="ContainedLight2" parent="." instance=ExtResource("5_s12wy")]
+position = Vector2(1140.16, 767.938)
+
+[node name="ContainedLight3" parent="." instance=ExtResource("5_s12wy")]
+position = Vector2(1170.16, 703.938)
+
+[node name="ContainedLight4" parent="." instance=ExtResource("5_s12wy")]
+position = Vector2(1098.16, 681.938)
+
+[node name="ContainedLight5" parent="." instance=ExtResource("5_s12wy")]
+position = Vector2(1034.16, 703.938)
+
+[node name="ContainedLight6" parent="." instance=ExtResource("5_s12wy")]
+position = Vector2(1062.16, 743.938)
+
+[node name="LightningNightmares" parent="." instance=ExtResource("6_bvkv3")]
+position = Vector2(1234.16, 91.9382)
+
+[node name="LightningNightmares2" parent="." instance=ExtResource("6_bvkv3")]
+position = Vector2(1286.16, 93.9382)
+
+[node name="LightningNightmares3" parent="." instance=ExtResource("6_bvkv3")]
+position = Vector2(1332.16, 125.938)
+
+[node name="LightningNightmares4" parent="." instance=ExtResource("6_bvkv3")]
+position = Vector2(1238.16, 139.938)
+
+[node name="LightningNightmares5" parent="." instance=ExtResource("6_bvkv3")]
+position = Vector2(1288.16, 157.938)
+
+[node name="Firebud" parent="." instance=ExtResource("7_70tpo")]
+position = Vector2(1562.16, 771.938)
+
+[node name="Firebud2" parent="." instance=ExtResource("7_70tpo")]
+position = Vector2(1518.16, 733.938)
+
+[node name="Firebud3" parent="." instance=ExtResource("7_70tpo")]
+position = Vector2(1500.16, 681.938)
+
+[node name="Firebud4" parent="." instance=ExtResource("7_70tpo")]
+position = Vector2(1468.16, 767.938)
+
+[node name="Firebud5" parent="." instance=ExtResource("7_70tpo")]
+position = Vector2(1432.16, 689.938)
+
+[node name="BarredLight" parent="." instance=ExtResource("8_l6cm5")]
+position = Vector2(1254.16, 583.938)
+
+[node name="BarredLight2" parent="." instance=ExtResource("8_l6cm5")]
+position = Vector2(1332.16, 583.938)
+
+[node name="BarredLight3" parent="." instance=ExtResource("8_l6cm5")]
+position = Vector2(1174.16, 455.938)
+
+[node name="BarredLight4" parent="." instance=ExtResource("8_l6cm5")]
+position = Vector2(1378.16, 455.938)
+
+[node name="BarredLight5" parent="." instance=ExtResource("8_l6cm5")]
+position = Vector2(1274.16, 329.938)

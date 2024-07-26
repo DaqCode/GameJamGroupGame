@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="2_40euf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghfls"]
+size = Vector2(35, 36)
 
 [node name="invincibilityShop" type="CharacterBody2D"]
 script = ExtResource("1_qnc4r")

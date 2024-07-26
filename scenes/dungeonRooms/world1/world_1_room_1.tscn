@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bj7enwks0tahd"]
+[gd_scene load_steps=9 format=3 uid="uid://bj7enwks0tahd"]
 
 [ext_resource type="TileSet" uid="uid://sgoeweaeigyj" path="res://assets/tilemap/tileMapSave/world_1_room_2.tres" id="1_moysb"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_og8pa"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bsvbovmxqqp4y" path="res://scenes/Enemy/LightningNightmares/lightning_nightmares.tscn" id="5_6i87i"]
 [ext_resource type="PackedScene" uid="uid://d1chox65lnjug" path="res://scenes/Enemy/ContainedLight/contained_light.tscn" id="6_2js5q"]
 [ext_resource type="PackedScene" uid="uid://kt0edvqinbkd" path="res://scenes/goNextDoor/nextroom.tscn" id="7_cpqpv"]
+[ext_resource type="PackedScene" uid="uid://bjch8munfdhut" path="res://scenes/dungeonRooms/world1/world_1_room_2.tscn" id="8_i7yrs"]
 
 [node name="world1room1" type="Node2D"]
 
@@ -47,6 +48,7 @@ position = Vector2(320, 48)
 
 [node name="nextroom" parent="." instance=ExtResource("7_cpqpv")]
 position = Vector2(408, -144)
+level = ExtResource("8_i7yrs")
 
 [node name="Player" parent="." instance=ExtResource("2_og8pa")]
 position = Vector2(536, 288)

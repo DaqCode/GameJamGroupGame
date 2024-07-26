@@ -205,7 +205,7 @@ func _on_hitbox_area_entered(area):
 		if area.name == "ContainedProj":
 			health -= 1
 			print ("Player Health %s" % health)
-			print ("Damaged by Barred Light")
+			print ("Damaged by Contained Light")
 		
 	else:
 		is_dead = true

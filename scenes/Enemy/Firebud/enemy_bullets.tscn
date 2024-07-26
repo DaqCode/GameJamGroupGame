@@ -31,7 +31,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q12xq"]
-size = Vector2(24, 20)
+size = Vector2(29.7907, 27.3756)
 
 [node name="EnemyBullets" type="Area2D"]
 scale = Vector2(0.324316, -0.292231)
@@ -47,8 +47,9 @@ autoplay = "default"
 frame_progress = 0.745948
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(9.96, 0)
+position = Vector2(12.3336, 3.63798e-12)
 rotation = 3.14159
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_q12xq")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]

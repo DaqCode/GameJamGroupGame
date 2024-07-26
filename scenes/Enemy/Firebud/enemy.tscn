@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://do4aiaa7vcb7n"]
+[gd_scene load_steps=11 format=3 uid="uid://do4aiaa7vcb7n"]
 
 [ext_resource type="Script" path="res://scenes/Enemy/Firebud/Enemy.gd" id="1_rjthn"]
 [ext_resource type="PackedScene" uid="uid://bv6fm20s17iss" path="res://scenes/Enemy/Firebud/enemy_bullets.tscn" id="2_ar1t2"]
@@ -43,6 +43,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_34es0"]
 size = Vector2(22, 24)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wy5ry"]
+size = Vector2(22, 24)
+
 [node name="Firebud" type="CharacterBody2D"]
 collision_layer = 4
 collision_mask = 31
@@ -69,7 +72,7 @@ shape = SubResource("RectangleShape2D_34es0")
 [node name="EnemyArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyArea"]
-shape = SubResource("RectangleShape2D_34es0")
+shape = SubResource("RectangleShape2D_wy5ry")
 
 [node name="PoisonTimer" type="Timer" parent="."]
 
