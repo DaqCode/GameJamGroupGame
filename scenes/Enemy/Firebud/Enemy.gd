@@ -38,7 +38,7 @@ func _shoot() -> void:
 	var bullet = ammo.instantiate()
 	bullet.position = position
 	bullet.direction = (ray_cast_2d.target_position).normalized()
-	get_tree().current_scene.add_child(bullet)
+	get_parent().add_child(bullet)
 	bullet.look_at(Player.position)
 
 func _on_enemy_area_area_entered(area) -> void:
