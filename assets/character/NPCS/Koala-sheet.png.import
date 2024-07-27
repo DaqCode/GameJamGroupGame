@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvxn2tx22dskf"
-path="res://.godot/imported/DaqAnimation.png-f01e366a395c6ff598f6ce4c339d6e99.ctex"
+uid="uid://bxf77rwl4ei8r"
+path="res://.godot/imported/Koala-sheet.png-87f6bee78b600b2ab8e987ea5d75daa9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/Daq/DaqAnimation.png"
-dest_files=["res://.godot/imported/DaqAnimation.png-f01e366a395c6ff598f6ce4c339d6e99.ctex"]
+source_file="res://assets/character/NPCS/Koala-sheet.png"
+dest_files=["res://.godot/imported/Koala-sheet.png-87f6bee78b600b2ab8e987ea5d75daa9.ctex"]
 
 [params]
 

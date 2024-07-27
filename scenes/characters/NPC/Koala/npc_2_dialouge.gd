@@ -2,7 +2,7 @@ extends Control
 
 signal dialouge_finished
 
-@export_file("shopkeeper_dialouge1.json") var d_file
+@export_file("res://scenes/characters/NPC/Koala/koalaspeak.json") var d_file
 
 var dialouge := []
 var current_dialouge_id := 0
@@ -18,7 +18,7 @@ func start():
 	next_script()
 
 func load_dialouge():
-	var file = FileAccess.open("res://scenes/characters/shopkeeper/shopkeeper_dialouge1.json", FileAccess.READ)
+	var file = FileAccess.open("res://scenes/characters/NPC/Koala/koalaspeak.json", FileAccess.READ)
 	var content = JSON.parse_string(file.get_as_text())
 	return content
 
@@ -41,5 +41,3 @@ func next_script():
 
 	$NinePatchRect/Name.text = dialouge[current_dialouge_id]['name']
 	$NinePatchRect/Text.text = dialouge[current_dialouge_id]['text']
-
-	

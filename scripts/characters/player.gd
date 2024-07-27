@@ -24,6 +24,8 @@ class_name Player
 @onready var poison_projectile: PackedScene = preload("res://scenes/projectiles/poisonProjectile.tscn")
 @onready var throwing_projectile = preload("res://scenes/projectiles/throwingProjectiles.tscn")
 
+@export var entry_scene: PackedScene = preload("res://scenes/dungeonRooms/entryScene/entry_scene.tscn")
+
 var has_projectile = false
 var has_obsidian_projectile = false
 var has_diamond_projectile = false
@@ -94,7 +96,8 @@ func dash() -> void:
 	current_speed = dash_speed
 	current_state = player_state.dashing
 	can_dash = false
-	
+	$PlayerCollision.disabled = true
+	$Hitbox/HitboxCollider.disabled = true
 	dash_timer.start(dash_time)
 
 func is_player_moving() -> bool:
@@ -103,6 +106,8 @@ func is_player_moving() -> bool:
 func reset_dash() -> void:
 	#print("Dash Reset")
 	can_shoot = true
+	$PlayerCollision.disabled = false
+	$Hitbox/HitboxCollider.disabled = false
 	dash_cooldown_bar.max_value = dash_cooldown
 	dash_cooldown_bar.value = dash_cooldown
 	current_state = player_state.moving
@@ -218,8 +223,9 @@ func _on_hitbox_area_entered(area):
 		is_dead = true
 		death_time.start()
 
+
 func _on_death_timer_timeout():
-	get_tree().change_scene_to_file("res://scenes/dungeonRooms/entryScene/entry_scene.tscn")
+	
 
 func picked_up(type: Droppable.droppable_type) -> void:
 	match(type):

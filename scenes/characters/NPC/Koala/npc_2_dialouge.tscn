@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhj03oci7ou6e"]
+
+[ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="1_cptr5"]
+[ext_resource type="Script" path="res://scenes/characters/NPC/Koala/npc_2_dialouge.gd" id="1_ndgr8"]
+[ext_resource type="Texture2D" uid="uid://cmlygqyk60frx" path="res://assets/misc/KoalaDialouge.png" id="2_hmr0j"]
+
+[node name="npc2_dialouge" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ndgr8")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_right = 226.0
+offset_bottom = 114.0
+texture = ExtResource("2_hmr0j")
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 109.0
+offset_bottom = 40.0
+theme_override_fonts/normal_font = ExtResource("1_cptr5")
+theme_override_font_sizes/normal_font_size = 32
+text = "Koala"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 211.0
+offset_bottom = 104.0
+theme_override_fonts/normal_font = ExtResource("1_cptr5")
+theme_override_font_sizes/normal_font_size = 16
+text = "Some text"
