@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://djmaioprfaamv"]
+
+[ext_resource type="Script" path="res://scenes/inventory/inventory_item.gd" id="1_rs1ss"]
+[ext_resource type="Texture2D" uid="uid://dooay18x2oqv5" path="res://assets/droppable/SparklingCryogenicCrystals.png" id="2_r6jn0"]
+
+[resource]
+script = ExtResource("1_rs1ss")
+name = "Crystal"
+texture = ExtResource("2_r6jn0")

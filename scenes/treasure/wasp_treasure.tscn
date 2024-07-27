@@ -103,7 +103,6 @@ texture = ExtResource("2_hjt07")
 [node name="waspArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="waspArea"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_l6eyw")
 
 [connection signal="body_entered" from="waspArea" to="." method="_on_wasp_area_body_entered"]

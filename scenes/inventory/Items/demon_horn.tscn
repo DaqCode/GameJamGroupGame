@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://xvy81hregefa"]
+
+[ext_resource type="Script" path="res://scenes/inventory/Items/DemonHorn.gd" id="1_dbtpp"]
+[ext_resource type="Resource" uid="uid://6v87b3quxoy8" path="res://scenes/inventory/Items/demonHorn.tres" id="2_kn618"]
+[ext_resource type="Texture2D" uid="uid://c8qmes4jt5n8w" path="res://assets/droppable/DemonHorns.png" id="2_n0fvx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uvpxy"]
+radius = 29.0172
+
+[node name="DemonHorn" type="StaticBody2D"]
+script = ExtResource("1_dbtpp")
+item = ExtResource("2_kn618")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_n0fvx")
+
+[node name="collect_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collect_area"]
+shape = SubResource("CircleShape2D_uvpxy")
+
+[connection signal="body_entered" from="collect_area" to="." method="_on_collect_area_body_entered"]

@@ -4,9 +4,11 @@ signal load_entry
 signal next_room
 signal load_menu
 signal start_match
+signal load_credits
 
 var main_menu_scene = "res://scenes/mainMenu/main_menu.tscn"
 var entry_scene = "res://scenes/dungeonRooms/entry_scene.tscn"
+var credit_scene = "res://scenes/mainMenu/credits.tscn"
 
 var dungeon_scenes = [
 	"res://scenes/dungeonRooms/world1/world_1_room_1.tscn",
@@ -112,3 +114,5 @@ func load_level() -> void:
 
 	level_instance = load(scene_to_load).instantiate()
 	container.call_deferred("add_child",level_instance)
+
+

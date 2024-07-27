@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bj7enwks0tahd"]
+[gd_scene load_steps=12 format=3 uid="uid://bj7enwks0tahd"]
 
 [ext_resource type="TileSet" uid="uid://sgoeweaeigyj" path="res://assets/tilemap/tileMapSave/world_1_room_2.tres" id="1_moysb"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_og8pa"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bjch8munfdhut" path="res://scenes/dungeonRooms/world1/world_1_room_2.tscn" id="8_i7yrs"]
 [ext_resource type="PackedScene" uid="uid://dnl4lq6lbs7do" path="res://scenes/LevelBlock/door_block.tscn" id="9_auaqt"]
 [ext_resource type="PackedScene" uid="uid://b4wclsljpim2q" path="res://scenes/LevelBlock/enemy_manager.tscn" id="10_u8q7y"]
+[ext_resource type="PackedScene" uid="uid://xvy81hregefa" path="res://scenes/inventory/Items/demon_horn.tscn" id="11_8mpi1"]
 
 [node name="world1room1" type="Node2D"]
 
@@ -60,3 +61,6 @@ position = Vector2(410, -6)
 
 [node name="EnemyManager" parent="." instance=ExtResource("10_u8q7y")]
 number_of_enemies = 6
+
+[node name="DemonHorn" parent="." instance=ExtResource("11_8mpi1")]
+position = Vector2(408, -104)

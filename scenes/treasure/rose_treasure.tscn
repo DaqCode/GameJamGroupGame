@@ -106,7 +106,6 @@ scale = Vector2(0.75, 0.75)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="roseArea"]
 position = Vector2(2.5, -5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_wd102")
 
 [connection signal="body_entered" from="roseArea" to="." method="_on_rose_area_body_entered"]

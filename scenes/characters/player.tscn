@@ -1,9 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://bmoxbqnfk4882"]
+[gd_scene load_steps=17 format=3 uid="uid://bmoxbqnfk4882"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_pjn7b"]
+[ext_resource type="Resource" uid="uid://b7eg7rwrs8dpe" path="res://scenes/inventory/player_inventory.tres" id="2_pa7g1"]
 [ext_resource type="Texture2D" uid="uid://bgqdwpds3rsxb" path="res://assets/character/player/CharacterSpriteSheet.png" id="2_wixo0"]
 [ext_resource type="Texture2D" uid="uid://gyh52jtctel1" path="res://assets/book/book.png" id="3_1cwtg"]
 [ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="4_gg0ne"]
+[ext_resource type="PackedScene" uid="uid://kil50hlsjxrt" path="res://scenes/inventory/inventory_ui.tscn" id="6_dfsna"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l42xv"]
 radius = 5.0
@@ -108,11 +110,13 @@ _data = {
 bg_color = Color(0.576471, 0.164706, 0.623529, 1)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+position = Vector2(-8, 0)
 collision_mask = 3
 script = ExtResource("1_pjn7b")
 dash_speed = 200
-dash_time = 5.0
+dash_time = 1.0
 dash_cooldown = 0.75
+inv = ExtResource("2_pa7g1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
@@ -197,6 +201,12 @@ offset_bottom = -73.0
 theme_override_fonts/font = ExtResource("4_gg0ne")
 text = "Total Enemies: 0"
 horizontal_alignment = 2
+
+[node name="InventoryUI" parent="." instance=ExtResource("6_dfsna")]
+offset_left = -31.0
+offset_top = -57.0
+offset_right = 31.0
+offset_bottom = -16.0
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

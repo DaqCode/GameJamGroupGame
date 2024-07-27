@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://8wvl1c1vf6t7"]
+[gd_scene load_steps=12 format=3 uid="uid://8wvl1c1vf6t7"]
 
 [ext_resource type="TileSet" uid="uid://sgoeweaeigyj" path="res://assets/tilemap/tileMapSave/world_1_room_2.tres" id="1_rphmx"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_ddth3"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dv1w27ei5evja" path="res://scenes/dungeonRooms/world1/world_1_room_5.tscn" id="8_4mb63"]
 [ext_resource type="PackedScene" uid="uid://dnl4lq6lbs7do" path="res://scenes/LevelBlock/door_block.tscn" id="9_fr0od"]
 [ext_resource type="PackedScene" uid="uid://b4wclsljpim2q" path="res://scenes/LevelBlock/enemy_manager.tscn" id="10_ceywi"]
+[ext_resource type="PackedScene" uid="uid://ehs8jlewjgwv" path="res://scenes/inventory/Items/carpet_moss.tscn" id="11_ce7ps"]
 
 [node name="world1room4" type="Node2D"]
 
@@ -88,3 +89,6 @@ position = Vector2(9, 52)
 
 [node name="EnemyManager" parent="." instance=ExtResource("10_ceywi")]
 number_of_enemies = 16
+
+[node name="CarpetMoss" parent="." instance=ExtResource("11_ce7ps")]
+position = Vector2(-32, 80)

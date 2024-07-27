@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3lm10cjn5mf3"]
+[gd_scene load_steps=13 format=3 uid="uid://d3lm10cjn5mf3"]
 
 [ext_resource type="TileSet" uid="uid://sgoeweaeigyj" path="res://assets/tilemap/tileMapSave/world_1_room_2.tres" id="1_kjl5g"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_5jni1"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://c6210w462gpl3" path="res://scenes/Enemy/BarredLight/BarredLight.tscn" id="8_l6cm5"]
 [ext_resource type="PackedScene" uid="uid://dnl4lq6lbs7do" path="res://scenes/LevelBlock/door_block.tscn" id="9_e6mia"]
 [ext_resource type="PackedScene" uid="uid://b4wclsljpim2q" path="res://scenes/LevelBlock/enemy_manager.tscn" id="10_hclya"]
+[ext_resource type="PackedScene" uid="uid://xvy81hregefa" path="res://scenes/inventory/Items/demon_horn.tscn" id="11_bk0jc"]
+[ext_resource type="PackedScene" uid="uid://ehs8jlewjgwv" path="res://scenes/inventory/Items/carpet_moss.tscn" id="12_i7lpi"]
 
 [node name="world1room6" type="Node2D"]
 
@@ -104,3 +106,9 @@ position = Vector2(1280, -1)
 
 [node name="EnemyManager" parent="." instance=ExtResource("10_hclya")]
 number_of_enemies = 21
+
+[node name="DemonHorn" parent="." instance=ExtResource("11_bk0jc")]
+position = Vector2(1264, 32)
+
+[node name="CarpetMoss" parent="." instance=ExtResource("12_i7lpi")]
+position = Vector2(1304, 40)

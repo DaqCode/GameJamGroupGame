@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ys6eloq85oq3"]
+[gd_scene load_steps=10 format=3 uid="uid://ys6eloq85oq3"]
 
 [ext_resource type="TileSet" uid="uid://sgoeweaeigyj" path="res://assets/tilemap/tileMapSave/world_1_room_2.tres" id="1_vsibt"]
 [ext_resource type="PackedScene" uid="uid://hdseyc5n8swf" path="res://scenes/treasure/wasp_treasure.tscn" id="2_xmpvy"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://8wvl1c1vf6t7" path="res://scenes/dungeonRooms/world1/world_1_room_4.tscn" id="5_88aoj"]
 [ext_resource type="PackedScene" uid="uid://dnl4lq6lbs7do" path="res://scenes/LevelBlock/door_block.tscn" id="6_phym5"]
 [ext_resource type="PackedScene" uid="uid://b4wclsljpim2q" path="res://scenes/LevelBlock/enemy_manager.tscn" id="7_1nim1"]
+[ext_resource type="PackedScene" uid="uid://ehs8jlewjgwv" path="res://scenes/inventory/Items/carpet_moss.tscn" id="8_efhly"]
+[ext_resource type="PackedScene" uid="uid://wc5jfpon3br3" path="res://scenes/inventory/Items/crystal.tscn" id="9_h8tq2"]
 
 [node name="world1room3" type="Node2D"]
 
@@ -39,3 +41,9 @@ level = ExtResource("5_88aoj")
 position = Vector2(319, 88)
 
 [node name="EnemyManager" parent="." instance=ExtResource("7_1nim1")]
+
+[node name="CarpetMoss" parent="." instance=ExtResource("8_efhly")]
+position = Vector2(264, 160)
+
+[node name="Crystal" parent="." instance=ExtResource("9_h8tq2")]
+position = Vector2(360, 160)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c4j8ny45nbrli"]
+[gd_scene load_steps=22 format=3 uid="uid://c4j8ny45nbrli"]
 
 [ext_resource type="TileSet" uid="uid://sgoeweaeigyj" path="res://assets/tilemap/tileMapSave/world_1_room_2.tres" id="1_sltow"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_oboi1"]
@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://kt0edvqinbkd" path="res://scenes/goNextDoor/nextroom.tscn" id="17_cvhcr"]
 [ext_resource type="PackedScene" uid="uid://ctknicn8hhifr" path="res://scenes/dungeonRooms/entryScene/entry_scene.tscn" id="18_hhoch"]
 [ext_resource type="PackedScene" uid="uid://m7hw3vjgxtsj" path="res://scenes/dungeonRooms/world1/world_1_boss.tscn" id="19_10o0u"]
+[ext_resource type="PackedScene" uid="uid://xvy81hregefa" path="res://scenes/inventory/Items/demon_horn.tscn" id="20_7mbe7"]
+[ext_resource type="PackedScene" uid="uid://ehs8jlewjgwv" path="res://scenes/inventory/Items/carpet_moss.tscn" id="20_c4dma"]
 
 [node name="world1shop" type="Node2D"]
 position = Vector2(16, -80)
@@ -78,7 +80,7 @@ position = Vector2(430, 121)
 position = Vector2(464, 124)
 
 [node name="woodenTreasure" parent="Treasure Items" instance=ExtResource("14_ks7v2")]
-position = Vector2(512, 128)
+position = Vector2(412, 296)
 
 [node name="roseTreasure" parent="Treasure Items" instance=ExtResource("15_7wabp")]
 position = Vector2(560, 128)
@@ -111,3 +113,21 @@ offset_right = 365.0
 offset_bottom = 280.0
 text = "Back Home
 "
+
+[node name="CarpetMoss" parent="." instance=ExtResource("20_c4dma")]
+position = Vector2(576, 280)
+
+[node name="CarpetMoss2" parent="." instance=ExtResource("20_c4dma")]
+position = Vector2(616, 280)
+
+[node name="CarpetMoss3" parent="." instance=ExtResource("20_c4dma")]
+position = Vector2(656, 280)
+
+[node name="DemonHorn" parent="." instance=ExtResource("20_7mbe7")]
+position = Vector2(576, 336)
+
+[node name="DemonHorn2" parent="." instance=ExtResource("20_7mbe7")]
+position = Vector2(616, 336)
+
+[node name="DemonHorn3" parent="." instance=ExtResource("20_7mbe7")]
+position = Vector2(664, 336)

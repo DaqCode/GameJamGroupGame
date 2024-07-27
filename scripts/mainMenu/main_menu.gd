@@ -9,7 +9,8 @@ func _on_start_pressed()-> void:
 
 func _on_credits_pressed()-> void:
 	print("scene changes towards credits")
-	get_tree().change_scene_to_file("res://scenes/mainMenu/credits.tscn")
+	var gm = get_tree().get_first_node_in_group("game_manager")
+	gm.emit_signal("load_credits")
 
 
 func _on_settings_pressed()-> void:

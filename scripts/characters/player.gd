@@ -9,6 +9,9 @@ class_name Player
 @export var current_speed: int
 @export var health: int = 5
 
+@export var inv: Inv 
+
+
 @onready var anim_player: AnimationPlayer = $Anim
 @onready var player_sprite: Sprite2D = $Sprite
 @onready var book: Node2D = $Book
@@ -214,17 +217,12 @@ func _on_hitbox_area_entered(area):
 			print ("Player Health %s" % health)
 			print ("Damaged by Contained Light")
 		
-	#elif health <= 0 and not is_dead:
-	#	is_dead = true
-	#	death_time.start()
+	elif health <= 0 and not is_dead:
+		is_dead = true
+		death_time.start()
 
 func _on_death_timer_timeout():
-<<<<<<< HEAD
-	pass
-=======
 	Events.load_entry.emit()
-	#get_tree().change_scene_to_file("res://scenes/dungeonRooms/entryScene/entry_scene.tscn")
->>>>>>> c58297d1728b2d7a3d2a15f838781d12d6a0e8a5
 
 func picked_up(type: Droppable.droppable_type) -> void:
 	match(type):
@@ -233,3 +231,6 @@ func picked_up(type: Droppable.droppable_type) -> void:
 			#$GoldCoins.text = "Coins: %s" % GameManager.coins
 		Droppable.droppable_type.health:
 			print("Picked up health...")
+			
+func collect(item):
+	inv.insert(item)

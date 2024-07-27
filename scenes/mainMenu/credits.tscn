@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://scripts/mainMenu/credits.gd" id="1_ek1kj"]
 [ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="1_nru0s"]
 
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xvsbn"]
 
 [node name="Credits" type="Control"]

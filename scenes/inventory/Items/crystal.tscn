@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://wc5jfpon3br3"]
+
+[ext_resource type="Script" path="res://scenes/inventory/Items/Crystal.gd" id="1_i2w7l"]
+[ext_resource type="Resource" uid="uid://djmaioprfaamv" path="res://scenes/inventory/Items/crystal.tres" id="2_667tc"]
+[ext_resource type="Texture2D" uid="uid://dooay18x2oqv5" path="res://assets/droppable/SparklingCryogenicCrystals.png" id="2_imkjp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x2fyc"]
+radius = 20.3961
+
+[node name="Crystal" type="StaticBody2D"]
+script = ExtResource("1_i2w7l")
+item = ExtResource("2_667tc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_imkjp")
+
+[node name="collectArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collectArea"]
+shape = SubResource("CircleShape2D_x2fyc")
+
+[connection signal="body_entered" from="collectArea" to="." method="_on_collect_area_body_entered"]

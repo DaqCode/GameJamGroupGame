@@ -52,6 +52,7 @@ enemySpeed = 25
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7k2vm")
+autoplay = "default"
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 
