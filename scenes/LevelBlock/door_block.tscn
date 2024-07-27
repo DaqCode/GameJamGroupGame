@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dnl4lq6lbs7do"]
+
+[ext_resource type="Script" path="res://scripts/room_unlock/DoorBlock.gd" id="1_gvrej"]
+[ext_resource type="Texture2D" uid="uid://ot0kl4pdluem" path="res://assets/door/lock.png" id="2_pjfva"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m7ry1"]
+size = Vector2(33, 40)
+
+[node name="DoorBlock" type="Node2D" groups=["level_door"]]
+script = ExtResource("1_gvrej")
+
+[node name="LockSprite" type="Sprite2D" parent="."]
+texture = ExtResource("2_pjfva")
+offset = Vector2(2.08165e-12, -9.025)
+
+[node name="BlockCollider" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="BlockShape" type="CollisionShape2D" parent="BlockCollider"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_m7ry1")

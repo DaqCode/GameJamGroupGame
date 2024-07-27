@@ -7,6 +7,7 @@ class_name Player
 @export var dash_time: float = 1.5
 @export var dash_cooldown: float = 1.5
 @export var current_speed: int
+@export var health: int = 5
 
 @onready var anim_player: AnimationPlayer = $Anim
 @onready var player_sprite: Sprite2D = $Sprite
@@ -23,8 +24,6 @@ class_name Player
 @onready var obsidian_projectile: PackedScene = preload("res://scenes/projectiles/obsidianProjectile.tscn")
 @onready var poison_projectile: PackedScene = preload("res://scenes/projectiles/poisonProjectile.tscn")
 @onready var throwing_projectile = preload("res://scenes/projectiles/throwingProjectiles.tscn")
-
-@export var entry_scene: PackedScene = preload("res://scenes/dungeonRooms/entryScene/entry_scene.tscn")
 
 var has_projectile = false
 var has_obsidian_projectile = false
@@ -59,9 +58,8 @@ func _process(delta: float) -> void:
 	
 	if not can_dash:
 		dash_cooldown_bar.value = dash_cooldown_timer.time_left
-	$GoldCoins.text = "Coins: %s" % GameManager.coins
-	$EnemyCounter.text = "Enemy Counter: %s" % GameManager.enemy_count
- 
+	#$GoldCoins.text = "Coins: %s" % GameManager.coins
+
 func movement(_delta: float) -> void:
 	if is_dead:
 		play_animations()
@@ -96,8 +94,7 @@ func dash() -> void:
 	current_speed = dash_speed
 	current_state = player_state.dashing
 	can_dash = false
-	$PlayerCollision.disabled = true
-	$Hitbox/HitboxCollider.disabled = true
+	
 	dash_timer.start(dash_time)
 
 func is_player_moving() -> bool:
@@ -106,8 +103,6 @@ func is_player_moving() -> bool:
 func reset_dash() -> void:
 	#print("Dash Reset")
 	can_shoot = true
-	$PlayerCollision.disabled = false
-	$Hitbox/HitboxCollider.disabled = false
 	dash_cooldown_bar.max_value = dash_cooldown
 	dash_cooldown_bar.value = dash_cooldown
 	current_state = player_state.moving
@@ -201,37 +196,40 @@ func fire_projectile() -> void:
 		get_tree().root.add_child(proj)
 
 func _on_hitbox_area_entered(area):
-	if GameManager.health >= 0:
+	if health >= 0:
 		if area.name == "EnemyBullets":
-			GameManager.health -= 1
-			print ("Player Health %s" % GameManager.health)
+			health -= 1
+			print ("Player Health %s" % health)
 			print ("Damaged by fireball bullet")
 		if area.name == "LightningArea":
-			GameManager.health -= 2
-			print ("Player Health %s" % GameManager.health)
+			health -= 2
+			print ("Player Health %s" % health)
 			print ("Damaged by Lightning Nightmare")
 		if area.name == "BarredProj":
-			GameManager.health -= 1
-			print ("Player Health %s" % GameManager.health)
+			health -= 1
+			print ("Player Health %s" % health)
 			print ("Damaged by Barred Light")
 		if area.name == "ContainedProj":
-			GameManager.health -= 1
-			print ("Player Health %s" % GameManager.health)
+			health -= 1
+			print ("Player Health %s" % health)
 			print ("Damaged by Contained Light")
 		
-	else:
-		is_dead = true
-		death_time.start()
-
+	#elif health <= 0 and not is_dead:
+	#	is_dead = true
+	#	death_time.start()
 
 func _on_death_timer_timeout():
+<<<<<<< HEAD
 	pass
+=======
+	Events.load_entry.emit()
+	#get_tree().change_scene_to_file("res://scenes/dungeonRooms/entryScene/entry_scene.tscn")
+>>>>>>> c58297d1728b2d7a3d2a15f838781d12d6a0e8a5
 
 func picked_up(type: Droppable.droppable_type) -> void:
 	match(type):
 		Droppable.droppable_type.gold:
 			GameManager.coins += randf_range(1,3)
-			$GoldCoins.text = "Coins: %s" % GameManager.coins
+			#$GoldCoins.text = "Coins: %s" % GameManager.coins
 		Droppable.droppable_type.health:
 			print("Picked up health...")
-

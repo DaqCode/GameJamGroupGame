@@ -9,6 +9,8 @@ extends CharacterBody2D
 
 var Player
 
+var is_dead = false
+
 func _ready()-> void:
 	Player = get_parent().find_child("Player")
 
@@ -17,6 +19,10 @@ func _physics_process(_delta: float)-> void:
 	move_and_slide()
 
 func drop_item() -> void:
+	if is_dead:
+		return
+	is_dead = true
+	Events.enemy_died.emit()
 	var new_item = item.instantiate()
 	new_item.init_item(Droppable.droppable_type.gold)
 	new_item.position = position

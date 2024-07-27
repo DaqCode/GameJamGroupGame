@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ys6eloq85oq3"]
+[gd_scene load_steps=8 format=3 uid="uid://ys6eloq85oq3"]
 
 [ext_resource type="TileSet" uid="uid://sgoeweaeigyj" path="res://assets/tilemap/tileMapSave/world_1_room_2.tres" id="1_vsibt"]
 [ext_resource type="PackedScene" uid="uid://hdseyc5n8swf" path="res://scenes/treasure/wasp_treasure.tscn" id="2_xmpvy"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="3_qf36t"]
 [ext_resource type="PackedScene" uid="uid://kt0edvqinbkd" path="res://scenes/goNextDoor/nextroom.tscn" id="4_ckux7"]
 [ext_resource type="PackedScene" uid="uid://8wvl1c1vf6t7" path="res://scenes/dungeonRooms/world1/world_1_room_4.tscn" id="5_88aoj"]
+[ext_resource type="PackedScene" uid="uid://dnl4lq6lbs7do" path="res://scenes/LevelBlock/door_block.tscn" id="6_phym5"]
+[ext_resource type="PackedScene" uid="uid://b4wclsljpim2q" path="res://scenes/LevelBlock/enemy_manager.tscn" id="7_1nim1"]
 
 [node name="world1room3" type="Node2D"]
 
@@ -32,3 +34,8 @@ position = Vector2(336, 296)
 [node name="nextroom" parent="." instance=ExtResource("4_ckux7")]
 position = Vector2(318.097, 82.8467)
 level = ExtResource("5_88aoj")
+
+[node name="DoorBlock" parent="." instance=ExtResource("6_phym5")]
+position = Vector2(319, 88)
+
+[node name="EnemyManager" parent="." instance=ExtResource("7_1nim1")]

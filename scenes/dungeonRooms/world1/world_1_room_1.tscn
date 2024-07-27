@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bj7enwks0tahd"]
+[gd_scene load_steps=11 format=3 uid="uid://bj7enwks0tahd"]
 
 [ext_resource type="TileSet" uid="uid://sgoeweaeigyj" path="res://assets/tilemap/tileMapSave/world_1_room_2.tres" id="1_moysb"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_og8pa"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://d1chox65lnjug" path="res://scenes/Enemy/ContainedLight/contained_light.tscn" id="6_2js5q"]
 [ext_resource type="PackedScene" uid="uid://kt0edvqinbkd" path="res://scenes/goNextDoor/nextroom.tscn" id="7_cpqpv"]
 [ext_resource type="PackedScene" uid="uid://bjch8munfdhut" path="res://scenes/dungeonRooms/world1/world_1_room_2.tscn" id="8_i7yrs"]
+[ext_resource type="PackedScene" uid="uid://dnl4lq6lbs7do" path="res://scenes/LevelBlock/door_block.tscn" id="9_auaqt"]
+[ext_resource type="PackedScene" uid="uid://b4wclsljpim2q" path="res://scenes/LevelBlock/enemy_manager.tscn" id="10_u8q7y"]
 
 [node name="world1room1" type="Node2D"]
 
@@ -52,3 +54,9 @@ level = ExtResource("8_i7yrs")
 
 [node name="Player" parent="." instance=ExtResource("2_og8pa")]
 position = Vector2(536, 288)
+
+[node name="DoorBlock" parent="." instance=ExtResource("9_auaqt")]
+position = Vector2(410, -6)
+
+[node name="EnemyManager" parent="." instance=ExtResource("10_u8q7y")]
+number_of_enemies = 6
