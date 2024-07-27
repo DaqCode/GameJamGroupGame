@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://cx78e7h878ejw"]
+
+[ext_resource type="Texture2D" uid="uid://drkpjjgp35lkv" path="res://assets/character/NPCS/brentAnimation.png" id="1_dvts8"]
+[ext_resource type="Script" path="res://scenes/characters/NPC/Brent/brent.gd" id="1_t0u0d"]
+[ext_resource type="PackedScene" uid="uid://bpoj3quk0tqij" path="res://scenes/characters/NPC/Brent/npc_3_dialouge.tscn" id="3_00c4y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e081i"]
+atlas = ExtResource("1_dvts8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tvuk"]
+atlas = ExtResource("1_dvts8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k60i3"]
+atlas = ExtResource("1_dvts8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opjyg"]
+atlas = ExtResource("1_dvts8")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sw3ba"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e081i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7tvuk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k60i3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opjyg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17npc"]
+size = Vector2(30, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmkdo"]
+size = Vector2(54, 34)
+
+[node name="Brent" type="CharacterBody2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_t0u0d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sw3ba")
+autoplay = "default"
+frame_progress = 0.357787
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 3.5)
+shape = SubResource("RectangleShape2D_17npc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_wmkdo")
+
+[node name="npc3_dialouge" parent="." instance=ExtResource("3_00c4y")]
+offset_left = -31.0
+offset_top = -35.0
+offset_right = -31.0
+offset_bottom = -35.0
+scale = Vector2(0.265, 0.265)
+metadata/_edit_use_anchors_ = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="dialouge_finished" from="npc3_dialouge" to="." method="_on_npc_3_dialouge_dialouge_finished"]

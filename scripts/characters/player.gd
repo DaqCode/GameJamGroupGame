@@ -225,7 +225,7 @@ func _on_hitbox_area_entered(area):
 
 
 func _on_death_timer_timeout():
-	
+	pass
 
 func picked_up(type: Droppable.droppable_type) -> void:
 	match(type):

@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctknicn8hhifr"]
+[gd_scene load_steps=8 format=3 uid="uid://ctknicn8hhifr"]
 
 [ext_resource type="Texture2D" uid="uid://du744t64w7p7v" path="res://assets/tilemap/topDown_baseTiles.png" id="2_mq4vw"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="3_eken4"]
 [ext_resource type="PackedScene" uid="uid://c7mjpmscby05o" path="res://scenes/characters/NPC/Daq/daq.tscn" id="3_p11ke"]
 [ext_resource type="PackedScene" uid="uid://c5ewd6uct6rus" path="res://scenes/characters/NPC/Koala/koala.tscn" id="4_mi7e8"]
 [ext_resource type="PackedScene" uid="uid://cx78e7h878ejw" path="res://scenes/characters/NPC/Brent/brent.tscn" id="5_keki7"]
-[ext_resource type="PackedScene" uid="uid://wdh0yqit5xp1" path="res://scenes/characters/NPC/Slider/Slider.tscn" id="6_banof"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x0q80"]
 texture = ExtResource("2_mq4vw")
@@ -990,6 +989,3 @@ position = Vector2(176, 337)
 
 [node name="Brent" parent="." instance=ExtResource("5_keki7")]
 position = Vector2(225, 0)
-
-[node name="Slider" parent="." instance=ExtResource("6_banof")]
-position = Vector2(377, -128)

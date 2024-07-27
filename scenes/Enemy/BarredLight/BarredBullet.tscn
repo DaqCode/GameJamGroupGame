@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dv6c6mydktufa" path="res://scenes/Enemy/BarredLight/flashlightbullet.png" id="1_nyu26"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7vmxx"]
-size = Vector2(9, 27)
+size = Vector2(9, 30)
 
 [node name="BarredProj" type="Area2D"]
 collision_layer = 8
@@ -19,7 +19,7 @@ scale = Vector2(0.270386, 1)
 texture = ExtResource("1_nyu26")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -3.00001)
+position = Vector2(1, -3)
 rotation = 1.5708
 shape = SubResource("RectangleShape2D_7vmxx")
 

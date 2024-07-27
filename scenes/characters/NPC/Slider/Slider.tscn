@@ -1,0 +1,63 @@
+[gd_scene load_steps=9 format=3 uid="uid://wdh0yqit5xp1"]
+
+[ext_resource type="Texture2D" uid="uid://wpku0kxtmyim" path="res://assets/character/NPCS/slideranimation.png" id="1_anrj6"]
+[ext_resource type="Script" path="res://scenes/characters/NPC/Slider/Slider.gd" id="1_lrly0"]
+[ext_resource type="PackedScene" uid="uid://cms8177gix46r" path="res://scenes/characters/NPC/Slider/npc_4_dialouge.tscn" id="3_upbq3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t454f"]
+atlas = ExtResource("1_anrj6")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tjyeb"]
+atlas = ExtResource("1_anrj6")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mpdxe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t454f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tjyeb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_17npc"]
+size = Vector2(30, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awgyj"]
+size = Vector2(54, 39)
+
+[node name="Slider" type="CharacterBody2D"]
+position = Vector2(1, 0)
+script = ExtResource("1_lrly0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mpdxe")
+autoplay = "default"
+frame_progress = 0.348121
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -5)
+shape = SubResource("RectangleShape2D_17npc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, -7)
+shape = SubResource("RectangleShape2D_awgyj")
+
+[node name="npc4_dialouge" parent="." instance=ExtResource("3_upbq3")]
+offset_left = -56.0
+offset_top = -79.0
+offset_right = -56.0
+offset_bottom = -79.0
+scale = Vector2(0.495, 0.495)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="dialouge_finished" from="npc4_dialouge" to="." method="_on_npc_4_dialouge_dialouge_finished"]

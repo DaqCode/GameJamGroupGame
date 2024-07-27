@@ -62,7 +62,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_17npc"]
-size = Vector2(28, 33)
+size = Vector2(30, 24)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h0gfh"]
 size = Vector2(79, 38)
@@ -92,6 +92,7 @@ offset_top = -53.0
 offset_right = -85.0
 offset_bottom = -53.0
 scale = Vector2(0.335, 0.335)
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
