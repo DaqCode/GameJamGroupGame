@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3lm10cjn5mf3"]
+[gd_scene load_steps=11 format=3 uid="uid://d3lm10cjn5mf3"]
 
 [ext_resource type="TileSet" uid="uid://sgoeweaeigyj" path="res://assets/tilemap/tileMapSave/world_1_room_2.tres" id="1_kjl5g"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_5jni1"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bsvbovmxqqp4y" path="res://scenes/Enemy/LightningNightmares/lightning_nightmares.tscn" id="6_bvkv3"]
 [ext_resource type="PackedScene" uid="uid://do4aiaa7vcb7n" path="res://scenes/Enemy/Firebud/enemy.tscn" id="7_70tpo"]
 [ext_resource type="PackedScene" uid="uid://c6210w462gpl3" path="res://scenes/Enemy/BarredLight/BarredLight.tscn" id="8_l6cm5"]
+[ext_resource type="PackedScene" uid="uid://dnl4lq6lbs7do" path="res://scenes/LevelBlock/door_block.tscn" id="9_e6mia"]
+[ext_resource type="PackedScene" uid="uid://b4wclsljpim2q" path="res://scenes/LevelBlock/enemy_manager.tscn" id="10_hclya"]
 
 [node name="world1room6" type="Node2D"]
 
@@ -96,3 +98,9 @@ position = Vector2(1378.16, 455.938)
 
 [node name="BarredLight5" parent="." instance=ExtResource("8_l6cm5")]
 position = Vector2(1274.16, 329.938)
+
+[node name="DoorBlock" parent="." instance=ExtResource("9_e6mia")]
+position = Vector2(1280, -1)
+
+[node name="EnemyManager" parent="." instance=ExtResource("10_hclya")]
+number_of_enemies = 21
