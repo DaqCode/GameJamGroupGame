@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dnu04mmbb5on1"]
+[gd_scene load_steps=6 format=3 uid="uid://dnu04mmbb5on1"]
 
 [ext_resource type="Script" path="res://scripts/shopItems/speed_item.gd" id="1_874bb"]
 [ext_resource type="Texture2D" uid="uid://c8g11a7nbwi3s" path="res://assets/shopItems/SpeedPotion.png" id="1_sr74r"]
 [ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="2_v7wt5"]
+[ext_resource type="Resource" uid="uid://bjm47lbuo01h5" path="res://scenes/inventory/Items/speedPotion.tres" id="2_vuonw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4t3wg"]
 size = Vector2(77, 68.125)
 
-[node name="speedItem" type="CharacterBody2D"]
+[node name="speedItem" type="StaticBody2D"]
 script = ExtResource("1_874bb")
+item = ExtResource("2_vuonw")
 
 [node name="InfoStats" type="Control" parent="."]
 visible = false

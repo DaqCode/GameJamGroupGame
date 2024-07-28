@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dglwwlc6ws1t0"]
+
+[ext_resource type="Script" path="res://scenes/inventory/inventory_item.gd" id="1_3b6hb"]
+[ext_resource type="Texture2D" uid="uid://q06ulxak74x8" path="res://assets/shopItems/InvincibilityPotion.png" id="2_frpmt"]
+
+[resource]
+script = ExtResource("1_3b6hb")
+name = "InvincibilityPotion"
+texture = ExtResource("2_frpmt")

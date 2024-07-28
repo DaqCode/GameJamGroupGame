@@ -1,15 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bm1mg5act3o3h"]
+[gd_scene load_steps=6 format=3 uid="uid://bm1mg5act3o3h"]
 
 [ext_resource type="Script" path="res://scripts/treasure/rose_Treasure.gd" id="1_ppknq"]
+[ext_resource type="Resource" uid="uid://biajissfg3hm4" path="res://scenes/inventory/Items/rose.tres" id="2_3m5rx"]
 [ext_resource type="Texture2D" uid="uid://bqx0tddcx6rfy" path="res://assets/treasure/Red-Blue Rose.png" id="2_74un3"]
 [ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="3_wrq8b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wd102"]
 size = Vector2(50, 46.875)
 
-[node name="roseTreasure" type="CharacterBody2D"]
+[node name="roseTreasure" type="StaticBody2D"]
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_ppknq")
+item = ExtResource("2_3m5rx")
 
 [node name="InfoStats" type="Control" parent="."]
 visible = false

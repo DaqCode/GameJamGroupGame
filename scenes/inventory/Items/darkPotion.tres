@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://veui1e13jbow"]
+
+[ext_resource type="Script" path="res://scenes/inventory/inventory_item.gd" id="1_tfifv"]
+[ext_resource type="Texture2D" uid="uid://b4jyuqbcqtesl" path="res://assets/shopItems/DarkPotion.png" id="2_xx45e"]
+
+[resource]
+script = ExtResource("1_tfifv")
+name = "DarknessPotion"
+texture = ExtResource("2_xx45e")

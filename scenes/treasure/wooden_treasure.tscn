@@ -1,15 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://cs0tinhspw870"]
+[gd_scene load_steps=6 format=3 uid="uid://cs0tinhspw870"]
 
 [ext_resource type="Texture2D" uid="uid://b2yvcbv8cqtc0" path="res://assets/treasure/woodenBandana.png" id="1_7lumc"]
 [ext_resource type="Script" path="res://scripts/treasure/wooden_treasure.gd" id="1_f36v4"]
+[ext_resource type="Resource" uid="uid://cnu3k42mmgrmu" path="res://scenes/inventory/Items/bandana.tres" id="2_f0p7s"]
 [ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="2_fx260"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ih1v"]
 size = Vector2(40.3125, 33.75)
 
-[node name="woodenTreasure" type="CharacterBody2D"]
+[node name="woodenTreasure" type="StaticBody2D"]
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_f36v4")
+item = ExtResource("2_f0p7s")
 
 [node name="InfoStats" type="Control" parent="."]
 visible = false

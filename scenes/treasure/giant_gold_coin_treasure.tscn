@@ -1,15 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://c6lqqh58jrbfp"]
+[gd_scene load_steps=6 format=3 uid="uid://c6lqqh58jrbfp"]
 
 [ext_resource type="Texture2D" uid="uid://cesgr8mnfe67t" path="res://assets/treasure/GiantGoldCoin.png" id="1_nhwmb"]
 [ext_resource type="Script" path="res://scripts/treasure/giant_gold_coin_treasure.gd" id="1_un1hj"]
 [ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="2_exry0"]
+[ext_resource type="Resource" uid="uid://sp1fsj56ddyn" path="res://scenes/inventory/Items/giantCoin.tres" id="2_l4ivr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y13b1"]
 size = Vector2(57, 52)
 
-[node name="GiantGoldCoinTreasure" type="CharacterBody2D"]
+[node name="GiantGoldCoinTreasure" type="StaticBody2D"]
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_un1hj")
+item = ExtResource("2_l4ivr")
 
 [node name="InfoStats" type="Control" parent="."]
 visible = false

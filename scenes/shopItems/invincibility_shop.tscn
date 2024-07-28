@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://brxmd31ryn5os"]
+[gd_scene load_steps=6 format=3 uid="uid://brxmd31ryn5os"]
 
 [ext_resource type="Texture2D" uid="uid://q06ulxak74x8" path="res://assets/shopItems/InvincibilityPotion.png" id="1_inwdf"]
 [ext_resource type="Script" path="res://scripts/shopItems/invincibility_shop.gd" id="1_qnc4r"]
 [ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="2_40euf"]
+[ext_resource type="Resource" uid="uid://dglwwlc6ws1t0" path="res://scenes/inventory/Items/invincibilityPotion.tres" id="2_qwost"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ghfls"]
 size = Vector2(35, 36)
 
-[node name="invincibilityShop" type="CharacterBody2D"]
+[node name="invincibilityShop" type="StaticBody2D"]
 script = ExtResource("1_qnc4r")
+item = ExtResource("2_qwost")
 
 [node name="InfoStats" type="Control" parent="."]
 visible = false

@@ -14,8 +14,8 @@ script = ExtResource("1_n6bka")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_right = 62.0
-offset_bottom = 41.0
+offset_right = 100.0
+offset_bottom = 43.0
 texture = ExtResource("2_py483")
 
 [node name="GridContainer" type="GridContainer" parent="NinePatchRect"]
@@ -31,7 +31,7 @@ offset_right = 28.0
 offset_bottom = 18.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 3
+columns = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="1" parent="NinePatchRect/GridContainer" instance=ExtResource("3_bk7vw")]
@@ -50,4 +50,16 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="6" parent="NinePatchRect/GridContainer" instance=ExtResource("3_bk7vw")]
+layout_mode = 2
+
+[node name="7" parent="NinePatchRect/GridContainer" instance=ExtResource("3_bk7vw")]
+layout_mode = 2
+
+[node name="8" parent="NinePatchRect/GridContainer" instance=ExtResource("3_bk7vw")]
+layout_mode = 2
+
+[node name="9" parent="NinePatchRect/GridContainer" instance=ExtResource("3_bk7vw")]
+layout_mode = 2
+
+[node name="10" parent="NinePatchRect/GridContainer" instance=ExtResource("3_bk7vw")]
 layout_mode = 2

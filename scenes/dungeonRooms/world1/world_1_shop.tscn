@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c4j8ny45nbrli"]
+[gd_scene load_steps=19 format=3 uid="uid://c4j8ny45nbrli"]
 
 [ext_resource type="TileSet" uid="uid://sgoeweaeigyj" path="res://assets/tilemap/tileMapSave/world_1_room_2.tres" id="1_sltow"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_oboi1"]
@@ -18,9 +18,6 @@
 [ext_resource type="PackedScene" uid="uid://hdseyc5n8swf" path="res://scenes/treasure/wasp_treasure.tscn" id="15_snptm"]
 [ext_resource type="PackedScene" uid="uid://kt0edvqinbkd" path="res://scenes/goNextDoor/nextroom.tscn" id="17_cvhcr"]
 [ext_resource type="PackedScene" uid="uid://ctknicn8hhifr" path="res://scenes/dungeonRooms/entryScene/entry_scene.tscn" id="18_hhoch"]
-[ext_resource type="PackedScene" uid="uid://m7hw3vjgxtsj" path="res://scenes/dungeonRooms/world1/world_1_boss.tscn" id="19_10o0u"]
-[ext_resource type="PackedScene" uid="uid://xvy81hregefa" path="res://scenes/inventory/Items/demon_horn.tscn" id="20_7mbe7"]
-[ext_resource type="PackedScene" uid="uid://ehs8jlewjgwv" path="res://scenes/inventory/Items/carpet_moss.tscn" id="20_c4dma"]
 
 [node name="world1shop" type="Node2D"]
 position = Vector2(16, -80)
@@ -44,6 +41,9 @@ layer_0/tile_data = PackedInt32Array(983072, 720896, 3, 983073, 786432, 3, 10486
 
 [node name="ShopAssets" type="Node2D" parent="."]
 
+[node name="shopkeeper" parent="ShopAssets" instance=ExtResource("4_nvhdk")]
+position = Vector2(495, 248)
+
 [node name="obsidianShop" parent="ShopAssets" instance=ExtResource("4_22oq0")]
 position = Vector2(400, 216)
 
@@ -57,77 +57,37 @@ position = Vector2(546, 217)
 position = Vector2(608, 221)
 
 [node name="speedItem" parent="ShopAssets" instance=ExtResource("8_1tlky")]
-position = Vector2(399, 154)
+position = Vector2(648, 309)
 
 [node name="healthShop" parent="ShopAssets" instance=ExtResource("9_7n55a")]
-position = Vector2(448, 154)
+position = Vector2(608, 305)
 
 [node name="darkShop" parent="ShopAssets" instance=ExtResource("10_4nxyw")]
-position = Vector2(495, 153)
+position = Vector2(648, 270)
 
 [node name="invincibilityShop" parent="ShopAssets" instance=ExtResource("11_6yf2u")]
-position = Vector2(544, 152)
-
-[node name="shopkeeper" parent="ShopAssets" instance=ExtResource("4_nvhdk")]
-position = Vector2(495, 248)
+position = Vector2(608, 267)
 
 [node name="Treasure Items" type="Node2D" parent="."]
 
 [node name="GiantGoldCoinTreasure" parent="Treasure Items" instance=ExtResource("12_qtelg")]
-position = Vector2(430, 121)
+position = Vector2(317, 312)
 
 [node name="ironTreasure" parent="Treasure Items" instance=ExtResource("13_l84u0")]
-position = Vector2(464, 124)
+position = Vector2(358, 286)
 
 [node name="woodenTreasure" parent="Treasure Items" instance=ExtResource("14_ks7v2")]
-position = Vector2(412, 296)
+position = Vector2(317, 290)
 
 [node name="roseTreasure" parent="Treasure Items" instance=ExtResource("15_7wabp")]
-position = Vector2(560, 128)
+position = Vector2(358, 320)
 
 [node name="waspTreasure" parent="Treasure Items" instance=ExtResource("15_snptm")]
-position = Vector2(576, 172)
+position = Vector2(392, 287)
 
 [node name="Player" parent="." instance=ExtResource("2_oboi1")]
 position = Vector2(504, 320)
 
 [node name="nextroom" parent="." instance=ExtResource("17_cvhcr")]
-position = Vector2(304, 248)
+position = Vector2(491, 113)
 level = ExtResource("18_hhoch")
-
-[node name="nextroom2" parent="." instance=ExtResource("17_cvhcr")]
-position = Vector2(688, 264)
-level = ExtResource("19_10o0u")
-
-[node name="Label" type="Label" parent="."]
-offset_left = 656.0
-offset_top = 264.0
-offset_right = 715.0
-offset_bottom = 287.0
-text = "To boss"
-
-[node name="Label2" type="Label" parent="."]
-offset_left = 277.0
-offset_top = 257.0
-offset_right = 365.0
-offset_bottom = 280.0
-text = "Back Home
-"
-
-[node name="CarpetMoss" parent="." instance=ExtResource("20_c4dma")]
-position = Vector2(576, 280)
-
-[node name="CarpetMoss2" parent="." instance=ExtResource("20_c4dma")]
-position = Vector2(616, 280)
-
-[node name="CarpetMoss3" parent="." instance=ExtResource("20_c4dma")]
-position = Vector2(656, 280)
-
-[node name="DemonHorn" parent="." instance=ExtResource("20_7mbe7")]
-position = Vector2(576, 336)
-
-[node name="DemonHorn2" parent="." instance=ExtResource("20_7mbe7")]
-position = Vector2(616, 336)
-
-[node name="DemonHorn3" parent="." instance=ExtResource("20_7mbe7")]
-position = Vector2(664, 336)

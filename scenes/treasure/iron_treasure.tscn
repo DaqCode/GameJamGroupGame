@@ -1,15 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://bflc2j43803f8"]
+[gd_scene load_steps=6 format=3 uid="uid://bflc2j43803f8"]
 
 [ext_resource type="Texture2D" uid="uid://bk28hq2p1dy53" path="res://assets/treasure/IronBar.png" id="1_3tkpk"]
 [ext_resource type="Script" path="res://scripts/treasure/iron_treasure.gd" id="1_5c4ai"]
+[ext_resource type="Resource" uid="uid://dt26cn2c8efd7" path="res://scenes/inventory/Items/ironBar.tres" id="2_2ibcp"]
 [ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="2_laybe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j4h8m"]
 size = Vector2(33.75, 36.875)
 
-[node name="ironTreasure" type="CharacterBody2D"]
+[node name="ironTreasure" type="StaticBody2D"]
 scale = Vector2(0.8, 0.8)
 script = ExtResource("1_5c4ai")
+item = ExtResource("2_2ibcp")
 
 [node name="InfoStats" type="Control" parent="."]
 visible = false

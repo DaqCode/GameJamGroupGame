@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://d2omfe8r1fgs4"]
+[gd_scene load_steps=6 format=3 uid="uid://d2omfe8r1fgs4"]
 
 [ext_resource type="Script" path="res://scripts/shopItems/health_shop.gd" id="1_phc3m"]
+[ext_resource type="Resource" uid="uid://cq5fnccdbog0r" path="res://scenes/inventory/Items/healthPotion.tres" id="2_dbo32"]
 [ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="2_j4voy"]
 [ext_resource type="Texture2D" uid="uid://dp55hcrngswr" path="res://assets/shopItems/HealthPotion.png" id="3_75rhp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11i5y"]
 size = Vector2(42, 43)
 
-[node name="healthShop" type="CharacterBody2D"]
+[node name="healthShop" type="StaticBody2D"]
 script = ExtResource("1_phc3m")
+item = ExtResource("2_dbo32")
 
 [node name="InfoStats" type="Control" parent="."]
 visible = false

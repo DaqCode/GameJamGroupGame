@@ -41,7 +41,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_brlff"]
-size = Vector2(79.3333, 78.9444)
+size = Vector2(39.6666, 48.3611)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bdcr6"]
 size = Vector2(96, 72)
@@ -59,7 +59,7 @@ autoplay = "default"
 frame_progress = 0.937769
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, 10.5)
+position = Vector2(2.22221, 12.2222)
 shape = SubResource("RectangleShape2D_brlff")
 
 [node name="shopkeeperArea" type="Area2D" parent="."]

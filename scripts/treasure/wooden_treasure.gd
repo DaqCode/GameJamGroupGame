@@ -1,15 +1,22 @@
-extends CharacterBody2D
-@onready var wooden_treasure = $"."
+extends StaticBody2D
+
+@export var item: InvItem 
+var player = null
+
+func playercollect():
+	player.collect(item)
 
 func _on_wooden_area_body_entered(body):
 	if body.name == "Player":
-		print ("Player stepped over")
 		$InfoStats.show()
-		ItemPickupManager.has_woodenBandana = true
-		print("Player now has woodenBanada")
-		wooden_treasure.visible = false
+		player = body
+		playercollect()
+		print("Read what it does")
+		await get_tree().create_timer(6.5).timeout
+		print("and dissapear")
+		self.queue_free()
+
 
 func _on_wooden_area_body_exited(body):
 	if body.name == "Player":
-		print("Player left")
 		$InfoStats.hide()

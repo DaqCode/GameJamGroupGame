@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://c0m57q3x0nt8x"]
+
+[ext_resource type="Script" path="res://scenes/inventory/inventory_item.gd" id="1_ep174"]
+[ext_resource type="Texture2D" uid="uid://dd3rxmd3of14b" path="res://assets/treasure/CombustiveWaspNest.png" id="2_imfo0"]
+
+[resource]
+script = ExtResource("1_ep174")
+name = "waspNest"
+texture = ExtResource("2_imfo0")

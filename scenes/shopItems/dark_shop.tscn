@@ -1,14 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://s1f64dpe0g64"]
+[gd_scene load_steps=6 format=3 uid="uid://s1f64dpe0g64"]
 
 [ext_resource type="Texture2D" uid="uid://b4jyuqbcqtesl" path="res://assets/shopItems/DarkPotion.png" id="1_6hsxe"]
 [ext_resource type="Script" path="res://scripts/shopItems/dark_shop.gd" id="1_ryk7a"]
 [ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="2_eaq3l"]
+[ext_resource type="Resource" uid="uid://veui1e13jbow" path="res://scenes/inventory/Items/darkPotion.tres" id="2_stgbq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlt8k"]
 size = Vector2(42, 42)
 
-[node name="darkShop" type="CharacterBody2D"]
+[node name="darkShop" type="StaticBody2D"]
 script = ExtResource("1_ryk7a")
+item = ExtResource("2_stgbq")
 
 [node name="InfoStats" type="Control" parent="."]
 visible = false

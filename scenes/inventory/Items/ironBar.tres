@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InvItem" load_steps=3 format=3 uid="uid://dt26cn2c8efd7"]
+
+[ext_resource type="Script" path="res://scenes/inventory/inventory_item.gd" id="1_ycadp"]
+[ext_resource type="Texture2D" uid="uid://bk28hq2p1dy53" path="res://assets/treasure/IronBar.png" id="2_2m3sx"]
+
+[resource]
+script = ExtResource("1_ycadp")
+name = "IronBar"
+texture = ExtResource("2_2m3sx")
