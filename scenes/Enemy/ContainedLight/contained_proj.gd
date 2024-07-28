@@ -14,9 +14,7 @@ func _on_screen_exited() -> void:
 
 func _on_area_entered(area):
 	print("Enemy Bullet Collided")
-	if area.name == "EnemyArea":
+	if area.name == "ContainedArea":
 		print("EnemyCollided with self")
-		pass
-	#elif area.name == "Hitbox":
 	else:
 		queue_free()

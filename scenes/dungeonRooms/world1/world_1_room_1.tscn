@@ -44,9 +44,6 @@ number_of_enemies = 6
 [node name="DemonHorn" parent="." instance=ExtResource("11_8mpi1")]
 position = Vector2(408, -104)
 
-[node name="Player" parent="." instance=ExtResource("2_og8pa")]
-position = Vector2(536, 288)
-
 [node name="BarredLight" parent="." instance=ExtResource("3_m2u44")]
 position = Vector2(472, 104)
 
@@ -61,3 +58,9 @@ position = Vector2(368, 16)
 
 [node name="Firebud" parent="." instance=ExtResource("3_xieai")]
 position = Vector2(616, 96)
+
+[node name="Player" parent="." instance=ExtResource("2_og8pa")]
+position = Vector2(536, 288)
+
+[node name="ContainedLight2" parent="." instance=ExtResource("6_2js5q")]
+position = Vector2(288, 24)
