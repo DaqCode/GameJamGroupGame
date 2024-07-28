@@ -14,6 +14,9 @@ class_name FireBud
 var Player
 var is_dead = false
 
+var player_within_range := false
+var detection_distance := 100.0
+
 func _ready()-> void:
 	Player = get_parent().find_child("Player")
 
@@ -33,7 +36,9 @@ func _check_player_collision()-> void:
 		timer.stop()
 
 func _on_timer_timeout()-> void:
-	_shoot()
+	_check_player_distance()
+	if player_within_range:
+		_shoot()
 	
 func _shoot() -> void:
 	var bullet = ammo.instantiate()
@@ -42,6 +47,15 @@ func _shoot() -> void:
 	get_parent().add_child(bullet)
 	bullet.look_at(Player.position)
 
+
+func _check_player_distance() -> void:
+	var distance_to_player = position.distance_to(Player.position)
+	if distance_to_player < detection_distance:
+		player_within_range = true
+	else:
+		player_within_range = false
+		
+		
 func _on_enemy_area_area_entered(area) -> void:
 	if area.name == "BulletArea":
 		if health <= 0:

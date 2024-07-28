@@ -11,6 +11,9 @@ var Player
 
 var is_dead = false
 
+var player_within_range := false
+var detection_distance := 20.0
+
 func _ready()-> void:
 	Player = get_parent().find_child("Player")
 
