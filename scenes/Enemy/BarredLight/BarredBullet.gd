@@ -13,7 +13,10 @@ func _on_screen_exited():
 	queue_free()
 
 func _on_area_entered(area) -> void:
+	print("Enemy Bullet Collided")
 	if area.name == "BarredArea":
+		print("EnemyCollided with self")
 		pass
-	elif area.name == "Hitbox":
+	#elif area.name == "Hitbox":
+	else:
 		queue_free()

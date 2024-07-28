@@ -1,14 +1,9 @@
 extends Node
 
-signal load_entry
-signal next_room
-signal load_menu
-signal start_match
-signal load_credits
 
 var main_menu_scene = "res://scenes/mainMenu/main_menu.tscn"
-var entry_scene = "res://scenes/dungeonRooms/entry_scene.tscn"
-var credit_scene = "res://scenes/mainMenu/credits.tscn"
+var entry_scene = "res://scenes/dungeonRooms/entryScene/entry_scene.tscn"
+var credits_scene = "res://scenes/mainMenu/credits.tscn"
 
 var dungeon_scenes = [
 	"res://scenes/dungeonRooms/world1/world_1_room_1.tscn",
@@ -45,10 +40,11 @@ var enemy_count: int = 0
 @onready var container = $Container
 
 func _ready() -> void:
-	connect("next_room", self.go_to_next_room)
-	connect("start_match", self.load_first_room)
-	connect("load_menu", self.load_main_menu)
-	connect("load_entry", self.load_entry_scene)
+	Events.next_room.connect(go_to_next_room)
+	Events.start_match.connect(load_first_room)
+	Events.load_menu.connect(load_main_menu)
+	Events.load_entry.connect(load_entry_scene)
+	Events.load_credits.connect(load_credits_scene)
 	level_instance = load(main_menu_scene).instantiate()
 	level_instance.anchor_left = 0.5
 	level_instance.anchor_top = 0.5
@@ -73,6 +69,17 @@ func load_entry_scene() -> void:
 	container.add_child(level_instance)
 
 
+func load_credits_scene() -> void:
+	unload_level()
+	level_instance = load(credits_scene).instantiate()
+	level_instance.anchor_left = 0.5
+	level_instance.anchor_top = 0.5
+	level_instance.anchor_right = 0.5
+	level_instance.anchor_bottom = 0.5
+	level_instance.position = Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2)
+	container.add_child(level_instance)
+
+
 func go_to_next_room() -> void:
 	room_number += 1
 	load_level()
@@ -91,7 +98,7 @@ func load_main_menu() -> void:
 	level_instance.anchor_top = 0.5
 	level_instance.anchor_right = 0.5
 	level_instance.anchor_bottom = 0.5
-	#level_instance.position = Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2)
+	level_instance.position = Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2)
 	container.add_child(level_instance)
 
 
