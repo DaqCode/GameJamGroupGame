@@ -39,9 +39,6 @@ position = Vector2(472, 320)
 [node name="Firebud3" parent="." instance=ExtResource("2_scy6o")]
 position = Vector2(528, 232)
 
-[node name="Player" parent="." instance=ExtResource("2_ffupt")]
-position = Vector2(264, 336)
-
 [node name="nextroom" parent="." instance=ExtResource("4_xva1l")]
 position = Vector2(560, -16)
 level = ExtResource("5_v1g7g")
@@ -90,3 +87,6 @@ number_of_enemies = 15
 
 [node name="DemonHorn" parent="." instance=ExtResource("11_qmhfx")]
 position = Vector2(560, 24)
+
+[node name="Player" parent="." instance=ExtResource("2_ffupt")]
+position = Vector2(264, 336)

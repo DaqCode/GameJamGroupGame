@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://3gbxhmbev8ju"]
+
+[ext_resource type="Script" path="res://scenes/characters/NPC/Jeff/npc4_dialouge.gd" id="1_dn2vq"]
+[ext_resource type="Texture2D" uid="uid://qctqna7fh5xl" path="res://assets/misc/Jeffbox.png" id="2_5gtcf"]
+[ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="3_itxva"]
+
+[node name="npc4_dialouge" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.25, 0.25)
+script = ExtResource("1_dn2vq")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 864.0
+offset_bottom = 186.0
+texture = ExtResource("2_5gtcf")
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 360.0
+offset_bottom = 40.0
+theme_override_fonts/normal_font = ExtResource("3_itxva")
+theme_override_font_sizes/normal_font_size = 32
+text = "Jeff the Shadow"
+
+[node name="Text" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 49.0
+offset_right = 853.0
+offset_bottom = 176.0
+theme_override_fonts/normal_font = ExtResource("3_itxva")
+theme_override_font_sizes/normal_font_size = 32
+text = "Some text"

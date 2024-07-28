@@ -116,6 +116,7 @@ script = ExtResource("1_pjn7b")
 dash_speed = 200
 dash_time = 1.0
 dash_cooldown = 0.75
+health = 10
 inv = ExtResource("2_pa7g1")
 
 [node name="Camera2D" type="Camera2D" parent="."]

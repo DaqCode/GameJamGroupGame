@@ -30,9 +30,6 @@ layer_0/tile_data = PackedInt32Array(327689, 327680, 268435463, 327688, 393216, 
 [node name="waspTreasure" parent="." instance=ExtResource("2_xmpvy")]
 position = Vector2(320, 160)
 
-[node name="Player" parent="." instance=ExtResource("3_qf36t")]
-position = Vector2(336, 296)
-
 [node name="nextroom" parent="." instance=ExtResource("4_ckux7")]
 position = Vector2(318.097, 82.8467)
 level = ExtResource("5_88aoj")
@@ -47,3 +44,6 @@ position = Vector2(264, 160)
 
 [node name="Crystal" parent="." instance=ExtResource("9_h8tq2")]
 position = Vector2(360, 160)
+
+[node name="Player" parent="." instance=ExtResource("3_qf36t")]
+position = Vector2(336, 296)

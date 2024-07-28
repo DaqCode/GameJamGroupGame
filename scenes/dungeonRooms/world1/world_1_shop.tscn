@@ -37,7 +37,7 @@ layer_0/tile_data = PackedInt32Array(262170, 196608, 3, 262171, 65536, 3, 262172
 [node name="Decoration" type="TileMap" parent="Tilemap"]
 tile_set = ExtResource("1_sltow")
 format = 2
-layer_0/tile_data = PackedInt32Array(983072, 720896, 3, 983073, 786432, 3, 1048608, 720896, 3, 1048609, 786432, 3, 851992, 589824, 0, 917528, 589824, 1, 851993, 720896, 0, 917529, 720896, 1, 851996, 589824, 0, 917532, 589824, 1, 851997, 720896, 0, 917533, 720896, 1, 852001, 589824, 0, 917537, 589824, 1, 852002, 720896, 0, 917538, 720896, 1, 852005, 589824, 0, 917541, 589824, 1, 852006, 720896, 0, 917542, 720896, 1, 655395, 589824, 0, 720931, 589824, 1, 655396, 720896, 0, 720932, 720896, 1, 589857, 589824, 0, 655393, 589824, 1, 589858, 720896, 0, 655394, 720896, 1, 589854, 589824, 0, 655390, 589824, 1, 589855, 720896, 0, 655391, 720896, 1, 589851, 589824, 0, 655387, 589824, 1, 589852, 720896, 0, 655388, 720896, 1, 589848, 589824, 0, 655384, 589824, 1, 589849, 720896, 0, 655385, 720896, 1, 458778, 589824, 0, 524314, 589824, 1, 458779, 720896, 0, 524315, 720896, 1, 458780, 589824, 0, 524316, 589824, 1, 458781, 720896, 0, 524317, 720896, 1, 458783, 589824, 0, 524319, 589824, 1, 458784, 720896, 0, 524320, 720896, 1, 458786, 589824, 0, 524322, 589824, 1, 458787, 720896, 0, 524323, 720896, 1)
+layer_0/tile_data = PackedInt32Array(983072, 720896, 3, 983073, 786432, 3, 1048608, 720896, 3, 1048609, 786432, 3)
 
 [node name="ShopAssets" type="Node2D" parent="."]
 
@@ -45,28 +45,28 @@ layer_0/tile_data = PackedInt32Array(983072, 720896, 3, 983073, 786432, 3, 10486
 position = Vector2(495, 248)
 
 [node name="obsidianShop" parent="ShopAssets" instance=ExtResource("4_22oq0")]
-position = Vector2(400, 216)
+position = Vector2(314, 237)
 
 [node name="poisonShop" parent="ShopAssets" instance=ExtResource("5_lj1d0")]
-position = Vector2(470, 214)
+position = Vector2(338, 199)
 
 [node name="throwingShop" parent="ShopAssets" instance=ExtResource("6_4th2g")]
-position = Vector2(546, 217)
+position = Vector2(371, 169)
 
 [node name="diamondShop" parent="ShopAssets" instance=ExtResource("7_8v8hf")]
-position = Vector2(608, 221)
+position = Vector2(400, 136)
 
 [node name="speedItem" parent="ShopAssets" instance=ExtResource("8_1tlky")]
-position = Vector2(648, 309)
+position = Vector2(672, 222)
 
 [node name="healthShop" parent="ShopAssets" instance=ExtResource("9_7n55a")]
-position = Vector2(608, 305)
+position = Vector2(632, 192)
 
 [node name="darkShop" parent="ShopAssets" instance=ExtResource("10_4nxyw")]
-position = Vector2(648, 270)
+position = Vector2(590, 160)
 
 [node name="invincibilityShop" parent="ShopAssets" instance=ExtResource("11_6yf2u")]
-position = Vector2(608, 267)
+position = Vector2(552, 125)
 
 [node name="Treasure Items" type="Node2D" parent="."]
 

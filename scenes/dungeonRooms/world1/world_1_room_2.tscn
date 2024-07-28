@@ -75,9 +75,6 @@ position = Vector2(232, -24)
 [node name="Firebud4" parent="." instance=ExtResource("5_5d31j")]
 position = Vector2(24, 8)
 
-[node name="Player" parent="." instance=ExtResource("2_m1i3s")]
-position = Vector2(328, 264)
-
 [node name="nextroom" parent="." instance=ExtResource("6_7alp4")]
 position = Vector2(796.529, -107.93)
 level = ExtResource("7_3isn4")
@@ -91,3 +88,6 @@ number_of_enemies = 14
 
 [node name="Crystal" parent="." instance=ExtResource("10_cy8bs")]
 position = Vector2(752, -112)
+
+[node name="Player" parent="." instance=ExtResource("2_m1i3s")]
+position = Vector2(328, 264)

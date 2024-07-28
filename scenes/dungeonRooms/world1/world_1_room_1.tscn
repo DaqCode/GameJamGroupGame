@@ -31,30 +31,9 @@ tile_set = ExtResource("1_moysb")
 format = 2
 layer_0/tile_data = PackedInt32Array(-131059, 393216, 5, -131035, 393216, 5, -131023, 393216, 5, -131050, 393216, 4, -131029, 393216, 4, -131043, 327680, 5, -131031, 327680, 5, -131021, 327680, 5, -131054, 327680, 5, -65521, 327680, 4, -131039, 327680, 4, -65489, 327680, 4, 327700, 589824, 0, 393236, 589824, 1, 327701, 655360, 0, 393237, 655360, 1, 327702, 720896, 0, 393238, 720896, 1, 65570, 589824, 0, 131106, 589824, 1, 65571, 655360, 0, 131107, 655360, 1, 65572, 720896, 0, 131108, 720896, 1, 589859, 589824, 0, 655395, 589824, 1, 589860, 655360, 0, 655396, 655360, 1, 589861, 720896, 0, 655397, 720896, 1, 524331, 589824, 0, 589867, 589824, 1, 524332, 655360, 0, 589868, 655360, 1, 524333, 720896, 0, 589869, 720896, 1, 48, 589824, 0, 65584, 589824, 1, 49, 655360, 0, 65585, 655360, 1, 50, 720896, 0, 65586, 720896, 1, 983065, 589824, 0, 1048601, 589824, 1, 983066, 655360, 0, 1048602, 655360, 1, 983067, 720896, 0, 1048603, 720896, 1, 852008, 589824, 0, 917544, 589824, 1, 852009, 655360, 0, 917545, 655360, 1, 852010, 720896, 0, 917546, 720896, 1, 458781, 393216, 2, 720919, 262144, 1, 655383, 262144, 0, 655384, 393216, 0, 720920, 393216, 1, 786456, 262144, 2, 786457, 327680, 2, 786458, 393216, 2, 720922, 393216, 0, 720921, 327680, 0, 393245, 262144, 0, 393246, 393216, 2, 327710, 393216, 0, 327709, 327680, 0, 327708, 262144, 0, 393244, 262144, 1, 458780, 262144, 2, -131057, 327680, 6, -131056, 393216, 6, -65503, 327680, 6, -65502, 393216, 6, -131027, 327680, 6, -131026, 393216, 6, -65491, 327680, 6, -65490, 393216, 6, 131087, 327680, 7, 131088, 393216, 7, 393250, 327680, 7, 393251, 393216, 7, 393240, 327680, 7, 393241, 393216, 7, 655389, 327680, 7, 655390, 393216, 7)
 
-[node name="BarredLight3" parent="." instance=ExtResource("3_m2u44")]
-position = Vector2(792, 39)
-
-[node name="BarredLight2" parent="." instance=ExtResource("3_m2u44")]
-position = Vector2(464, 61)
-
-[node name="BarredLight" parent="." instance=ExtResource("3_m2u44")]
-position = Vector2(672, 176)
-
-[node name="LightningNightmares" parent="." instance=ExtResource("5_6i87i")]
-position = Vector2(408, 16)
-
-[node name="ContainedLight" parent="." instance=ExtResource("6_2js5q")]
-position = Vector2(488, 216)
-
-[node name="Firebud" parent="." instance=ExtResource("3_xieai")]
-position = Vector2(320, 48)
-
 [node name="nextroom" parent="." instance=ExtResource("7_cpqpv")]
 position = Vector2(408, -144)
 level = ExtResource("8_i7yrs")
-
-[node name="Player" parent="." instance=ExtResource("2_og8pa")]
-position = Vector2(536, 288)
 
 [node name="DoorBlock" parent="." instance=ExtResource("9_auaqt")]
 position = Vector2(410, -6)
@@ -64,3 +43,21 @@ number_of_enemies = 6
 
 [node name="DemonHorn" parent="." instance=ExtResource("11_8mpi1")]
 position = Vector2(408, -104)
+
+[node name="Player" parent="." instance=ExtResource("2_og8pa")]
+position = Vector2(536, 288)
+
+[node name="BarredLight" parent="." instance=ExtResource("3_m2u44")]
+position = Vector2(472, 104)
+
+[node name="BarredLight2" parent="." instance=ExtResource("3_m2u44")]
+position = Vector2(400, 192)
+
+[node name="ContainedLight" parent="." instance=ExtResource("6_2js5q")]
+position = Vector2(704, 88)
+
+[node name="LightningNightmares" parent="." instance=ExtResource("5_6i87i")]
+position = Vector2(368, 16)
+
+[node name="Firebud" parent="." instance=ExtResource("3_xieai")]
+position = Vector2(616, 96)
