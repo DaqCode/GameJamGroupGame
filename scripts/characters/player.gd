@@ -26,12 +26,14 @@ class_name Player
 @onready var obsidian_projectile: PackedScene = preload("res://scenes/projectiles/obsidianProjectile.tscn")
 @onready var poison_projectile: PackedScene = preload("res://scenes/projectiles/poisonProjectile.tscn")
 @onready var throwing_projectile = preload("res://scenes/projectiles/throwingProjectiles.tscn")
+@onready var hitbox_coliider: CollisionShape2D = $Hitbox/HitboxCollider
 
 var has_projectile = false
 var has_obsidian_projectile = false
 var has_diamond_projectile = false
 var has_poison_projectile = false
 var has_throwing_projectile = true
+var in_dash_cooldown := false
 
 enum player_state {
 	idle,
@@ -58,9 +60,12 @@ func _process(delta: float) -> void:
 	handle_input()
 	movement(delta)
 	
-	if not can_dash:
-		dash_cooldown_bar.value = dash_cooldown_timer.time_left
-	#$GoldCoins.text = "Coins: %s" % GameManager.coins
+	$GoldCoins.text = "Coins: %s" % GameManager.coins
+	
+	if in_dash_cooldown:
+		dash_cooldown_bar.value -= delta
+	
+	
 
 func movement(_delta: float) -> void:
 	if is_dead:
@@ -96,6 +101,9 @@ func dash() -> void:
 	current_speed = dash_speed
 	current_state = player_state.dashing
 	can_dash = false
+	hitbox_coliider.disabled = true
+	#dash_cooldown_bar.value = dash_cooldown
+	
 	
 	dash_timer.start(dash_time)
 
@@ -103,10 +111,9 @@ func is_player_moving() -> bool:
 	return input_movement != Vector2.ZERO
 
 func reset_dash() -> void:
-	#print("Dash Reset")
 	can_shoot = true
 	dash_cooldown_bar.max_value = dash_cooldown
-	dash_cooldown_bar.value = dash_cooldown
+	#dash_cooldown_bar.value = 0
 	current_state = player_state.moving
 	current_speed = speed
 	dash_cooldown_timer.stop()
@@ -227,9 +234,17 @@ func picked_up(type: Droppable.droppable_type) -> void:
 	match(type):
 		Droppable.droppable_type.gold:
 			GameManager.coins += randf_range(1,3)
-			#$GoldCoins.text = "Coins: %s" % GameManager.coins
+			$GoldCoins.text = "Coins: %s" % GameManager.coins
 		Droppable.droppable_type.health:
 			print("Picked up health...")
 			
 func collect(item):
 	inv.insert(item)
+
+
+func _on_dash_timer_timeout() -> void:
+	print("Dash Timer Timedout")
+	reset_dash()
+	in_dash_cooldown = true
+	dash_cooldown_bar.value = dash_cooldown
+	hitbox_coliider.disabled = false

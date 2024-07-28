@@ -166,6 +166,7 @@ offset_right = 10.0
 offset_bottom = -10.0
 theme_override_styles/background = SubResource("StyleBoxEmpty_bs4pp")
 theme_override_styles/fill = SubResource("StyleBoxFlat_8a648")
+max_value = 1.5
 show_percentage = false
 
 [node name="DashTimer" type="Timer" parent="."]
@@ -210,4 +211,5 @@ offset_right = 31.0
 offset_bottom = -16.0
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
