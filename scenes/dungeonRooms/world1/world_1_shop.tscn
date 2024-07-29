@@ -34,6 +34,10 @@ tile_set = ExtResource("1_sltow")
 format = 2
 layer_0/tile_data = PackedInt32Array(983072, 720896, 3, 983073, 786432, 3, 1048608, 720896, 3, 1048609, 786432, 3)
 
+[node name="nextroom" parent="." instance=ExtResource("17_cvhcr")]
+position = Vector2(491, 113)
+level = ExtResource("18_hhoch")
+
 [node name="ShopAssets" type="Node2D" parent="."]
 
 [node name="shopkeeper" parent="ShopAssets" instance=ExtResource("4_nvhdk")]
@@ -65,7 +69,3 @@ position = Vector2(552, 125)
 
 [node name="Player" parent="." instance=ExtResource("2_oboi1")]
 position = Vector2(504, 320)
-
-[node name="nextroom" parent="." instance=ExtResource("17_cvhcr")]
-position = Vector2(491, 113)
-level = ExtResource("18_hhoch")

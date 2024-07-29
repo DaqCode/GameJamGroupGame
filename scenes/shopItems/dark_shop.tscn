@@ -6,7 +6,7 @@
 [ext_resource type="Resource" uid="uid://veui1e13jbow" path="res://scenes/inventory/Items/darkPotion.tres" id="2_stgbq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xlt8k"]
-size = Vector2(42, 42)
+size = Vector2(34, 35)
 
 [node name="darkShop" type="StaticBody2D"]
 script = ExtResource("1_ryk7a")

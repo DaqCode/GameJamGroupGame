@@ -16,4 +16,4 @@ func _on_invincibility_area_body_entered(body):
 
 func _on_invincibility_area_body_exited(body):
 	if body.name == "Player":
-		$InfoStats.hide
+		$InfoStats.hide()

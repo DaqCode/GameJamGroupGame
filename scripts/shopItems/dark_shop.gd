@@ -14,4 +14,4 @@ func _on_dark_area_body_entered(body):
 
 func _on_dark_area_body_exited(body):
 	if body.name == "Player":
-		$InfoStats.hide
+		$InfoStats.hide()
