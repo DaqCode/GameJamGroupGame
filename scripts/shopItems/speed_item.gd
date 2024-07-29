@@ -1,23 +1,21 @@
 extends StaticBody2D
 
-@export var item: InvItem 
-var player = null
+@export var cost: int = 7
 
-func playercollect():
-	player.collect(item)
+var player = null
 
 
 func _on_speed_area_body_entered(body):
 	if body.name == "Player":
 		$InfoStats.show()
 		player = body
-		playercollect()
-		print("Read what it does")
-		await get_tree().create_timer(6.5).timeout
-		print("and dissapear")
-		self.queue_free()
+		player.can_buy_speed = true
+		player.item_cost = cost
 
 
 func _on_speed_area_body_exited(body):
 	if body.name == "Player":
 		$InfoStats.hide()
+		player = body
+		player.can_buy_speed = false
+		player.item_cost = 0

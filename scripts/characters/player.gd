@@ -30,9 +30,19 @@ class_name Player
 
 var has_projectile = false
 var has_obsidian_projectile = false
+var can_buy_obsidian = false
 var has_diamond_projectile = false
+var can_buy_diamond = false
 var has_poison_projectile = false
+var can_buy_poison = false
 var has_throwing_projectile = true
+var can_buy_throwing = false
+
+var can_buy_health = false
+var can_buy_speed = false
+
+var item_cost := 0
+
 var in_dash_cooldown := false
 
 enum player_state {
@@ -54,6 +64,7 @@ var rot: float
 func _ready() -> void:
 	current_speed = speed
 	dash_timer.timeout.connect(reset_dash)
+	
 
 func _process(delta: float) -> void:
 	aim_toward_mouse()
@@ -94,6 +105,32 @@ func handle_input() -> void:
 		if is_player_moving():
 			dash()
 			can_shoot = false
+	
+	if Input.is_action_just_pressed("pickup"):
+		if can_buy_obsidian and GameManager.coins >= item_cost:
+			has_obsidian_projectile = true
+			GameManager.coins -= item_cost
+			can_buy_obsidian = false
+		if can_buy_diamond and GameManager.coins >= item_cost:
+			has_diamond_projectile = true
+			GameManager.coins -= item_cost
+			can_buy_diamond = false
+		if can_buy_poison and GameManager.coins >= item_cost:
+			has_poison_projectile = true
+			GameManager.coins -= item_cost
+			can_buy_poison = false
+		if can_buy_throwing and GameManager.coins >= item_cost:
+			has_throwing_projectile = true
+			GameManager.coins -= item_cost
+			can_buy_throwing = false
+		if can_buy_health and GameManager.coins >= item_cost:
+			health += 1
+			GameManager.coins -= item_cost
+			can_buy_health = false
+		if can_buy_speed and GameManager.coins >= item_cost:
+			speed += 25
+			GameManager.coins -= item_cost
+			can_buy_speed = false
 
 func dash() -> void:
 	if not can_dash:
