@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://xvy81hregefa" path="res://scenes/inventory/Items/demon_horn.tscn" id="11_qmhfx"]
 
 [node name="world1room5" type="Node2D"]
+position = Vector2(-3848, -1208)
 
 [node name="Floor" type="TileMap" parent="."]
 tile_set = ExtResource("1_xbr8w")

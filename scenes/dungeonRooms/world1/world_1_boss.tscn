@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://m7hw3vjgxtsj"]
+[gd_scene load_steps=5 format=3 uid="uid://m7hw3vjgxtsj"]
 
 [ext_resource type="TileSet" uid="uid://dy0as80rw6hec" path="res://scenes/dungeonRooms/entryScene/grassy.tres" id="1_3o8xc"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_iishw"]
 [ext_resource type="PackedScene" uid="uid://bgl4pm5f4kpw6" path="res://scenes/characters/NPC/Jeff/jeff.tscn" id="3_l8uc0"]
+[ext_resource type="PackedScene" uid="uid://cqcufaub0uk12" path="res://exit.tscn" id="4_fwni5"]
 
 [node name="world1room8" type="Node2D"]
 
@@ -26,8 +27,11 @@ color = Color(0.372549, 0.372549, 0.372549, 1)
 energy = 1.41
 blend_mode = 1
 
+[node name="Jeff" parent="." instance=ExtResource("3_l8uc0")]
+position = Vector2(361, -136)
+
 [node name="Player" parent="." instance=ExtResource("2_iishw")]
 position = Vector2(440, 320)
 
-[node name="Jeff" parent="." instance=ExtResource("3_l8uc0")]
-position = Vector2(361, -136)
+[node name="Exit" parent="." instance=ExtResource("4_fwni5")]
+position = Vector2(456, -688)

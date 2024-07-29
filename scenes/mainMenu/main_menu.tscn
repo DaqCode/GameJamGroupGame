@@ -134,7 +134,7 @@ to take you out.
 M1 to shoot. M2 to Dash
 F to talk to an NPC.
 E to interact with the shop items
-"
+I to open your inventory"
 
 [node name="Panel2" type="Panel" parent="Help"]
 offset_left = 888.0
@@ -156,15 +156,14 @@ text = "You have to reach the end.
 
 There are some collectables
 you can get, that do nothing
-(Programmers had no time)
+(Programmers had no time
+and was unexperienced)
 
 Be one with the shadow.
 
 Time your dashes well.
 
-You got this.
-
-Good luck
+Good luck!
 "
 
 [node name="Return" type="Button" parent="Help"]
