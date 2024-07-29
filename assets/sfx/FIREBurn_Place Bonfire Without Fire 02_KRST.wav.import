@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://comi50qexha28"
+path="res://.godot/imported/FIREBurn_Place Bonfire Without Fire 02_KRST.wav-f91d420c4362e4675d8fbe156f9fffca.sample"
+
+[deps]
+
+source_file="res://assets/sfx/FIREBurn_Place Bonfire Without Fire 02_KRST.wav"
+dest_files=["res://.godot/imported/FIREBurn_Place Bonfire Without Fire 02_KRST.wav-f91d420c4362e4675d8fbe156f9fffca.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

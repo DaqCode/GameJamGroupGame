@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cxspm8e5xfe7h"
+path="res://.godot/imported/FIREBurn_Turn Off Bonfire 03_KRST.wav-e3413fe625422af9cfb82c0f797d319b.sample"
+
+[deps]
+
+source_file="res://assets/sfx/FIREBurn_Turn Off Bonfire 03_KRST.wav"
+dest_files=["res://.godot/imported/FIREBurn_Turn Off Bonfire 03_KRST.wav-e3413fe625422af9cfb82c0f797d319b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
