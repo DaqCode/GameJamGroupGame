@@ -1,14 +1,49 @@
-[gd_scene load_steps=17 format=3 uid="uid://bmoxbqnfk4882"]
+[gd_scene load_steps=21 format=3 uid="uid://bmoxbqnfk4882"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_pjn7b"]
 [ext_resource type="Resource" uid="uid://b7eg7rwrs8dpe" path="res://scenes/inventory/player_inventory.tres" id="2_pa7g1"]
-[ext_resource type="Texture2D" uid="uid://bgqdwpds3rsxb" path="res://assets/character/player/CharacterSpriteSheet.png" id="2_wixo0"]
+[ext_resource type="Texture2D" path="res://assets/character/player/NinjaShadowGuy.png" id="3_0e2bv"]
 [ext_resource type="Texture2D" uid="uid://gyh52jtctel1" path="res://assets/book/book.png" id="3_1cwtg"]
 [ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="4_gg0ne"]
+[ext_resource type="Texture2D" path="res://assets/character/player/NinjaShadowGuyIdle.png" id="4_pjyav"]
+[ext_resource type="Texture2D" path="res://assets/character/player/NinjaShadowGuyR1.png" id="5_a2yb5"]
 [ext_resource type="PackedScene" uid="uid://kil50hlsjxrt" path="res://scenes/inventory/inventory_ui.tscn" id="6_dfsna"]
+[ext_resource type="Texture2D" path="res://assets/character/player/NinjaShadowGuyR2.png" id="6_q578r"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_l42xv"]
-radius = 5.0
+[sub_resource type="SpriteFrames" id="SpriteFrames_eg8fh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_0e2bv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pjyav")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_a2yb5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pjyav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_q578r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pjyav")
+}],
+"loop": true,
+"name": &"running",
+"speed": 4.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cyay4"]
+radius = 4.0
+height = 14.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vx1dp"]
 
@@ -17,13 +52,13 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [0]
 }
 
@@ -33,13 +68,13 @@ step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [36, 37, 38, 39]
 }
 
@@ -51,13 +86,13 @@ step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
+"update": 0,
 "values": [0, 1]
 }
 
@@ -68,13 +103,13 @@ step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [13, 14, 15, 16]
 }
 
@@ -85,13 +120,13 @@ step = 0.333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:frame")
+tracks/0/path = NodePath("PlayerSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.333333, 0.666667),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [42, 43, 44]
 }
 
@@ -122,15 +157,15 @@ inv = ExtResource("2_pa7g1")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -4)
-texture = ExtResource("2_wixo0")
-hframes = 8
-vframes = 6
+sprite_frames = SubResource("SpriteFrames_eg8fh")
+animation = &"running"
+autoplay = "idle"
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 4)
-shape = SubResource("CircleShape2D_l42xv")
+shape = SubResource("CapsuleShape2D_cyay4")
 
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(0, -4)
@@ -150,6 +185,7 @@ libraries = {
 autoplay = "idle"
 
 [node name="Book" type="Node2D" parent="."]
+visible = false
 scale = Vector2(0.65, 0.65)
 
 [node name="BookSprite" type="Sprite2D" parent="Book"]

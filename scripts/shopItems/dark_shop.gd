@@ -11,10 +11,6 @@ func _on_dark_area_body_entered(body):
 		$InfoStats.show()
 		player = body
 		playercollect()
-		print("Read what it does")
-		await get_tree().create_timer(6.5).timeout
-		print("and dissapear")
-		self.queue_free()
 
 func _on_dark_area_body_exited(body):
 	if body.name == "Player":

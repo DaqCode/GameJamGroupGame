@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c4j8ny45nbrli"]
+[gd_scene load_steps=14 format=3 uid="uid://c4j8ny45nbrli"]
 
 [ext_resource type="TileSet" uid="uid://sgoeweaeigyj" path="res://assets/tilemap/tileMapSave/world_1_room_2.tres" id="1_sltow"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_oboi1"]
@@ -11,11 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://d2omfe8r1fgs4" path="res://scenes/shopItems/health_shop.tscn" id="9_7n55a"]
 [ext_resource type="PackedScene" uid="uid://s1f64dpe0g64" path="res://scenes/shopItems/dark_shop.tscn" id="10_4nxyw"]
 [ext_resource type="PackedScene" uid="uid://brxmd31ryn5os" path="res://scenes/shopItems/invincibility_shop.tscn" id="11_6yf2u"]
-[ext_resource type="PackedScene" uid="uid://c6lqqh58jrbfp" path="res://scenes/treasure/giant_gold_coin_treasure.tscn" id="12_qtelg"]
-[ext_resource type="PackedScene" uid="uid://bflc2j43803f8" path="res://scenes/treasure/iron_treasure.tscn" id="13_l84u0"]
-[ext_resource type="PackedScene" uid="uid://cs0tinhspw870" path="res://scenes/treasure/wooden_treasure.tscn" id="14_ks7v2"]
-[ext_resource type="PackedScene" uid="uid://bm1mg5act3o3h" path="res://scenes/treasure/rose_treasure.tscn" id="15_7wabp"]
-[ext_resource type="PackedScene" uid="uid://hdseyc5n8swf" path="res://scenes/treasure/wasp_treasure.tscn" id="15_snptm"]
 [ext_resource type="PackedScene" uid="uid://kt0edvqinbkd" path="res://scenes/goNextDoor/nextroom.tscn" id="17_cvhcr"]
 [ext_resource type="PackedScene" uid="uid://ctknicn8hhifr" path="res://scenes/dungeonRooms/entryScene/entry_scene.tscn" id="18_hhoch"]
 
@@ -67,23 +62,6 @@ position = Vector2(590, 160)
 
 [node name="invincibilityShop" parent="ShopAssets" instance=ExtResource("11_6yf2u")]
 position = Vector2(552, 125)
-
-[node name="Treasure Items" type="Node2D" parent="."]
-
-[node name="GiantGoldCoinTreasure" parent="Treasure Items" instance=ExtResource("12_qtelg")]
-position = Vector2(317, 312)
-
-[node name="ironTreasure" parent="Treasure Items" instance=ExtResource("13_l84u0")]
-position = Vector2(358, 286)
-
-[node name="woodenTreasure" parent="Treasure Items" instance=ExtResource("14_ks7v2")]
-position = Vector2(317, 290)
-
-[node name="roseTreasure" parent="Treasure Items" instance=ExtResource("15_7wabp")]
-position = Vector2(358, 320)
-
-[node name="waspTreasure" parent="Treasure Items" instance=ExtResource("15_snptm")]
-position = Vector2(392, 287)
 
 [node name="Player" parent="." instance=ExtResource("2_oboi1")]
 position = Vector2(504, 320)

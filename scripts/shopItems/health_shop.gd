@@ -12,8 +12,6 @@ func _on_health_area_body_entered(body):
 		player.can_buy_health = true
 		player.item_cost = cost
 
-
-
 func _on_health_area_body_exited(body):
 	if body.name == "Player":
 		$InfoStats.hide()

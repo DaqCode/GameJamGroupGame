@@ -10,9 +10,8 @@ class_name Player
 @export var health: int = 5
 
 @export var inv: Inv 
-
+@onready var player_sprite: AnimatedSprite2D = $PlayerSprite
 @onready var anim_player: AnimationPlayer = $Anim
-@onready var player_sprite: Sprite2D = $Sprite
 @onready var book: Node2D = $Book
 @onready var book_sprite: Sprite2D = $Book/BookSprite
 @onready var projectile_spawn_point: Marker2D = $Book/ProjectileSpawnPoint

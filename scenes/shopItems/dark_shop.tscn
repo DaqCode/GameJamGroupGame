@@ -22,6 +22,7 @@ offset_bottom = 104.0
 scale = Vector2(0.5, 0.5)
 
 [node name="ColorRect" type="ColorRect" parent="InfoStats"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

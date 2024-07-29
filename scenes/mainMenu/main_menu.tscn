@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b8tml0bc1rt4p"]
+[gd_scene load_steps=7 format=3 uid="uid://b8tml0bc1rt4p"]
 
 [ext_resource type="Script" path="res://scripts/mainMenu/main_menu.gd" id="1_4gppi"]
 [ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="2_u84j6"]
+[ext_resource type="Texture2D" uid="uid://bhr2x7rxy7f01" path="res://assets/background/mainmenu.png" id="2_vrlcw"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tr3qs"]
 
@@ -29,6 +30,9 @@ Button/styles/hover = SubResource("StyleBoxEmpty_tr3qs")
 Button/styles/normal = SubResource("StyleBoxEmpty_tr3qs")
 Button/styles/pressed = SubResource("StyleBoxEmpty_tr3qs")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_apxu0"]
+bg_color = Color(0.592157, 0.592157, 0.592157, 1)
+
 [node name="MainMenu" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -38,7 +42,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4gppi")
 
-[node name="Menu1" type="ColorRect" parent="."]
+[node name="Menu1" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -51,7 +55,7 @@ offset_right = 640.0
 offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0.0313726, 1)
+texture = ExtResource("2_vrlcw")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -61,9 +65,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -232.0
-offset_top = -149.5
+offset_top = 16.0
 offset_right = 232.0
-offset_bottom = 149.5
+offset_bottom = 315.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 32
@@ -74,15 +78,6 @@ theme_override_constants/margin_bottom = 32
 [node name="Title" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 alignment = 1
-
-[node name="Title" type="Label" parent="MarginContainer/Title"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_fonts/font = ExtResource("2_u84j6")
-theme_override_font_sizes/font_size = 30
-text = "Another Shadow (something): Title"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="ButtonBox" type="VBoxContainer" parent="MarginContainer/Title"]
 custom_minimum_size = Vector2(400, 200)
@@ -102,13 +97,90 @@ layout_mode = 2
 theme = SubResource("Theme_2w3hx")
 text = "Credits"
 
-[node name="Settings" type="Button" parent="MarginContainer/Title/ButtonBox"]
+[node name="Help" type="Button" parent="MarginContainer/Title/ButtonBox"]
 process_mode = 1
-visible = false
 layout_mode = 2
 theme = SubResource("Theme_2w3hx")
-text = "Settings"
+text = "Help"
+
+[node name="Help" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="Help"]
+offset_left = 40.0
+offset_top = 184.0
+offset_right = 480.0
+offset_bottom = 672.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_apxu0")
+
+[node name="Label" type="Label" parent="Help/Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 416.0
+offset_bottom = 472.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_u84j6")
+theme_override_font_sizes/font_size = 32
+text = "Welcome in new blood.
+
+You're going to be working with 
+a difficult situaation. 
+
+You will have to fight through 
+mountains of enemies all wanting
+to take you out.
+
+M1 to shoot. M2 to Dash
+F to talk to an NPC.
+E to interact with the shop items
+"
+
+[node name="Panel2" type="Panel" parent="Help"]
+offset_left = 888.0
+offset_top = 184.0
+offset_right = 1240.0
+offset_bottom = 672.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_apxu0")
+
+[node name="Label" type="Label" parent="Help/Panel2"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 8.0
+offset_right = 336.0
+offset_bottom = 464.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_u84j6")
+theme_override_font_sizes/font_size = 32
+text = "You have to reach the end.
+
+There are some collectables
+you can get, that do nothing
+(Programmers had no time)
+
+Be one with the shadow.
+
+Time your dashes well.
+
+You got this.
+
+Good luck
+"
+
+[node name="Return" type="Button" parent="Help"]
+offset_left = 496.0
+offset_top = 568.0
+offset_right = 872.0
+offset_bottom = 664.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(1, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_u84j6")
+theme_override_font_sizes/font_size = 64
+text = "Understood"
 
 [connection signal="pressed" from="MarginContainer/Title/ButtonBox/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MarginContainer/Title/ButtonBox/Credits" to="." method="_on_credits_pressed"]
-[connection signal="pressed" from="MarginContainer/Title/ButtonBox/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/Title/ButtonBox/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="Help/Return" to="." method="_on_return_pressed"]

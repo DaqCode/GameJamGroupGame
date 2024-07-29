@@ -14,3 +14,11 @@ func _on_credits_pressed()-> void:
 func _on_settings_pressed()-> void:
 	print("scene changes towards settings")
 	#get_tree().change_scene_to_file()
+
+
+func _on_help_pressed():
+	$Help.visible = true
+
+
+func _on_return_pressed():
+	$Help.visible = false
