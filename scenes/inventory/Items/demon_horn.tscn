@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://xvy81hregefa"]
+[gd_scene load_steps=6 format=3 uid="uid://xvy81hregefa"]
 
 [ext_resource type="Script" path="res://scenes/inventory/Items/DemonHorn.gd" id="1_dbtpp"]
 [ext_resource type="Resource" uid="uid://6v87b3quxoy8" path="res://scenes/inventory/Items/demonHorn.tres" id="2_kn618"]
 [ext_resource type="Texture2D" uid="uid://c8qmes4jt5n8w" path="res://assets/droppable/DemonHorns.png" id="2_n0fvx"]
+[ext_resource type="AudioStream" uid="uid://s5rqf86kxs4x" path="res://scenes/treasure/pick-up-sfx-38516.mp3" id="4_3h4ew"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uvpxy"]
 radius = 29.0172
@@ -18,5 +19,8 @@ texture = ExtResource("2_n0fvx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collect_area"]
 shape = SubResource("CircleShape2D_uvpxy")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_3h4ew")
 
 [connection signal="body_entered" from="collect_area" to="." method="_on_collect_area_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dv1w27ei5evja"]
+[gd_scene load_steps=13 format=3 uid="uid://dv1w27ei5evja"]
 
 [ext_resource type="TileSet" uid="uid://sgoeweaeigyj" path="res://assets/tilemap/tileMapSave/world_1_room_2.tres" id="1_xbr8w"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_ffupt"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dnl4lq6lbs7do" path="res://scenes/LevelBlock/door_block.tscn" id="9_xejio"]
 [ext_resource type="PackedScene" uid="uid://b4wclsljpim2q" path="res://scenes/LevelBlock/enemy_manager.tscn" id="10_ag24v"]
 [ext_resource type="PackedScene" uid="uid://xvy81hregefa" path="res://scenes/inventory/Items/demon_horn.tscn" id="11_qmhfx"]
+[ext_resource type="AudioStream" uid="uid://cbo56dd55edi6" path="res://assets/music/epic-battle-francisco-samuel-123469.mp3" id="12_64q43"]
 
 [node name="world1room5" type="Node2D"]
 
@@ -90,3 +91,8 @@ position = Vector2(560, 24)
 
 [node name="Player" parent="." instance=ExtResource("2_ffupt")]
 position = Vector2(264, 336)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_64q43")
+volume_db = -10.0
+autoplay = true

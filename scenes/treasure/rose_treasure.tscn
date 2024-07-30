@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm1mg5act3o3h"]
+[gd_scene load_steps=7 format=3 uid="uid://bm1mg5act3o3h"]
 
 [ext_resource type="Script" path="res://scripts/treasure/rose_Treasure.gd" id="1_ppknq"]
 [ext_resource type="Resource" uid="uid://biajissfg3hm4" path="res://scenes/inventory/Items/rose.tres" id="2_3m5rx"]
 [ext_resource type="Texture2D" uid="uid://bqx0tddcx6rfy" path="res://assets/treasure/Red-Blue Rose.png" id="2_74un3"]
 [ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="3_wrq8b"]
+[ext_resource type="AudioStream" uid="uid://s5rqf86kxs4x" path="res://scenes/treasure/pick-up-sfx-38516.mp3" id="5_40oak"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wd102"]
 size = Vector2(50, 46.875)
@@ -109,6 +110,9 @@ scale = Vector2(0.75, 0.75)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="roseArea"]
 position = Vector2(2.5, -5)
 shape = SubResource("RectangleShape2D_wd102")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_40oak")
 
 [connection signal="body_entered" from="roseArea" to="." method="_on_rose_area_body_entered"]
 [connection signal="body_exited" from="roseArea" to="." method="_on_rose_area_body_exited"]

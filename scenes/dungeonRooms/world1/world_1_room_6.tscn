@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d3lm10cjn5mf3"]
+[gd_scene load_steps=14 format=3 uid="uid://d3lm10cjn5mf3"]
 
 [ext_resource type="TileSet" uid="uid://sgoeweaeigyj" path="res://assets/tilemap/tileMapSave/world_1_room_2.tres" id="1_kjl5g"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_5jni1"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://b4wclsljpim2q" path="res://scenes/LevelBlock/enemy_manager.tscn" id="10_hclya"]
 [ext_resource type="PackedScene" uid="uid://xvy81hregefa" path="res://scenes/inventory/Items/demon_horn.tscn" id="11_bk0jc"]
 [ext_resource type="PackedScene" uid="uid://ehs8jlewjgwv" path="res://scenes/inventory/Items/carpet_moss.tscn" id="12_i7lpi"]
+[ext_resource type="AudioStream" uid="uid://dgere28455fha" path="res://assets/music/japanese-battle-164989.mp3" id="13_j0y01"]
 
 [node name="world1room6" type="Node2D"]
 
@@ -112,3 +113,8 @@ position = Vector2(1304, 40)
 
 [node name="Player" parent="." instance=ExtResource("2_5jni1")]
 position = Vector2(1280, 1000)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_j0y01")
+volume_db = -7.5
+autoplay = true

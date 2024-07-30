@@ -53,10 +53,10 @@ func _ready() -> void:
 	Events.load_entry.connect(load_entry_scene)
 	Events.load_credits.connect(load_credits_scene)
 	level_instance = load(main_menu_scene).instantiate()
-	#level_instance.anchor_left = 0.5
-	#level_instance.anchor_top = 0.5
-	#level_instance.anchor_right = 0.5
-	#level_instance.anchor_bottom = 0.5
+	level_instance.anchor_left = 0.5
+	level_instance.anchor_top = 0.5
+	level_instance.anchor_right = 0.5
+	level_instance.anchor_bottom = 0.5
 	#level_instance.position = Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2)
 	level_instance.position = Vector2(0,0)
 	container.add_child(level_instance)
@@ -84,7 +84,7 @@ func load_credits_scene() -> void:
 	level_instance.anchor_top = 0.5
 	level_instance.anchor_right = 0.5
 	level_instance.anchor_bottom = 0.5
-	level_instance.position = Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2)
+	level_instance.position = Vector2(0,0)
 	container.add_child(level_instance)
 
 

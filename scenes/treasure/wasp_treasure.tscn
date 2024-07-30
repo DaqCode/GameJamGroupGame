@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://hdseyc5n8swf"]
+[gd_scene load_steps=7 format=3 uid="uid://hdseyc5n8swf"]
 
 [ext_resource type="Script" path="res://scripts/treasure/wasp_treasure.gd" id="1_bul8a"]
 [ext_resource type="Texture2D" uid="uid://dd3rxmd3of14b" path="res://assets/treasure/CombustiveWaspNest.png" id="2_hjt07"]
 [ext_resource type="Resource" uid="uid://c0m57q3x0nt8x" path="res://scenes/inventory/Items/wasp.tres" id="2_whayf"]
 [ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="3_j731s"]
+[ext_resource type="AudioStream" uid="uid://s5rqf86kxs4x" path="res://scenes/treasure/pick-up-sfx-38516.mp3" id="5_25rfi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l6eyw"]
 size = Vector2(40, 40)
@@ -106,6 +107,9 @@ texture = ExtResource("2_hjt07")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="waspArea"]
 shape = SubResource("RectangleShape2D_l6eyw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_25rfi")
 
 [connection signal="body_entered" from="waspArea" to="." method="_on_wasp_area_body_entered"]
 [connection signal="body_exited" from="waspArea" to="." method="_on_wasp_area_body_exited"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://wc5jfpon3br3"]
+[gd_scene load_steps=6 format=3 uid="uid://wc5jfpon3br3"]
 
 [ext_resource type="Script" path="res://scenes/inventory/Items/Crystal.gd" id="1_i2w7l"]
 [ext_resource type="Resource" uid="uid://djmaioprfaamv" path="res://scenes/inventory/Items/crystal.tres" id="2_667tc"]
 [ext_resource type="Texture2D" uid="uid://dooay18x2oqv5" path="res://assets/droppable/SparklingCryogenicCrystals.png" id="2_imkjp"]
+[ext_resource type="AudioStream" uid="uid://s5rqf86kxs4x" path="res://scenes/treasure/pick-up-sfx-38516.mp3" id="4_ibti2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_x2fyc"]
 radius = 20.3961
@@ -18,5 +19,8 @@ texture = ExtResource("2_imkjp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collectArea"]
 shape = SubResource("CircleShape2D_x2fyc")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_ibti2")
 
 [connection signal="body_entered" from="collectArea" to="." method="_on_collect_area_body_entered"]

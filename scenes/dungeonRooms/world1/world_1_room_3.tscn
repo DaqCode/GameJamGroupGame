@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ys6eloq85oq3"]
+[gd_scene load_steps=16 format=3 uid="uid://ys6eloq85oq3"]
 
 [ext_resource type="TileSet" uid="uid://sgoeweaeigyj" path="res://assets/tilemap/tileMapSave/world_1_room_2.tres" id="1_vsibt"]
 [ext_resource type="PackedScene" uid="uid://hdseyc5n8swf" path="res://scenes/treasure/wasp_treasure.tscn" id="2_xmpvy"]
@@ -9,6 +9,12 @@
 [ext_resource type="PackedScene" uid="uid://b4wclsljpim2q" path="res://scenes/LevelBlock/enemy_manager.tscn" id="7_1nim1"]
 [ext_resource type="PackedScene" uid="uid://ehs8jlewjgwv" path="res://scenes/inventory/Items/carpet_moss.tscn" id="8_efhly"]
 [ext_resource type="PackedScene" uid="uid://wc5jfpon3br3" path="res://scenes/inventory/Items/crystal.tscn" id="9_h8tq2"]
+[ext_resource type="PackedScene" uid="uid://c6lqqh58jrbfp" path="res://scenes/treasure/giant_gold_coin_treasure.tscn" id="9_w6cxp"]
+[ext_resource type="AudioStream" uid="uid://dsc3w1y0qh13u" path="res://assets/music/city-lights-chill-lo-fi-176145.mp3" id="10_vethu"]
+[ext_resource type="PackedScene" uid="uid://bflc2j43803f8" path="res://scenes/treasure/iron_treasure.tscn" id="10_wosg1"]
+[ext_resource type="PackedScene" uid="uid://bm1mg5act3o3h" path="res://scenes/treasure/rose_treasure.tscn" id="11_hcpv5"]
+[ext_resource type="PackedScene" uid="uid://cs0tinhspw870" path="res://scenes/treasure/wooden_treasure.tscn" id="12_6sosf"]
+[ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="14_p5kp6"]
 
 [node name="world1room3" type="Node2D"]
 
@@ -45,5 +51,35 @@ position = Vector2(264, 160)
 [node name="Crystal" parent="." instance=ExtResource("9_h8tq2")]
 position = Vector2(360, 160)
 
+[node name="GiantGoldCoinTreasure" parent="." instance=ExtResource("9_w6cxp")]
+position = Vector2(160, 184)
+
+[node name="ironTreasure" parent="." instance=ExtResource("10_wosg1")]
+position = Vector2(160, 232)
+
+[node name="roseTreasure" parent="." instance=ExtResource("11_hcpv5")]
+position = Vector2(208, 232)
+
+[node name="woodenTreasure" parent="." instance=ExtResource("12_6sosf")]
+position = Vector2(208, 192)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_vethu")
+volume_db = -5.0
+pitch_scale = 1.05
+autoplay = true
+
 [node name="Player" parent="." instance=ExtResource("3_qf36t")]
 position = Vector2(336, 296)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 333.0
+offset_top = 213.0
+offset_right = 550.0
+offset_bottom = 305.0
+theme_override_fonts/font = ExtResource("14_p5kp6")
+text = "We had a lot of time to put these
+items in, but we couldn't code it in.
+
+So just enjoy and imagine what they've
+could have done."

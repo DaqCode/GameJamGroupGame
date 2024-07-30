@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c4j8ny45nbrli"]
+[gd_scene load_steps=15 format=3 uid="uid://c4j8ny45nbrli"]
 
 [ext_resource type="TileSet" uid="uid://sgoeweaeigyj" path="res://assets/tilemap/tileMapSave/world_1_room_2.tres" id="1_sltow"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="2_oboi1"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://d2omfe8r1fgs4" path="res://scenes/shopItems/health_shop.tscn" id="9_7n55a"]
 [ext_resource type="PackedScene" uid="uid://s1f64dpe0g64" path="res://scenes/shopItems/dark_shop.tscn" id="10_4nxyw"]
 [ext_resource type="PackedScene" uid="uid://brxmd31ryn5os" path="res://scenes/shopItems/invincibility_shop.tscn" id="11_6yf2u"]
+[ext_resource type="AudioStream" uid="uid://dsc3w1y0qh13u" path="res://assets/music/city-lights-chill-lo-fi-176145.mp3" id="14_0h61b"]
 [ext_resource type="PackedScene" uid="uid://kt0edvqinbkd" path="res://scenes/goNextDoor/nextroom.tscn" id="17_cvhcr"]
 [ext_resource type="PackedScene" uid="uid://ctknicn8hhifr" path="res://scenes/dungeonRooms/entryScene/entry_scene.tscn" id="18_hhoch"]
 
@@ -68,3 +69,8 @@ position = Vector2(590, 160)
 
 [node name="Player" parent="." instance=ExtResource("2_oboi1")]
 position = Vector2(504, 320)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_0h61b")
+volume_db = -20.0
+autoplay = true

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cs0tinhspw870"]
+[gd_scene load_steps=7 format=3 uid="uid://cs0tinhspw870"]
 
 [ext_resource type="Texture2D" uid="uid://b2yvcbv8cqtc0" path="res://assets/treasure/woodenBandana.png" id="1_7lumc"]
 [ext_resource type="Script" path="res://scripts/treasure/wooden_treasure.gd" id="1_f36v4"]
 [ext_resource type="Resource" uid="uid://cnu3k42mmgrmu" path="res://scenes/inventory/Items/bandana.tres" id="2_f0p7s"]
 [ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="2_fx260"]
+[ext_resource type="AudioStream" uid="uid://s5rqf86kxs4x" path="res://scenes/treasure/pick-up-sfx-38516.mp3" id="5_gto8q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ih1v"]
 size = Vector2(40.3125, 33.75)
@@ -107,6 +108,9 @@ texture = ExtResource("1_7lumc")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WoodenArea"]
 position = Vector2(-1.09375, -3.75)
 shape = SubResource("RectangleShape2D_7ih1v")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_gto8q")
 
 [connection signal="body_entered" from="WoodenArea" to="." method="_on_wooden_area_body_entered"]
 [connection signal="body_exited" from="WoodenArea" to="." method="_on_wooden_area_body_exited"]

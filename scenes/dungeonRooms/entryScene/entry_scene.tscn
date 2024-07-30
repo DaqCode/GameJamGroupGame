@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctknicn8hhifr"]
+[gd_scene load_steps=9 format=3 uid="uid://ctknicn8hhifr"]
 
 [ext_resource type="TileSet" uid="uid://dy0as80rw6hec" path="res://scenes/dungeonRooms/entryScene/grassy.tres" id="1_mejkc"]
 [ext_resource type="PackedScene" uid="uid://bmoxbqnfk4882" path="res://scenes/characters/player.tscn" id="3_eken4"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cx78e7h878ejw" path="res://scenes/characters/NPC/Brent/brent.tscn" id="5_keki7"]
 [ext_resource type="PackedScene" uid="uid://wdh0yqit5xp1" path="res://scenes/characters/NPC/Slider/Slider.tscn" id="6_banof"]
 [ext_resource type="PackedScene" uid="uid://c83wk1edjvtl8" path="res://scenes/goNextDoor/begin_door.tscn" id="6_missa"]
+[ext_resource type="AudioStream" uid="uid://dsc3w1y0qh13u" path="res://assets/music/city-lights-chill-lo-fi-176145.mp3" id="8_abeuu"]
 
 [node name="entryScene" type="Node2D"]
 
@@ -47,3 +48,8 @@ scale = Vector2(2.195, 2.195)
 
 [node name="Player" parent="." instance=ExtResource("3_eken4")]
 position = Vector2(320, 544)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_abeuu")
+volume_db = -7.82
+autoplay = true

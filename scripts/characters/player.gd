@@ -27,6 +27,10 @@ class_name Player
 @onready var throwing_projectile = preload("res://scenes/projectiles/throwingProjectiles.tscn")
 @onready var hitbox_coliider: CollisionShape2D = $Hitbox/HitboxCollider
 
+@onready var dagger_throw: AudioStreamPlayer2D = $AudioStreamPlayer2D
+@onready var shop_buy: AudioStreamPlayer2D  = $shopBuy
+@onready var hurt: AudioStreamPlayer2D = $hurt
+
 
 var can_buy_obsidian = false
 var can_buy_diamond = false
@@ -104,6 +108,7 @@ func handle_input() -> void:
 	if Input.is_action_just_pressed("pickup"):
 		if can_buy_obsidian and GameManager.coins >= item_cost:
 			reset_weapon()
+			shop_buy.playing = true
 			GameManager.has_obsidian_projectile = true
 			GameManager.coins -= item_cost
 			can_buy_obsidian = false
@@ -111,24 +116,29 @@ func handle_input() -> void:
 			reset_weapon()
 			GameManager.has_diamond_projectile = true
 			GameManager.coins -= item_cost
+			shop_buy.playing = true
 			can_buy_diamond = false
 		if can_buy_poison and GameManager.coins >= item_cost:
 			reset_weapon()
 			GameManager.has_poison_projectile = true
 			GameManager.coins -= item_cost
+			shop_buy.playing = true
 			can_buy_poison = false
 		if can_buy_throwing and GameManager.coins >= item_cost:
 			reset_weapon()
 			GameManager.has_throwing_projectile = true
 			GameManager.coins -= item_cost
+			shop_buy.playing = true
 			can_buy_throwing = false
 		if can_buy_health and GameManager.coins >= item_cost:
 			health += 1
 			GameManager.coins -= item_cost
+			shop_buy.playing = true
 			can_buy_health = false
 		if can_buy_speed and GameManager.coins >= item_cost:
 			speed += 25
 			GameManager.coins -= item_cost
+			shop_buy.playing = true
 			can_buy_speed = false
 
 
@@ -173,14 +183,14 @@ func get_input_vector() -> Vector2:
 func play_animations() -> void:
 	match current_state:
 		player_state.idle:
-			anim_player.play("idle")
+			player_sprite.animation = "idle"
 		player_state.moving:
-			anim_player.play("move")
+			player_sprite.animation = "moving"
 		player_state.dead:
-			anim_player.play("dead")
+			player_sprite.play("dead")
 			is_dead = true
 		player_state.dashing:
-			anim_player.play("shadow")
+			player_sprite.animation = "dashing"
 
 func aim_toward_mouse() -> void:
 	var mouse := get_global_mouse_position()
@@ -206,6 +216,7 @@ func fire_projectile() -> void:
 		proj.direction = projectile_spawn_point.global_position - global_position
 		proj.global_position = projectile_spawn_point.global_position
 		proj.look_at(get_global_mouse_position())
+		dagger_throw.playing = true
 		get_tree().root.add_child(proj)
 		
 	elif GameManager.has_poison_projectile:
@@ -213,6 +224,7 @@ func fire_projectile() -> void:
 		proj.direction = projectile_spawn_point.global_position - global_position
 		proj.global_position = projectile_spawn_point.global_position
 		proj.look_at(get_global_mouse_position())
+		dagger_throw.playing = true
 		get_tree().root.add_child(proj)
 		
 	elif GameManager.has_diamond_projectile:
@@ -220,6 +232,7 @@ func fire_projectile() -> void:
 		proj.direction = projectile_spawn_point.global_position - global_position
 		proj.global_position = projectile_spawn_point.global_position
 		proj.look_at(get_global_mouse_position())
+		dagger_throw.playing = true
 		get_tree().root.add_child(proj)
 	
 	elif GameManager.has_obsidian_projectile:
@@ -227,7 +240,9 @@ func fire_projectile() -> void:
 		proj.direction = projectile_spawn_point.global_position - global_position
 		proj.global_position = projectile_spawn_point.global_position
 		proj.look_at(get_global_mouse_position())
+		dagger_throw.playing = true
 		get_tree().root.add_child(proj)
+
 	
 	elif GameManager.has_throwing_projectile:
 		var spread_angle = deg_to_rad(10)
@@ -239,6 +254,7 @@ func fire_projectile() -> void:
 			var spread_dir = base_dir.rotated(angle_offset)
 			proj.direction = spread_dir
 			proj.look_at(get_global_mouse_position())
+			dagger_throw.playing = true
 			get_tree().root.add_child(proj)
 			
 	else:
@@ -246,26 +262,23 @@ func fire_projectile() -> void:
 		proj.direction = projectile_spawn_point.global_position - global_position
 		proj.global_position = projectile_spawn_point.global_position
 		proj.look_at(get_global_mouse_position())
+		dagger_throw.playing = true
 		get_tree().root.add_child(proj)
 
 func _on_hitbox_area_entered(area):
 	if health >= 0:
 		if area.name == "EnemyBullets":
+			hurt.playing = true
 			health -= 1
-			print ("Player Health %s" % health)
-			print ("Damaged by fireball bullet")
 		if area.name == "LightningArea":
+			hurt.playing = true
 			health -= 2
-			print ("Player Health %s" % health)
-			print ("Damaged by Lightning Nightmare")
 		if area.name == "BarredProj":
+			hurt.playing = true
 			health -= 1
-			print ("Player Health %s" % health)
-			print ("Damaged by Barred Light")
 		if area.name == "ContainedProj":
+			hurt.playing = true
 			health -= 1
-			print ("Player Health %s" % health)
-			print ("Damaged by Contained Light")
 		
 	elif health <= 0 and not is_dead:
 		is_dead = true
