@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bbb72lm6333le"
-path="res://.godot/imported/NinjaShadowGuyD1.png-23c2fd66327fb3a191efa7400ea14c3f.ctex"
+uid="uid://c5xa5574fnwft"
+path="res://.godot/imported/NinjaShadowGuyR1.png-1ea470ab0ee46f326fb1dc0c66970256.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/character/player/NinjaShadowGuyD1.png"
-dest_files=["res://.godot/imported/NinjaShadowGuyD1.png-23c2fd66327fb3a191efa7400ea14c3f.ctex"]
+source_file="res://scenes/mainMenu/NinjaShadowGuyR1.png"
+dest_files=["res://.godot/imported/NinjaShadowGuyR1.png-1ea470ab0ee46f326fb1dc0c66970256.ctex"]
 
 [params]
 
