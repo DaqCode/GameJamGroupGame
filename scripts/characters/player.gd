@@ -27,14 +27,10 @@ class_name Player
 @onready var throwing_projectile = preload("res://scenes/projectiles/throwingProjectiles.tscn")
 @onready var hitbox_coliider: CollisionShape2D = $Hitbox/HitboxCollider
 
-var has_projectile = false
-var has_obsidian_projectile = false
+
 var can_buy_obsidian = false
-var has_diamond_projectile = false
 var can_buy_diamond = false
-var has_poison_projectile = false
 var can_buy_poison = false
-var has_throwing_projectile = true
 var can_buy_throwing = false
 
 var can_buy_health = false
@@ -107,19 +103,23 @@ func handle_input() -> void:
 	
 	if Input.is_action_just_pressed("pickup"):
 		if can_buy_obsidian and GameManager.coins >= item_cost:
-			has_obsidian_projectile = true
+			reset_weapon()
+			GameManager.has_obsidian_projectile = true
 			GameManager.coins -= item_cost
 			can_buy_obsidian = false
 		if can_buy_diamond and GameManager.coins >= item_cost:
-			has_diamond_projectile = true
+			reset_weapon()
+			GameManager.has_diamond_projectile = true
 			GameManager.coins -= item_cost
 			can_buy_diamond = false
 		if can_buy_poison and GameManager.coins >= item_cost:
-			has_poison_projectile = true
+			reset_weapon()
+			GameManager.has_poison_projectile = true
 			GameManager.coins -= item_cost
 			can_buy_poison = false
 		if can_buy_throwing and GameManager.coins >= item_cost:
-			has_throwing_projectile = true
+			reset_weapon()
+			GameManager.has_throwing_projectile = true
 			GameManager.coins -= item_cost
 			can_buy_throwing = false
 		if can_buy_health and GameManager.coins >= item_cost:
@@ -130,6 +130,14 @@ func handle_input() -> void:
 			speed += 25
 			GameManager.coins -= item_cost
 			can_buy_speed = false
+
+
+func reset_weapon() -> void:
+	GameManager.has_diamond_projectile = false
+	GameManager.has_poison_projectile = false
+	GameManager.has_throwing_projectile = false
+	GameManager.has_obsidian_projectile = false
+
 
 func dash() -> void:
 	if not can_dash:
@@ -193,35 +201,35 @@ func flip_player_and_book(flip: bool) -> void:
 	player_sprite.flip_h = flip
 
 func fire_projectile() -> void:
-	if has_projectile:
+	if GameManager.has_projectile:
 		var proj = projectile.instantiate() as Projectile
 		proj.direction = projectile_spawn_point.global_position - global_position
 		proj.global_position = projectile_spawn_point.global_position
 		proj.look_at(get_global_mouse_position())
 		get_tree().root.add_child(proj)
 		
-	elif has_poison_projectile:
+	elif GameManager.has_poison_projectile:
 		var proj = poison_projectile.instantiate() as PoisonProjectile
 		proj.direction = projectile_spawn_point.global_position - global_position
 		proj.global_position = projectile_spawn_point.global_position
 		proj.look_at(get_global_mouse_position())
 		get_tree().root.add_child(proj)
 		
-	elif has_diamond_projectile:
+	elif GameManager.has_diamond_projectile:
 		var proj = diamond_projectile.instantiate() as DiamondProjectile   
 		proj.direction = projectile_spawn_point.global_position - global_position
 		proj.global_position = projectile_spawn_point.global_position
 		proj.look_at(get_global_mouse_position())
 		get_tree().root.add_child(proj)
 	
-	elif has_obsidian_projectile:
+	elif GameManager.has_obsidian_projectile:
 		var proj = obsidian_projectile.instantiate() as ObsidianProjectile
 		proj.direction = projectile_spawn_point.global_position - global_position
 		proj.global_position = projectile_spawn_point.global_position
 		proj.look_at(get_global_mouse_position())
 		get_tree().root.add_child(proj)
 	
-	elif has_throwing_projectile:
+	elif GameManager.has_throwing_projectile:
 		var spread_angle = deg_to_rad(10)
 		var base_dir = (projectile_spawn_point.global_position - global_position).normalized()
 		for i in range(3):

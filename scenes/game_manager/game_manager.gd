@@ -39,6 +39,13 @@ var enemy_count: int = 0
 
 @onready var container = $Container
 
+var has_projectile = false
+var has_obsidian_projectile = false
+var has_diamond_projectile = false
+var has_poison_projectile = false
+var has_throwing_projectile = true
+
+
 func _ready() -> void:
 	Events.next_room.connect(go_to_next_room)
 	Events.start_match.connect(load_first_room)
