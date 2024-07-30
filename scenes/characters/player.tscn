@@ -1,63 +1,14 @@
-[gd_scene load_steps=27 format=3 uid="uid://bmoxbqnfk4882"]
+[gd_scene load_steps=17 format=3 uid="uid://bmoxbqnfk4882"]
 
 [ext_resource type="Script" path="res://scripts/characters/player.gd" id="1_pjn7b"]
 [ext_resource type="Resource" uid="uid://b7eg7rwrs8dpe" path="res://scenes/inventory/player_inventory.tres" id="2_pa7g1"]
+[ext_resource type="Texture2D" uid="uid://bgqdwpds3rsxb" path="res://assets/character/player/CharacterSpriteSheet.png" id="2_wixo0"]
 [ext_resource type="Texture2D" uid="uid://gyh52jtctel1" path="res://assets/book/book.png" id="3_1cwtg"]
-[ext_resource type="Texture2D" uid="uid://stpb2qqj50dd" path="res://assets/character/player/NinjaGuyDash.png" id="3_53k44"]
-[ext_resource type="Texture2D" uid="uid://b7jnqoc5aeorl" path="res://assets/character/player/NinjaShadowGuy.png" id="3_53o8e"]
-[ext_resource type="Texture2D" uid="uid://3es2as55wqbn" path="res://assets/character/player/NinjaShadowGuyR1.png" id="3_s36es"]
 [ext_resource type="FontFile" uid="uid://bv4aoa1310txh" path="res://assets/tilemap/BitPap.ttf" id="4_gg0ne"]
-[ext_resource type="Texture2D" uid="uid://d4dfu51ghr2i4" path="res://assets/character/player/NinjaShadowGuyR2.png" id="4_nrj0j"]
-[ext_resource type="Texture2D" uid="uid://ddupx34e6cdcx" path="res://assets/character/player/NinjaShadowGuyIdle.png" id="4_o8ylc"]
 [ext_resource type="PackedScene" uid="uid://kil50hlsjxrt" path="res://scenes/inventory/inventory_ui.tscn" id="6_dfsna"]
-[ext_resource type="AudioStream" uid="uid://l5beagdoqji1" path="res://assets/sfx/small-knife-whoosh-101795.ogg" id="11_yv8lr"]
-[ext_resource type="AudioStream" uid="uid://djvpjw4awsbqw" path="res://assets/sfx/single-coin-170397.mp3" id="12_5biyy"]
-[ext_resource type="AudioStream" uid="uid://cmutbxuor12bf" path="res://assets/sfx/088436_hurt-1-82785.mp3" id="13_h36jx"]
-[ext_resource type="AudioStream" uid="uid://d0oeurb67wcsw" path="res://scenes/treasure/coin-collect-retro-8-bit-sound-effect-145251.mp3" id="14_enxoe"]
-[ext_resource type="AudioStream" uid="uid://b5a2sf3bv1v65" path="res://assets/sfx/mixkit-air-woosh-1489.mp3" id="15_ki52p"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_eg8fh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_53k44")
-}],
-"loop": true,
-"name": &"dashing",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_53o8e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_o8ylc")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_s36es")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_nrj0j")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_s36es")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_nrj0j")
-}],
-"loop": true,
-"name": &"moving",
-"speed": 7.0
-}]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cyay4"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_l42xv"]
 radius = 5.0
-height = 10.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vx1dp"]
 
@@ -66,13 +17,13 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
+"update": 1,
 "values": [0]
 }
 
@@ -82,13 +33,13 @@ step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [36, 37, 38, 39]
 }
 
@@ -100,13 +51,13 @@ step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
+"update": 1,
 "values": [0, 1]
 }
 
@@ -117,13 +68,13 @@ step = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [13, 14, 15, 16]
 }
 
@@ -134,13 +85,13 @@ step = 0.333333
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("PlayerSprite:frame")
+tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.333333, 0.666667),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
+"update": 1,
 "values": [42, 43, 44]
 }
 
@@ -165,21 +116,21 @@ script = ExtResource("1_pjn7b")
 dash_speed = 200
 dash_time = 1.0
 dash_cooldown = 0.75
-health = 3
+health = 10
 inv = ExtResource("2_pa7g1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
-[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="."]
 position = Vector2(0, -4)
-sprite_frames = SubResource("SpriteFrames_eg8fh")
-animation = &"dashing"
-autoplay = "idle"
+texture = ExtResource("2_wixo0")
+hframes = 8
+vframes = 6
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
-shape = SubResource("CapsuleShape2D_cyay4")
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_l42xv")
 
 [node name="Hitbox" type="Area2D" parent="."]
 position = Vector2(0, -4)
@@ -199,7 +150,6 @@ libraries = {
 autoplay = "idle"
 
 [node name="Book" type="Node2D" parent="."]
-visible = false
 scale = Vector2(0.65, 0.65)
 
 [node name="BookSprite" type="Sprite2D" parent="Book"]
@@ -245,34 +195,20 @@ theme_override_fonts/font = ExtResource("4_gg0ne")
 text = "Coins: 0"
 horizontal_alignment = 2
 
+[node name="EnemyCounter" type="Label" parent="."]
+offset_left = 12.0
+offset_top = -89.0
+offset_right = 159.0
+offset_bottom = -73.0
+theme_override_fonts/font = ExtResource("4_gg0ne")
+text = "Total Enemies: 0"
+horizontal_alignment = 2
+
 [node name="InventoryUI" parent="." instance=ExtResource("6_dfsna")]
-offset_left = -51.0
+offset_left = -31.0
 offset_top = -57.0
-offset_right = 11.0
+offset_right = 31.0
 offset_bottom = -16.0
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("11_yv8lr")
-pitch_scale = 0.65
-
-[node name="shopBuy" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("12_5biyy")
-volume_db = 5.379
-pitch_scale = 1.35
-
-[node name="hurt" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("13_h36jx")
-volume_db = 10.0
-pitch_scale = 1.25
-
-[node name="pickUp" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("14_enxoe")
-pitch_scale = 0.5
-
-[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("15_ki52p")
-volume_db = 5.0
-pitch_scale = 1.75
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
