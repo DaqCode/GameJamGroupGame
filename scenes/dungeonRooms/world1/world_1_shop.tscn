@@ -65,7 +65,6 @@ position = Vector2(632, 192)
 position = Vector2(590, 160)
 
 [node name="invincibilityShop" parent="ShopAssets" instance=ExtResource("11_6yf2u")]
-position = Vector2(552, 125)
 
 [node name="Player" parent="." instance=ExtResource("2_oboi1")]
 position = Vector2(504, 320)

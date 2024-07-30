@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://xvy81hregefa" path="res://scenes/inventory/Items/demon_horn.tscn" id="11_8mpi1"]
 
 [node name="world1room1" type="Node2D"]
-position = Vector2(-64, 184)
 
 [node name="TileSets" type="Node2D" parent="."]
 

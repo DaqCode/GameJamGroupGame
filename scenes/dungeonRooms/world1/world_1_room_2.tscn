@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://wc5jfpon3br3" path="res://scenes/inventory/Items/crystal.tscn" id="10_cy8bs"]
 
 [node name="world1room2" type="Node2D"]
-position = Vector2(136, 296)
 
 [node name="Tileset" type="Node2D" parent="."]
 

@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://ehs8jlewjgwv" path="res://scenes/inventory/Items/carpet_moss.tscn" id="12_i7lpi"]
 
 [node name="world1room6" type="Node2D"]
-position = Vector2(-608, 0)
 
 [node name="Floor" type="TileMap" parent="."]
 position = Vector2(48, -32)

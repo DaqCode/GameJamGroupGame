@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://ehs8jlewjgwv" path="res://scenes/inventory/Items/carpet_moss.tscn" id="11_ce7ps"]
 
 [node name="world1room4" type="Node2D"]
-position = Vector2(104, 8)
 
 [node name="Floor" type="TileMap" parent="."]
 tile_set = ExtResource("1_rphmx")
