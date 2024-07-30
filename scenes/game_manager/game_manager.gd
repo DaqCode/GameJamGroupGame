@@ -57,7 +57,7 @@ func _ready() -> void:
 	level_instance.anchor_top = 0.5
 	level_instance.anchor_right = 0.5
 	level_instance.anchor_bottom = 0.5
-	#level_instance.position = Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2)
+	level_instance.position = Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2)
 	level_instance.position = Vector2(0,0)
 	container.add_child(level_instance)
 
@@ -106,7 +106,8 @@ func load_main_menu() -> void:
 	level_instance.anchor_top = 0.5
 	level_instance.anchor_right = 0.5
 	level_instance.anchor_bottom = 0.5
-	level_instance.position = Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2)
+	#level_instance.position = Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2)
+	level_instance.position = Vector2(0,0)
 	container.add_child(level_instance)
 
 

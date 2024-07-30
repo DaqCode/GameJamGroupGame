@@ -291,6 +291,7 @@ func picked_up(type: Droppable.droppable_type) -> void:
 	match(type):
 		Droppable.droppable_type.gold:
 			GameManager.coins += randf_range(1,3)
+			$pickUp.playing = true
 			$GoldCoins.text = "Coins: %s" % GameManager.coins
 		Droppable.droppable_type.health:
 			print("Picked up health...")
@@ -298,10 +299,9 @@ func picked_up(type: Droppable.droppable_type) -> void:
 func collect(item):
 	inv.insert(item)
 
-
 func _on_dash_timer_timeout() -> void:
-	print("Dash Timer Timedout")
 	reset_dash()
 	in_dash_cooldown = true
 	dash_cooldown_bar.value = dash_cooldown
 	hitbox_coliider.disabled = false
+	$AudioStreamPlayer2D2.playing = true

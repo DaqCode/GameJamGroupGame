@@ -53,3 +53,4 @@ position = Vector2(320, 544)
 stream = ExtResource("8_abeuu")
 volume_db = -7.82
 autoplay = true
+stream_paused = true
